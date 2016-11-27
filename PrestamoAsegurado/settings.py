@@ -77,13 +77,17 @@ WSGI_APPLICATION = 'PrestamoAsegurado.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prestamoasegurado2017',
-        'USER': 'pa2017',
-        'PASSWORD': 'temps',
-        'HOST': 'prestamoasegurado.com',
-        'PORT': '3306 '
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'prestamoasegurado2017',
+    #    'USER': 'root',
+    #    'PASSWORD': '',
+    #    'HOST': 'localhost',
+    #    'PORT': '3306'
+    #}
 }
 
 
