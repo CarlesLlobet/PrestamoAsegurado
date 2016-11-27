@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <title>Bootstrap 3 Side Navbar</title>
+        <link href={% static "css/bootstrap.min.css"%} rel="stylesheet" />
+        <link href={% static "css/navbar-fixed-side.css"%} rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-lg-2">
+                    <nav class="navbar navbar-default navbar-fixed-side">
+                        <!-- normal collapsible navbar markup -->
+                    </nav>
+                </div>
+                <div class="col-sm-9 col-lg-10">
+                    <div class="container">
+                        <div class="row" style="margin-top: 25px;">
+                            <div class="col-sm-12">
+                                <div class="well">
+                                <h3>Send me a message</h3>
+                                    <!--COMENÇA FORMULARI -->
+                                    <form role="form" id="contactForm" data-toggle="validator">
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label for="name" class="h4">Name</label>
+                                                <input type="text" class="form-control" id="name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="email" class="h4">Email</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message" class="h4 ">Message</label>
+                                            <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                    <!--ACABA FORMULARI -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src={% static "js/jquery-3.1.1.min.js"%}></script>
+        <script src={% static "js/validator.min.js"%}></script>
+    </body>
+</html>
