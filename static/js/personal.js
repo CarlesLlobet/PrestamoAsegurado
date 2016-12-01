@@ -52,6 +52,22 @@ $(document).ready(function() {
         credtip3();
     });
 
+     $("#nhijos").change(function() { /*Si estadovicil canvia*/
+        obrahijos();
+    });
+
+
+    function obrahijos() {
+        var sons = $("#nhijos").val();
+        if (sons >= 1) {
+            div = document.getElementById('123hijos');
+            div.style.display = "block";
+        } else {
+            div = document.getElementById('123hijos');
+            div.style.display = "none";
+        }
+    };
+
     function lele() {
         
 
