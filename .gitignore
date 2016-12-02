@@ -1,5 +1,3 @@
 *.pyc
-workspace
-.xml
+*.xml
 
-sqlmap.results
