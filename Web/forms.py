@@ -6,7 +6,13 @@ from django.core.validators import validate_ipv4_address, EmailValidator, valida
 from django.utils.translation import ugettext_lazy as _
 
 my_default_errors_Name = {
-    'required': _(u'Especifica un nom de tasca. ')
+    'required': _(u'Completa este campo'),
+    'max_length': _(u'Este campo no puede pasar de 100 carácteres')
+}
+my_default_errors_DNI = {
+    'required': _(u'Completa este campo'),
+    'max_length': _(u'Este campo no puede pasar de 10 carácteres'),
+    'invalido': _(u'Este DNI no es válido')
 }
 
 
@@ -14,11 +20,11 @@ class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formCoche, self).__init__(*args, **kwargs)
 
-    name = forms.CharField(widget=forms.TextInput(attrs={"label": 'Name:', "max_length": 100, "class": "form-control",
-                                                         "placeholder": 'Nom de la tasca'}),
+    name = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                            error_messages=my_default_errors_Name)
 
-    verbosity = forms.IntegerField(label='verbosity')
+    dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_DNI)
     level = forms.IntegerField(label='level')
     risk = forms.IntegerField(label='risk')
     depth = forms.IntegerField(label='depth')
