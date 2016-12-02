@@ -20,22 +20,229 @@ class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formCoche, self).__init__(*args, **kwargs)
 
+    def validarDNI(value):
+        tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
+        dig_ext = "XYZ"
+        reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
+        numeros = "1234567890"
+        dni = value.upper()
+        if len(dni) == 9:
+            dig_control = dni[8]
+            dni = dni[:8]
+            if dni[0] in dig_ext:
+                dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
+            if not len(dni) == len([n for n in dni if n in numeros]) \
+                    and tabla[int(dni) % 23] == dig_control:
+                raise ValidationError(_(my_default_errors_DNI['invalido']))
+
     name = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                            error_messages=my_default_errors_Name)
 
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                           error_messages=my_default_errors_DNI)
-    level = forms.IntegerField(label='level')
-    risk = forms.IntegerField(label='risk')
-    depth = forms.IntegerField(label='depth')
-    mail = forms.BooleanField(label='mail', initial=False, required=False)
-    mail_field = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                 required=False, validators=[validate_email])
+                          error_messages=my_default_errors_DNI, validators=validarDNI())
 
-    # Periodicitat
+    direccion
+
+    email
+
+    telefono
+
+    movil
+
+    fechanacimiento
+
+    nacionalidad
+
+    estadocivil
+
+    tipocasado
+
+    numerohijos
+
+    mayoresdeedad
+
+    cuantosacargo
+
+    ingresohijos
+
+    anotacionespersonales
+
+    cotizacion
+
+    tipotrabajo
+
+    finalizacontrato
+
+    nombreempresa1
+
+    cargoempresa1
+
+    actividadempresa1
+
+    ingresosempresa1
+
+    pagasempresa1
+
+    otrosingresosempresa1
+
+    antiguedadempresa1
+
+    importejuvilacion
+
+    numerodepagasjuvilacion
+
+    iniciojuvilacion
+
+    finjuvilacion
+
+    parodesdecuando
+
+    parocuantocobra
+
+    otrosingresos
+
+    otrosgastos
+
+    otrosingresostexto
+
+    otrosgastostexto
+
+    anotacionesingresos
+
+    viviendavalor1
+
+    viviendavalorhipoteca1
+
+    viviendaestapagada1
+
+    viviendalibredecargos1
+
+    viviendacuotamensual1
+
+    viviendaanos1
+
+    viviendaentidad1
+
+    viviendametros1
+
+    viviendaporciento1
+
+    viviendadireccion1
+
+    viviendapoblacion1
+
+    viviendaprovincia1
+
+    viviendacodigopostal1
+
+    viviendaalquiladavalor1
+
+    viviendaalquiladavalorhipoteca1
+
+    viviendaalquiladaestapagada1
+
+    viviendaalquiladalibredecargos1
+
+    viviendaalquiladacuotamensual1
+
+    viviendaalquiladaanos1
+
+    viviendaalquiladaentidad1
+
+    viviendaalquiladametros1
+
+    viviendaalquiladaporciento1
+
+    viviendaalquiladadireccion1
+
+    viviendaalquiladapoblacion1
+
+    viviendaalquiladaprovincia1
+
+    viviendaalquiladacodigopostal1
+
+    viviendaalquiladacobraalquiler
+
+    alquilerpaga1
+
+    alquilermetros1
+
+    alquilerdireccion1
+
+    alquilerpoblacion1
+
+    alquilerprovincia1
+
+    alquilercodigopostal1
+
+    anotacionesviviendas
+
+    direccion
+
+    poblacion
+
+    provincia
+
+    codigopostal
+
+    creditotipo1
+
+    creditotantoporciento1
+
+    creditoimporte1
+
+    creditocuota1
+
+    creditoentidad1
+
+    tarjetacuota1
+
+    tarjetaimporte1
+
+    tarjetaentidad1
+
+    recivosimporte1
+
+    morosoimporte1
+
+    morosoquien1
+
+    anotacionesfinancieras
+
+    motor
+
+    marca
+
+    modelo
+
+    antiguedad
+
+    matricula
+
+    estadovehiculo
+
+    anotacionescoche
+
+    recibirdinero
+
+    anotacionesdestinado
+
+    justificante
+
+    autorizacion
+
+    medio
+
+    anotacionesdestinado
+
+
+
+
+
+    # Exemples
     periodicity_checkbox = forms.BooleanField(label='periodicity', initial=False, required=False)
     periodicity = forms.ChoiceField(widget=forms.Select(attrs={"label": 'Periodicitat:'}), choices=Periodicities,
-                                    validators=[validate_periodicity])
+                                    )
 
     execute_date = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD HH:mm", "pickSeconds": False}))
