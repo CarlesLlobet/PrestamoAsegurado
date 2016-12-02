@@ -4,7 +4,7 @@ from django.db import models
 
 
 class expediente(models.Model):
-    numeroexpediente = models.IntegerField()
+    numexp = models.IntegerField()
     tipo = models.CharField(max_length=10)
     fecha = models.DateField()
     hora = models.DateTimeField()
@@ -47,15 +47,13 @@ class personaanexos(models.Model):
 class empresa(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)
-
-
-nombre = models.CharField(max_length=50)
-cargo = models.CharField(max_length=50)
-actividad = models.CharField(max_length=50)
-ingresos = models.IntegerField()
-pagas = models.IntegerField()
-otrosingresos = models.IntegerField()
-antiguedad = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50)
+    cargo = models.CharField(max_length=50)
+    actividad = models.CharField(max_length=50)
+    ingresos = models.IntegerField()
+    pagas = models.IntegerField()
+    otrosingresos = models.IntegerField()
+    antiguedad = models.CharField(max_length=50)
 
 
 class paro(models.Model):
