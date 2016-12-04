@@ -14,6 +14,23 @@ my_default_errors_DNI = {
     'max_length': _(u'Este campo no puede pasar de 10 carácteres'),
     'invalido': _(u'Este DNI no es válido')
 }
+my_default_errors_direccion = {
+    'required': _(u'Completa este campo'),
+    'max_length': _(u'Este campo no puede pasar de 100 carácteres')
+}
+my_default_errors_email = {
+    'required': _(u'Completa este campo'),
+}
+my_default_errors_movil = {
+    'required': _(u'Completa este campo'),
+}
+my_default_errors_fechanacimiento = {
+    'required': _(u'Completa este campo'),
+}
+my_default_errors_nacionalidad = {
+    'required': _(u'Completa este campo'),
+    'max_length': _(u'Este campo no puede pasar de 100 carácteres')
+}
 
 
 class formCoche(forms.Form):
@@ -41,199 +58,204 @@ class formCoche(forms.Form):
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                           error_messages=my_default_errors_DNI, validators=validarDNI())
 
-    direccion
+    direccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_direccion)
 
-    email
+    email = forms.EmailField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_mail)
 
-    telefono
+    telefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    movil
+    movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), error_message=my_default_error_movil)
 
-    fechanacimiento
+    fechanacimiento = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
+        options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
-    nacionalidad
+    nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_nacionalidad)
 
-    estadocivil
+    estadocivil = forms.ChoiceField
 
-    tipocasado
+    tipocasado = forms.ChoiceField
 
-    numerohijos
+    numerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    mayoresdeedad
+    mayoresdeedad = forms.BooleanField
 
-    cuantosacargo
+    cuantosacargo = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    ingresohijos
+    ingresohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    anotacionespersonales
+    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
+                          error_messages=my_default_errors_DNI)
 
-    cotizacion
+    cotizacion = forms.ChoiceField
 
-    tipotrabajo
+    tipotrabajo = forms.ChoiceField
 
-    finalizacontrato
+    finalizacontrato = forms.DateField
 
-    nombreempresa1
+    nombreempresa1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    cargoempresa1
+    cargoempresa1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    actividadempresa1
+    actividadempresa1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    ingresosempresa1
+    ingresosempresa1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    pagasempresa1
+    pagasempresa1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    otrosingresosempresa1
+    otrosingresosempresa1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     antiguedadempresa1
 
-    importejuvilacion
+    importejuvilacion = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    numerodepagasjuvilacion
+    numerodepagasjuvilacion = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    iniciojuvilacion
+    iniciojuvilacion = forms.DateField
 
-    finjuvilacion
+    finjuvilacion = forms.DateField
 
-    parodesdecuando
+    parodesdecuando = forms.DateField
 
-    parocuantocobra
+    parocuantocobra = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    otrosingresos
+    otrosingresos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    otrosgastos
+    otrosgastos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    otrosingresostexto
+    otrosingresostexto = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),)
 
-    otrosgastostexto
+    otrosgastostexto = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),)
 
-    anotacionesingresos
+    anotacionesingresos = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendavalor1
+    viviendavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendavalorhipoteca1
+    viviendavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaestapagada1
+    viviendaestapagada1 = forms.BooleanField
 
-    viviendalibredecargos1
+    viviendalibredecargos1 = forms.BooleanField
 
-    viviendacuotamensual1
+    viviendacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaanos1
+    viviendaanos1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaentidad1
+    viviendaentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendametros1
+    viviendametros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaporciento1
+    viviendaporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendadireccion1
+    viviendadireccion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendapoblacion1
+    viviendapoblacion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaprovincia1
+    viviendaprovincia1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendacodigopostal1
+    viviendacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladavalor1
+    viviendaalquiladavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladavalorhipoteca1
+    viviendaalquiladavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladaestapagada1
+    viviendaalquiladaestapagada1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladalibredecargos1
+    viviendaalquiladalibredecargos1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladacuotamensual1
+    viviendaalquiladacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladaanos1
+    viviendaalquiladaanos1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladaentidad1
+    viviendaalquiladaentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladametros1
+    viviendaalquiladametros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladaporciento1
+    viviendaalquiladaporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladadireccion1
+    viviendaalquiladadireccion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladapoblacion1
+    viviendaalquiladapoblacion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladaprovincia1
+    viviendaalquiladaprovincia1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    viviendaalquiladacodigopostal1
+    viviendaalquiladacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladacobraalquiler
+    viviendaalquiladacobraalquiler = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    alquilerpaga1
+    alquilerpaga1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    alquilermetros1
+    alquilermetros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    alquilerdireccion1
+    alquilerdireccion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    alquilerpoblacion1
+    alquilerpoblacion1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    alquilerprovincia1
+    alquilerprovincia1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    alquilercodigopostal1
+    alquilercodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    anotacionesviviendas
+    anotacionesviviendas = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    direccion
+    direccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    poblacion
+    poblacion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    provincia
+    provincia = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    codigopostal
+    codigopostal = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    creditotipo1
+    creditotipo1 = forms.ChoiceField
 
-    creditotantoporciento1
+    creditotantoporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    creditoimporte1
+    creditoimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    creditocuota1
+    creditocuota1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    creditoentidad1
+    creditoentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    tarjetacuota1
+    tarjetacuota1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    tarjetaimporte1
+    tarjetaimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    tarjetaentidad1
+    tarjetaentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    recivosimporte1
+    recivosimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    morosoimporte1
+    morosoimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    morosoquien1
+    morosoquien1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    anotacionesfinancieras
+    anotacionesfinancieras = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    motor
+    motor = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),)
 
-    marca
+    marca = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),)
 
-    modelo
+    modelo = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),)
 
-    antiguedad
+    antiguedad = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),)
 
-    matricula
+    matricula = forms.CharField(widget=forms.TextInput(attrs={"max_length": 10, "class": "form-control"}),)
 
-    estadovehiculo
+    estadovehiculo = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    anotacionescoche
+    anotacionescoche = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    recibirdinero
+    recibirdinero = forms.ChoiceField
 
-    anotacionesdestinado
+    anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    justificante
+    justificante = forms.BooleanField
 
-    autorizacion
+    autorizacion = forms.BooleanField
 
-    medio
+    medio = forms.ChoiceField
 
-    anotacionesdestinado
+    anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
 
 
