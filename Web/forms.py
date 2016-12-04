@@ -277,8 +277,6 @@ class formCoche(forms.Form):
 
     medio = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
 
-    anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}))
-
     numexp = forms.CharField(disabled=True)
 
     def clean(self):
