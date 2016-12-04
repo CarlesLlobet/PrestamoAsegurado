@@ -4,6 +4,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_ipv4_address, EmailValidator, validate_email
 from django.utils.translation import ugettext_lazy as _
+from bootstrap3_datetime.widgets import DateTimePicker
 
 my_default_errors_Name = {
     'required': _(u'Completa este campo'),
@@ -31,6 +32,11 @@ my_default_errors_nacionalidad = {
     'required': _(u'Completa este campo'),
     'max_length': _(u'Este campo no puede pasar de 100 carácteres')
 }
+
+EstatsCivils = (
+    ('Soltero', 'MySQL'),
+    ('Casado', 'Oracle')
+)
 
 
 class formCoche(forms.Form):
@@ -62,11 +68,11 @@ class formCoche(forms.Form):
                            error_messages=my_default_errors_direccion)
 
     email = forms.EmailField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                           error_messages=my_default_errors_mail)
+                           error_messages=my_default_errors_email)
 
     telefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), error_message=my_default_error_movil)
+    movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), error_message=my_default_errors_movil)
 
     fechanacimiento = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
@@ -74,26 +80,25 @@ class formCoche(forms.Form):
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                            error_messages=my_default_errors_nacionalidad)
 
-    estadocivil = forms.ChoiceField
+    estadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
 
-    tipocasado = forms.ChoiceField
+    tipocasado = forms.ChoiceField(widget=forms.Select(choices=)))
 
     numerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    mayoresdeedad = forms.BooleanField
+    mayoresdeedad = forms.BooleanField(initial=False, required=False)
 
     cuantosacargo = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     ingresohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
-                          error_messages=my_default_errors_DNI)
+    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),error_messages=my_default_errors_DNI)
 
-    cotizacion = forms.ChoiceField
+    cotizacion = forms.ChoiceField(widget=forms.Select(choices=))
 
-    tipotrabajo = forms.ChoiceField
+    tipotrabajo = forms.ChoiceField(widget=forms.Select(choices=))
 
-    finalizacontrato = forms.DateField
+    finalizacontrato = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
     nombreempresa1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
@@ -113,11 +118,11 @@ class formCoche(forms.Form):
 
     numerodepagasjuvilacion = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    iniciojuvilacion = forms.DateField
+    iniciojuvilacion = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
-    finjuvilacion = forms.DateField
+    finjuvilacion = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
-    parodesdecuando = forms.DateField
+    parodesdecuando = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
     parocuantocobra = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -135,9 +140,9 @@ class formCoche(forms.Form):
 
     viviendavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaestapagada1 = forms.BooleanField
+    viviendaestapagada1 = forms.BooleanField(initial=False, required=False)
 
-    viviendalibredecargos1 = forms.BooleanField
+    viviendalibredecargos1 = forms.BooleanField(initial=False, required=False)
 
     viviendacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -207,7 +212,7 @@ class formCoche(forms.Form):
 
     codigopostal = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    creditotipo1 = forms.ChoiceField
+    creditotipo1 = forms.ChoiceField(widget=forms.Select(choices=))
 
     creditotantoporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -245,15 +250,15 @@ class formCoche(forms.Form):
 
     anotacionescoche = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    recibirdinero = forms.ChoiceField
+    recibirdinero = forms.ChoiceField(widget=forms.Select(choices=))
 
     anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
-    justificante = forms.BooleanField
+    justificante = forms.BooleanField(initial=False, required=False)
 
-    autorizacion = forms.BooleanField
+    autorizacion = forms.BooleanField(initial=False, required=False)
 
-    medio = forms.ChoiceField
+    medio = forms.ChoiceField(widget=forms.Select(choices=))
 
     anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),)
 
@@ -262,9 +267,7 @@ class formCoche(forms.Form):
 
 
     # Exemples
-    periodicity_checkbox = forms.BooleanField(label='periodicity', initial=False, required=False)
-    periodicity = forms.ChoiceField(widget=forms.Select(attrs={"label": 'Periodicitat:'}), choices=Periodicities,
-                                    )
+    periodicity_checkbox = forms.BooleanField(initial=False, required=False)(label='periodicity', initial=False, required=False)
 
     execute_date = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD HH:mm", "pickSeconds": False}))
