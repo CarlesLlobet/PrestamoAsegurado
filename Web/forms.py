@@ -38,6 +38,8 @@ EstatsCivils = (
     ('Casado', 'Casado')
 )
 
+#TODO: Falta que tots els ChoiceFields tinguin el seu choices assignat
+
 
 class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -276,6 +278,8 @@ class formCoche(forms.Form):
     medio = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
 
     anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}))
+
+    numexp = forms.CharField(disabled=True)
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()

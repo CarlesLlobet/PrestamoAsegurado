@@ -3,11 +3,17 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+# TODO: Tot el que siguin "selectors" o ChoiceFields, aquí son Charfields pero falta posar els choices igual que al forms, hi ha un exemple al estadocivil
+
+EstatsCivils = (
+    ('Soltero', 'Soltero'),
+    ('Casado', 'Casado')
+)
+
 class expediente(models.Model):
     numexp = models.IntegerField()
     tipo = models.CharField(max_length=10)
-    fecha = models.DateField()
-    hora = models.DateTimeField()
+    fecha_hora = models.DateTimeField()
 
 
 class persona(models.Model):
@@ -19,7 +25,7 @@ class persona(models.Model):
     movil = models.IntegerField()
     fechanacimiento = models.DateField()
     nacionalidad = models.CharField(max_length=50)
-    estadocivil = models.CharField(max_length=20)
+    estadocivil = models.CharField(max_length=20, choices=EstatsCivils)
     tipocasado = models.CharField(max_length=20)
     numerodehijos = models.IntegerField()
     sihijosmayores18 = models.BooleanField()
