@@ -3,11 +3,47 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-# TODO: Tot el que siguin "selectors" o ChoiceFields, aquí son Charfields pero falta posar els choices igual que al forms, hi ha un exemple al estadocivil
-
 EstatsCivils = (
     ('Soltero', 'Soltero'),
+    ('Viudo', 'Viudo'),
+    ('Divorciado', 'Divorciado'),
+    ('Pareja de hecho', 'Pareja de hecho'),
     ('Casado', 'Casado')
+)
+
+TipoCasado = (
+    ('Separacion de bienes', 'Separacion de bienes'),
+    ('Bienes gananciales', 'Bienes gananciales')
+)
+
+Cotiza = (
+    ('Propia', 'Propia'),
+    ('Ajena', 'Ajena')
+)
+
+TipWork = (
+    ('Fijo', 'Fijo'),
+    ('Indefinido', 'Indefinido'),
+    ('Temporal', 'Temporal')
+)
+
+CredTip = (
+    ('Titular', 'Titular'),
+    ('Avalista', 'Avalista')
+)
+
+RecibirMoney = (
+    ('Cuenta Bancaria', 'Cuenta Bancaria'),
+    ('Hal-Cash', 'Hal-Cash')
+)
+
+Medios = (
+    ('Television', 'Television'),
+    ('Prensa', 'Prensa'),
+    ('Radio', 'Radio'),
+    ('Web', 'Web'),
+    ('Publicidad Estatica', 'Publicidad Estatica'),
+    ('Otros', 'Otros')
 )
 
 class expediente(models.Model):
@@ -26,22 +62,23 @@ class persona(models.Model):
     fechanacimiento = models.DateField()
     nacionalidad = models.CharField(max_length=50)
     estadocivil = models.CharField(max_length=20, choices=EstatsCivils)
-    tipocasado = models.CharField(max_length=20)
+    tipocasado = models.CharField(max_length=20, choices=TipoCasado)
     numerodehijos = models.IntegerField()
     sihijosmayores18 = models.BooleanField()
     sihijosingreso = models.IntegerField()
     justificante = models.BooleanField()
     autoriza = models.BooleanField()
-    medio = models.CharField(max_length=20)
+    medio = models.CharField(max_length=20, choices=Medios)
     tieneavalista = models.BooleanField()
+    metodopago = models.CharField(max_length=200, choices=RecibirMoney)
 
 
 class personaanexos(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)
     tipo = models.CharField(max_length=20)
-    seguridadsocial = models.CharField(max_length=20)
-    siajenatipo = models.CharField(max_length=20)
+    seguridadsocial = models.CharField(max_length=20, choices=Cotiza)
+    siajenatipo = models.CharField(max_length=20, choices=TipWork)
     siajenatemporal = models.DateField()
     otrosingresos = models.IntegerField()
     otrosingresostexto = models.CharField(max_length=100)
@@ -101,7 +138,7 @@ class vivienda(models.Model):
 class debecredito(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)
-    tipo = models.CharField(max_length=20)
+    tipo = models.CharField(max_length=20, choices=CredTip)
     porcientoavalista = models.IntegerField()
     importe = models.IntegerField()
     cuota = models.IntegerField()

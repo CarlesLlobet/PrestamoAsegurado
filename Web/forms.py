@@ -2,7 +2,7 @@
 
 from django import forms
 from django.core.exceptions import ValidationError
-from django.core.validators import validate_ipv4_address, EmailValidator, validate_email
+from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
 from bootstrap3_datetime.widgets import DateTimePicker
 
@@ -21,6 +21,7 @@ my_default_errors_direccion = {
 }
 my_default_errors_email = {
     'required': _(u'Completa este campo'),
+    'invalid': _(u'Esto no es un correo valido. Ej: info@prestamoasegurado.com'),
 }
 my_default_errors_movil = {
     'required': _(u'Completa este campo'),
@@ -106,7 +107,7 @@ class formCoche(forms.Form):
                                 error_messages=my_default_errors_direccion)
 
     email = forms.EmailField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                             error_messages=my_default_errors_email)
+                             error_messages=my_default_errors_email, validators=[validate_email])
 
     telefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -303,7 +304,7 @@ class formCoche(forms.Form):
 
     anotacionescoche = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    recibirdinero = forms.ChoiceField(widget=forms.Select(choices=RecibirMoney))
+    metodopago = forms.ChoiceField(widget=forms.Select(choices=RecibirMoney))
 
     anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
