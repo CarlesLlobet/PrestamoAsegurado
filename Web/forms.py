@@ -35,10 +35,46 @@ my_default_errors_nacionalidad = {
 
 EstatsCivils = (
     ('Soltero', 'Soltero'),
+    ('Viudo', 'Viudo'),
+    ('Divorciado', 'Divorciado'),
+    ('Pareja de hecho', 'Pareja de hecho'),
     ('Casado', 'Casado')
 )
 
-#TODO: Falta que tots els ChoiceFields tinguin el seu choices assignat
+TipoCasado = (
+    ('Separacion de bienes', 'Separacion de bienes'),
+    ('Bienes gananciales', 'Bienes gananciales')
+)
+
+Cotiza = (
+    ('Propia', 'Propia'),
+    ('Ajena', 'Ajena')
+)
+
+TipWork = (
+    ('Fijo', 'Fijo'),
+    ('Indefinido', 'Indefinido'),
+    ('Temporal', 'Temporal')
+)
+
+CredTip = (
+    ('Titular', 'Titular'),
+    ('Avalista', 'Avalista')
+)
+
+RecibirMoney = (
+    ('Cuenta Bancaria', 'Cuenta Bancaria'),
+    ('Hal-Cash', 'Hal-Cash')
+)
+
+Medios = (
+    ('Television', 'Television'),
+    ('Prensa', 'Prensa'),
+    ('Radio', 'Radio'),
+    ('Web', 'Web'),
+    ('Publicidad Estatica', 'Publicidad Estatica'),
+    ('Otros', 'Otros')
+)
 
 
 class formCoche(forms.Form):
@@ -85,7 +121,7 @@ class formCoche(forms.Form):
 
     estadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
 
-    tipocasado = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    tipocasado = forms.ChoiceField(widget=forms.Select(choices=TipoCasado))
 
     numerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -98,9 +134,9 @@ class formCoche(forms.Form):
     anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
                                             error_messages=my_default_errors_DNI)
 
-    cotizacion = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    cotizacion = forms.ChoiceField(widget=forms.Select(choices=Cotiza))
 
-    tipotrabajo = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    tipotrabajo = forms.ChoiceField(widget=forms.Select(choices=TipWork))
 
     finalizacontrato = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
@@ -228,7 +264,7 @@ class formCoche(forms.Form):
 
     codigopostal = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    creditotipo1 = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    creditotipo1 = forms.ChoiceField(widget=forms.Select(choices=CredTip))
 
     creditotantoporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
@@ -267,7 +303,7 @@ class formCoche(forms.Form):
 
     anotacionescoche = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    recibirdinero = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    recibirdinero = forms.ChoiceField(widget=forms.Select(choices=RecibirMoney))
 
     anotacionesdestinado = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
@@ -275,7 +311,7 @@ class formCoche(forms.Form):
 
     autorizacion = forms.BooleanField(initial=False, required=False)
 
-    medio = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    medio = forms.ChoiceField(widget=forms.Select(choices=Medios))
 
     numexp = forms.CharField(disabled=True)
 
