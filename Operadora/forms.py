@@ -101,7 +101,7 @@ class formCoche(forms.Form):
                            error_messages=my_default_errors_Name)
 
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                          error_messages=my_default_errors_DNI, validators=validarDNI())
+                          error_messages=my_default_errors_DNI, validators=[validarDNI])
 
     direccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                                 error_messages=my_default_errors_direccion)
@@ -112,9 +112,9 @@ class formCoche(forms.Form):
     telefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
-                               error_message=my_default_errors_movil)
+                               error_messages=my_default_errors_movil)
 
-    fechanacimiento = forms.DateTimeField(label='execute_date', required=False, widget=DateTimePicker(
+    fechanacimiento = forms.DateTimeField(required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
 
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
@@ -132,8 +132,7 @@ class formCoche(forms.Form):
 
     ingresohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
-                                            error_messages=my_default_errors_DNI)
+    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}))
 
     cotizacion = forms.ChoiceField(widget=forms.Select(choices=Cotiza))
 
@@ -531,6 +530,8 @@ class formCoche(forms.Form):
     medio = forms.ChoiceField(widget=forms.Select(choices=Medios))
 
     numexp = forms.CharField(disabled=True)
+
+    datayhora = forms.DateTimeField(disabled=True)
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()

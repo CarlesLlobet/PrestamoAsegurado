@@ -70,7 +70,7 @@ class persona(models.Model):
     justificante = models.BooleanField()
     autoriza = models.BooleanField()
     medio = models.CharField(max_length=20, choices=Medios)
-    tieneavalista = models.BooleanField(null=True)
+    tieneavalista = models.BooleanField(default=False)
     metodopago = models.CharField(max_length=200, choices=RecibirMoney)
 
 
@@ -123,11 +123,11 @@ class vivienda(models.Model):
     codigopostal = models.IntegerField()
     valorvivienda = models.IntegerField(null=True)
     valorhipoteca = models.IntegerField(null=True)
-    estapagada = models.BooleanField(null=True)
+    estapagada = models.BooleanField(default=False)
     sinopagadaanos = models.CharField(max_length=10, null=True)
     sinopagadaentidad = models.CharField(max_length=50, null=True)
     sinopagadapagahipoteca = models.IntegerField(null=True)
-    librecargos = models.BooleanField(null=True)
+    librecargos = models.BooleanField(default=False)
     metros = models.IntegerField(null=True)
     porciento = models.IntegerField(null=True)
     valoralquilada = models.IntegerField(null=True)

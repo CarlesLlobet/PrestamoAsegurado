@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Web', '0001_initial'),
+        ('Operadora', '0001_initial'),
     ]
 
     operations = [

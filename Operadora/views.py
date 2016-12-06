@@ -1,11 +1,11 @@
-import datetime
+from datetime import datetime
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template import Context
 
-from Web import forms
-from Web import models
+from Operadora import forms
+from Operadora import models
 
 
 def index(request):
@@ -17,7 +17,7 @@ def asnef(request):
 
 
 def coche(request):
-    context = Context({})
+    context = {}
 
     if request.method == 'POST':
         form = forms.formCoche(request.POST)
@@ -223,8 +223,9 @@ def coche(request):
             autorizacion = form.cleaned_data['autorizacion']
             medio = form.cleaned_data['medio']
             numexp = form.cleaned_data['numexp']
+            datayhora = form.cleaned_data['datayhora']
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="coche", fecha_hora=datetime.now())
+            expedient = models.expediente.objects.create(numexp=numexp, tipo="coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(nombre=name, dni=dni, direccion=direccion, email=email, telefono=telefono, movil=movil, fechanacimiento=fechanacimiento, nacionalidad=nacionalidad, estadocivil=estadocivil, tipocasado=tipocasado, numerodehijos=numerohijos, sihijosmayores18=mayoresdeedad, sihijoscuantoscargo=cuantosacargo, sihijosingreso=ingresohijos, justificante=justificante, autoriza=autorizacion, medio=medio, metodopago=metodopago)
             personaanexos = models.personaanexos.objects.create(numexp=numexp, seguridadsocial=cotizacion, siajenatipo=tipotrabajo, siajenatemporal=finalizacontrato, otrosingresos=otrosingresos, otrosingresostexto=otrosingresostexto, otrosgastos=otrosgastos, otrosgastostexto=otrosgastostexto)
             paro = models.paro.objectos.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
@@ -312,17 +313,16 @@ def coche(request):
         else:
             print form.errors
     else:
+        context = {}
         form = forms.formCoche()
-        lastNum = models.expediente.objects.all().order_by("numexp").reverse[0].values("numexp")
+        lastNum = models.expediente.objects.all().order_by("numexp").last()
         if not lastNum:
             lastNum = 40000
         else:
             lastNum += 1
         form.fields["numexp"].initial = lastNum
+        form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        fecha = datetime.now()
-        context.update({"data": fecha.year+"-"+fecha.month+"-"+fecha.day})
-        context.update({"hora": fecha.hour+":"+fecha.minute+":"+fecha.second})
         return render(request, 'coche.html', context)
 
 
