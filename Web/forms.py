@@ -156,6 +156,34 @@ class formCoche(forms.Form):
 
     antiguedadempresa1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
+    nombreempresa2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    cargoempresa2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    actividadempresa2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    ingresosempresa2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    pagasempresa2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    otrosingresosempresa2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    antiguedadempresa2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    nombreempresa3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    cargoempresa3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    actividadempresa3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    ingresosempresa3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    pagasempresa3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    otrosingresosempresa3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    antiguedadempresa3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
     importejuvilacion = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     numerodepagasjuvilacion = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -209,6 +237,58 @@ class formCoche(forms.Form):
 
     viviendacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
+    viviendavalor2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendavalorhipoteca2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaestapagada2 = forms.BooleanField(initial=False, required=False)
+
+    viviendalibredecargos2 = forms.BooleanField(initial=False, required=False)
+
+    viviendacuotamensual2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaanos2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaentidad2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendametros2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaporciento2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendadireccion2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendapoblacion2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaprovincia2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendacodigopostal2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendavalor3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendavalorhipoteca3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaestapagada3 = forms.BooleanField(initial=False, required=False)
+
+    viviendalibredecargos3 = forms.BooleanField(initial=False, required=False)
+
+    viviendacuotamensual3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaanos3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaentidad3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendametros3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaporciento3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendadireccion3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendapoblacion3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaprovincia3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendacodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
     viviendaalquiladavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     viviendaalquiladavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -243,6 +323,74 @@ class formCoche(forms.Form):
 
     viviendaalquiladacobraalquiler1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
+    viviendaalquiladavalor2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladavalorhipoteca2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaestapagada2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladalibredecargos2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladacuotamensual2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaanos2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaentidad2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladametros2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaporciento2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladadireccion2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladapoblacion2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladaprovincia2 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladacodigopostal2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladacobraalquiler2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladavalor3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladavalorhipoteca3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaestapagada3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladalibredecargos3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladacuotamensual3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaanos3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaentidad3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladametros3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladaporciento3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladadireccion3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladapoblacion3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladaprovincia3 = forms.CharField(
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    viviendaalquiladacodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    viviendaalquiladacobraalquiler3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
     alquilerpaga1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     alquilermetros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -255,15 +403,39 @@ class formCoche(forms.Form):
 
     alquilercodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
+    alquilerpaga2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    alquilermetros2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    alquilerdireccion2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilerpoblacion2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilerprovincia2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilercodigopostal2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    alquilerpaga3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    alquilermetros3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    alquilerdireccion3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilerpoblacion3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilerprovincia3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    alquilercodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
     anotacionesviviendas = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    direccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+    direccionpersonal = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    poblacion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+    poblacionpersonal = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    provincia = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+    provinciapersonal = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
-    codigopostal = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+    codigopostalpersonal = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     creditotipo1 = forms.ChoiceField(widget=forms.Select(choices=CredTip))
 
@@ -275,17 +447,61 @@ class formCoche(forms.Form):
 
     creditoentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
+    creditotipo2 = forms.ChoiceField(widget=forms.Select(choices=CredTip))
+
+    creditotantoporciento2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    creditoimporte2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    creditocuota2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    creditoentidad2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    creditotipo3 = forms.ChoiceField(widget=forms.Select(choices=CredTip))
+
+    creditotantoporciento3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    creditoimporte3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    creditocuota3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    creditoentidad3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
     tarjetacuota1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
 
     tarjetaimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
 
     tarjetaentidad1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
+    tarjetacuota2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    tarjetaimporte2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    tarjetaentidad2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    tarjetacuota3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    tarjetaimporte3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    tarjetaentidad3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
     recivosimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    recivosimporte2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    recivosimporte3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
 
     morosoimporte1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
 
     morosoquien1 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    morosoimporte2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    morosoquien2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+
+    morosoimporte3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), )
+
+    morosoquien3 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
 
     anotacionesfinancieras = forms.CharField(
         widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
