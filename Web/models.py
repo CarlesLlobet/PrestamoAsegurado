@@ -117,21 +117,20 @@ class juvilacion(models.Model):
 class vivienda(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)
-    tipo = models.CharField(max_length=20)
     direccion = models.CharField(max_length=50)
     poblacion = models.CharField(max_length=50)
     provincia = models.CharField(max_length=50)
     codigopostal = models.IntegerField()
-    valorvivienda = models.IntegerField()
-    valorhipoteca = models.IntegerField()
-    estapagada = models.BooleanField()
-    sinopagadaanos = models.CharField(max_length=10)
-    sinopagadaentidad = models.CharField(max_length=50)
-    sinopagadalibrecargos = models.BooleanField()
-    metros = models.IntegerField()
-    porciento = models.IntegerField()
-    valoralquilada = models.IntegerField()
-    pagaalquiler = models.IntegerField()
+    valorvivienda = models.IntegerField(null=True)
+    valorhipoteca = models.IntegerField(null=True)
+    estapagada = models.BooleanField(null=True)
+    sinopagadaanos = models.CharField(max_length=10, null=True)
+    sinopagadaentidad = models.CharField(max_length=50, null=True)
+    sinopagadalibrecargos = models.BooleanField(null=True)
+    metros = models.IntegerField(null=True)
+    porciento = models.IntegerField(null=True)
+    valoralquilada = models.IntegerField(null=True)
+    pagaalquiler = models.IntegerField(null=True)
 
 
 class debecredito(models.Model):
@@ -171,7 +170,7 @@ class anotaciones(models.Model):
     empresa = models.CharField(max_length=500)
     vivienda = models.CharField(max_length=500)
     financieros = models.CharField(max_length=500)
-    avalista = models.CharField(max_length=500)
+    avalista = models.CharField(max_length=500, null=True)
     destinado = models.CharField(max_length=500)
 
 
@@ -183,3 +182,4 @@ class coches(models.Model):
     antiguedad = models.DateField()
     matricula = models.CharField(max_length=20)
     estadodelvehiculo = models.CharField(max_length=50)
+    coche = models.CharField(max_length=500)

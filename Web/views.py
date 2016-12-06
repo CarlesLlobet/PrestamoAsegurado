@@ -36,14 +36,10 @@ def coche(request):
             mayoresdeedad = form.cleaned_data['mayoresdeedad']
             cuantosacargo = form.cleaned_data['cuantosacargo']
             ingresohijos = form.cleaned_data['ingresohijos']
-
-
             anotacionespersonales = form.cleaned_data['anotacionespersonales']
-
             cotizacion = form.cleaned_data['cotizacion']
             tipotrabajo = form.cleaned_data['tipotrabajo']
             finalizacontrato = form.cleaned_data['finalizacontrato']
-
             nombreempresa1 = form.cleaned_data['nombreempresa1']
             cargoempresa1 = form.cleaned_data['cargoempresa1']
             actividadempresa1 = form.cleaned_data['actividadempresa1']
@@ -51,20 +47,32 @@ def coche(request):
             pagasempresa1 = form.cleaned_data['pagasempresa1']
             otrosingresosempresa1 = form.cleaned_data['otrosingresosempresa1']
             antiguedadempresa1 = form.cleaned_data['antiguedadempresa1']
-
+            nombreempresa2 = form.cleaned_data['nombreempresa2']
+            cargoempresa2 = form.cleaned_data['cargoempresa2']
+            actividadempresa2 = form.cleaned_data['actividadempresa2']
+            ingresosempresa2 = form.cleaned_data['ingresosempresa2']
+            pagasempresa2 = form.cleaned_data['pagasempresa2']
+            otrosingresosempresa2 = form.cleaned_data['otrosingresosempresa2']
+            antiguedadempresa2 = form.cleaned_data['antiguedadempresa2']
+            nombreempresa3 = form.cleaned_data['nombreempresa3']
+            cargoempresa3 = form.cleaned_data['cargoempresa3']
+            actividadempresa3 = form.cleaned_data['actividadempresa3']
+            ingresosempresa3 = form.cleaned_data['ingresosempresa3']
+            pagasempresa3 = form.cleaned_data['pagasempresa3']
+            otrosingresosempresa3 = form.cleaned_data['otrosingresosempresa3']
+            antiguedadempresa3 = form.cleaned_data['antiguedadempresa3']
             importejuvilacion = form.cleaned_data['importejuvilacion']
             numerodepagasjuvilacion = form.cleaned_data['numerodepagasjuvilacion']
             iniciojuvilacion = form.cleaned_data['iniciojuvilacion']
             finjuvilacion = form.cleaned_data['finjuvilacion']
             parodesdecuando = form.cleaned_data['parodesdecuando']
             parocuantocobra = form.cleaned_data['parocuantocobra']
-
             otrosingresos = form.cleaned_data['otrosingresos']
             otrosgastos = form.cleaned_data['otrosgastos']
             otrosingresostexto = form.cleaned_data['otrosingresostexto']
             otrosgastostexto = form.cleaned_data['otrosgastostexto']
-
             anotacionesingresos = form.cleaned_data['anotacionesingresos']
+
             viviendavalor1 = form.cleaned_data['viviendavalor1']
             viviendavalorhipoteca1 = form.cleaned_data['viviendavalorhipoteca1']
             viviendaestapagada1 = form.cleaned_data['viviendaestapagada1']
@@ -98,22 +106,46 @@ def coche(request):
             alquilerpoblacion1 = form.cleaned_data['alquilerpoblacion1']
             alquilerprovincia1 = form.cleaned_data['alquilerprovincia1']
             alquilercodigopostal1 = form.cleaned_data['alquilercodigopostal1']
-            anotacionesviviendas = form.cleaned_data['anotacionesviviendas']
+
+
             direccionpersonal = form.cleaned_data['direccionpersonal']
             poblacionpersonal = form.cleaned_data['poblacionpersonal']
             provinciapersonal = form.cleaned_data['provinciapersonal']
             codigopostalpersonal = form.cleaned_data['codigopostalpersonal']
+            anotacionesviviendas = form.cleaned_data['anotacionesviviendas']
             creditotipo1 = form.cleaned_data['creditotipo1']
             creditotantoporciento1 = form.cleaned_data['creditotantoporciento1']
             creditoimporte1 = form.cleaned_data['creditoimporte1']
             creditocuota1 = form.cleaned_data['creditocuota1']
             creditoentidad1 = form.cleaned_data['creditoentidad1']
+            creditotipo2 = form.cleaned_data['creditotipo2']
+            creditotantoporciento2 = form.cleaned_data['creditotantoporciento2']
+            creditoimporte2 = form.cleaned_data['creditoimporte2']
+            creditocuota2 = form.cleaned_data['creditocuota2']
+            creditoentidad2 = form.cleaned_data['creditoentidad2']
+            creditotipo3 = form.cleaned_data['creditotipo3']
+            creditotantoporciento3 = form.cleaned_data['creditotantoporciento3']
+            creditoimporte3 = form.cleaned_data['creditoimporte3']
+            creditocuota3 = form.cleaned_data['creditocuota3']
+            creditoentidad3 = form.cleaned_data['creditoentidad3']
             tarjetacuota1 = form.cleaned_data['tarjetacuota1']
             tarjetaimporte1 = form.cleaned_data['tarjetaimporte1']
             tarjetaentidad1 = form.cleaned_data['tarjetaentidad1']
+            tarjetacuota2 = form.cleaned_data['tarjetacuota2']
+            tarjetaimporte2 = form.cleaned_data['tarjetaimporte2']
+            tarjetaentidad2 = form.cleaned_data['tarjetaentidad2']
+            tarjetacuota3 = form.cleaned_data['tarjetacuota3']
+            tarjetaimporte3 = form.cleaned_data['tarjetaimporte3']
+            tarjetaentidad3 = form.cleaned_data['tarjetaentidad3']
             recivosimporte1 = form.cleaned_data['recivosimporte1']
+            recivosimporte2 = form.cleaned_data['recivosimporte2']
+            recivosimporte3 = form.cleaned_data['recivosimporte3']
             morosoimporte1 = form.cleaned_data['morosoimporte1']
             morosoquien1 = form.cleaned_data['morosoquien1']
+            morosoimporte2 = form.cleaned_data['morosoimporte2']
+            morosoquien2 = form.cleaned_data['morosoquien2']
+            morosoimporte3 = form.cleaned_data['morosoimporte3']
+            morosoquien3 = form.cleaned_data['morosoquien3']
             anotacionesfinancieras = form.cleaned_data['anotacionesfinancieras']
             motor = form.cleaned_data['motor']
             marca = form.cleaned_data['marca']
@@ -122,24 +154,68 @@ def coche(request):
             matricula = form.cleaned_data['matricula']
             estadovehiculo = form.cleaned_data['estadovehiculo']
             anotacionescoche = form.cleaned_data['anotacionescoche']
-
             metodopago = form.cleaned_data['metodopago']
-
             anotacionesdestinado = form.cleaned_data['anotacionesdestinado']
-
             justificante = form.cleaned_data['justificante']
             autorizacion = form.cleaned_data['autorizacion']
             medio = form.cleaned_data['medio']
             numexp = form.cleaned_data['numexp']
 
-            #TODO: Ara que tenim tota la info, s'han de crear les instancies que toquin a la bd. Exemple a sota
-
             expedient = models.expediente.objects.create(numexp=numexp, tipo="coche", fecha_hora=datetime.now())
             persona = models.persona.objects.create(nombre=name, dni=dni, direccion=direccion, email=email, telefono=telefono, movil=movil, fechanacimiento=fechanacimiento, nacionalidad=nacionalidad, estadocivil=estadocivil, tipocasado=tipocasado, numerodehijos=numerohijos, sihijosmayores18=mayoresdeedad, sihijoscuantoscargo=cuantosacargo, sihijosingreso=ingresohijos, justificante=justificante, autoriza=autorizacion, medio=medio, metodopago=metodopago)
             personaanexos = models.personaanexos.objects.create(numexp=numexp, seguridadsocial=cotizacion, siajenatipo=tipotrabajo, siajenatemporal=finalizacontrato, otrosingresos=otrosingresos, otrosingresostexto=otrosingresostexto, otrosgastos=otrosgastos, otrosgastostexto=otrosgastostexto)
+            paro = models.paro.objectos.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
+            juvilacion = models.juvilacion.objetos.create(numexp, importe=importejuvilacion, pagas=numerodepagasjuvilacion, fechainicio=iniciojuvilacion, fechafin=finjuvilacion)
+            anotaciones = models.anotaciones.objects.create(numexp=numexp, personales=anotacionespersonales, empresa=anotacionesingresos, vivienda=anotacionesviviendas, financieros=anotacionesfinancieras, destinado=anotacionesdestinado, coche=anotacionescoche)
+            coches = models.coches.objects.create(numexp=numexp, motor=motor, marca=marca, modelo=modelo, antiguedad=antiguedad, matricula=matricula, estadodelvehiculo=estadovehiculo)
 
             if nombreempresa1:
-                empresa = models.empresa.objects.create(numexp=numexp)
+                empresa = models.empresa.objects.create(numexp=numexp, nombre=nombreempresa1, cargo=cargoempresa1, actividad=actividadempresa1, ingresos=ingresosempresa1, pagas=pagasempresa1, otrosingresos=otrosingresosempresa1, antiguedad=antiguedadempresa1)
+
+            if nombreempresa2:
+                empresa2 = models.empresa.objects.create(numexp=numexp, nombre=nombreempresa2, cargo=cargoempresa2, actividad=actividadempresa2, ingresos=ingresosempresa2, pagas=pagasempresa2, otrosingresos=otrosingresosempresa2, antiguedad=antiguedadempresa2)
+
+            if nombreempresa3:
+                empresa3 = models.empresa.objects.create(numexp=numexp, nombre=nombreempresa3, cargo=cargoempresa3, actividad=actividadempresa3, ingresos=ingresosempresa3, pagas=pagasempresa3, otrosingresos=otrosingresosempresa3, antiguedad=antiguedadempresa3)
+
+            if creditotipo1:
+                debecredito1 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo1,
+                                                            porcientoavalista=creditotantoporciento1,
+                                                            importe=creditoimporte1, cuota=creditocuota1,
+                                                            entidad=creditoentidad1)
+            if creditotipo2:
+                debecredito2 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo2,
+                                                            porcientoavalista=creditotantoporciento2,
+                                                            importe=creditoimporte2, cuota=creditocuota2,
+                                                            entidad=creditoentidad2)
+            if creditotipo3:
+                debecredito3 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo3,
+                                                            porcientoavalista=creditotantoporciento3,
+                                                            importe=creditoimporte3, cuota=creditocuota3,
+                                                            entidad=creditoentidad3)
+            if tarjetacuota1:
+                debetarjeta1 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota1, importe=tarjetaimporte1,
+                                                            entidad=tarjetaentidad1)
+            if tarjetacuota2:
+                debetarjeta2 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota2, importe=tarjetaimporte2,
+                                                            entidad=tarjetaentidad2)
+            if tarjetacuota3:
+                debetarjeta3 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota3, importe=tarjetaimporte3,
+                                                            entidad=tarjetaentidad3)
+            if recivosimporte1:
+                deberecivo1s = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte1)
+            if recivosimporte2:
+                deberecivos2 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte2)
+            if recivosimporte3:
+                deberecivos3 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte3)
+
+            if morosoimporte1:
+                debemoroso1 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte1, quien=morosoquien1)
+            if morosoimporte2:
+                debemoroso2 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte2, quien=morosoquien2)
+            if morosoimporte3:
+                debemoroso3 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte3, quien=morosoquien3)
+
             return HttpResponseRedirect('/')
         else:
             print form.errors
