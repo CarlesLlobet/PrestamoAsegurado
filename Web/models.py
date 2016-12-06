@@ -65,18 +65,18 @@ class persona(models.Model):
     tipocasado = models.CharField(max_length=20, choices=TipoCasado)
     numerodehijos = models.IntegerField()
     sihijosmayores18 = models.BooleanField()
+    sihijoscuantoscargo = models.IntegerField()
     sihijosingreso = models.IntegerField()
     justificante = models.BooleanField()
     autoriza = models.BooleanField()
     medio = models.CharField(max_length=20, choices=Medios)
-    tieneavalista = models.BooleanField()
+    tieneavalista = models.BooleanField(null=True)
     metodopago = models.CharField(max_length=200, choices=RecibirMoney)
 
 
 class personaanexos(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)
-    tipo = models.CharField(max_length=20)
     seguridadsocial = models.CharField(max_length=20, choices=Cotiza)
     siajenatipo = models.CharField(max_length=20, choices=TipWork)
     siajenatemporal = models.DateField()
@@ -84,7 +84,6 @@ class personaanexos(models.Model):
     otrosingresostexto = models.CharField(max_length=100)
     otrosgastos = models.IntegerField()
     otrosgastostexto = models.CharField(max_length=100)
-    tipovivienda = models.CharField(max_length=50)
 
 
 class empresa(models.Model):

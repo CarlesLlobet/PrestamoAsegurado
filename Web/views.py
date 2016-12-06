@@ -22,7 +22,6 @@ def coche(request):
     if request.method == 'POST':
         form = forms.formCoche(request.POST)
         if form.is_valid():
-            #TODO: Ficar quin camp s'ha d'agafar dins de cada camp, exemple a name
             name = form.cleaned_data['name']
             dni = form.cleaned_data['dni']
             direccion = form.cleaned_data['direccion']
@@ -37,10 +36,14 @@ def coche(request):
             mayoresdeedad = form.cleaned_data['mayoresdeedad']
             cuantosacargo = form.cleaned_data['cuantosacargo']
             ingresohijos = form.cleaned_data['ingresohijos']
+
+
             anotacionespersonales = form.cleaned_data['anotacionespersonales']
+
             cotizacion = form.cleaned_data['cotizacion']
             tipotrabajo = form.cleaned_data['tipotrabajo']
             finalizacontrato = form.cleaned_data['finalizacontrato']
+
             nombreempresa1 = form.cleaned_data['nombreempresa1']
             cargoempresa1 = form.cleaned_data['cargoempresa1']
             actividadempresa1 = form.cleaned_data['actividadempresa1']
@@ -48,16 +51,19 @@ def coche(request):
             pagasempresa1 = form.cleaned_data['pagasempresa1']
             otrosingresosempresa1 = form.cleaned_data['otrosingresosempresa1']
             antiguedadempresa1 = form.cleaned_data['antiguedadempresa1']
+
             importejuvilacion = form.cleaned_data['importejuvilacion']
             numerodepagasjuvilacion = form.cleaned_data['numerodepagasjuvilacion']
             iniciojuvilacion = form.cleaned_data['iniciojuvilacion']
             finjuvilacion = form.cleaned_data['finjuvilacion']
             parodesdecuando = form.cleaned_data['parodesdecuando']
             parocuantocobra = form.cleaned_data['parocuantocobra']
+
             otrosingresos = form.cleaned_data['otrosingresos']
             otrosgastos = form.cleaned_data['otrosgastos']
             otrosingresostexto = form.cleaned_data['otrosingresostexto']
             otrosgastostexto = form.cleaned_data['otrosgastostexto']
+
             anotacionesingresos = form.cleaned_data['anotacionesingresos']
             viviendavalor1 = form.cleaned_data['viviendavalor1']
             viviendavalorhipoteca1 = form.cleaned_data['viviendavalorhipoteca1']
@@ -93,10 +99,10 @@ def coche(request):
             alquilerprovincia1 = form.cleaned_data['alquilerprovincia1']
             alquilercodigopostal1 = form.cleaned_data['alquilercodigopostal1']
             anotacionesviviendas = form.cleaned_data['anotacionesviviendas']
-            direccion = form.cleaned_data['direccion']
-            poblacion = form.cleaned_data['poblacion']
-            provincia = form.cleaned_data['provincia']
-            codigopostal = form.cleaned_data['codigopostal']
+            direccionpersonal = form.cleaned_data['direccionpersonal']
+            poblacionpersonal = form.cleaned_data['poblacionpersonal']
+            provinciapersonal = form.cleaned_data['provinciapersonal']
+            codigopostalpersonal = form.cleaned_data['codigopostalpersonal']
             creditotipo1 = form.cleaned_data['creditotipo1']
             creditotantoporciento1 = form.cleaned_data['creditotantoporciento1']
             creditoimporte1 = form.cleaned_data['creditoimporte1']
@@ -116,8 +122,11 @@ def coche(request):
             matricula = form.cleaned_data['matricula']
             estadovehiculo = form.cleaned_data['estadovehiculo']
             anotacionescoche = form.cleaned_data['anotacionescoche']
-            recibirdinero = form.cleaned_data['recibirdinero']
+
+            metodopago = form.cleaned_data['metodopago']
+
             anotacionesdestinado = form.cleaned_data['anotacionesdestinado']
+
             justificante = form.cleaned_data['justificante']
             autorizacion = form.cleaned_data['autorizacion']
             medio = form.cleaned_data['medio']
@@ -126,19 +135,24 @@ def coche(request):
             #TODO: Ara que tenim tota la info, s'han de crear les instancies que toquin a la bd. Exemple a sota
 
             expedient = models.expediente.objects.create(numexp=numexp, tipo="coche", fecha_hora=datetime.now())
+            persona = models.persona.objects.create(nombre=name, dni=dni, direccion=direccion, email=email, telefono=telefono, movil=movil, fechanacimiento=fechanacimiento, nacionalidad=nacionalidad, estadocivil=estadocivil, tipocasado=tipocasado, numerodehijos=numerohijos, sihijosmayores18=mayoresdeedad, sihijoscuantoscargo=cuantosacargo, sihijosingreso=ingresohijos, justificante=justificante, autoriza=autorizacion, medio=medio, metodopago=metodopago)
+            personaanexos = models.personaanexos.objects.create(numexp=numexp, seguridadsocial=cotizacion, siajenatipo=tipotrabajo, siajenatemporal=finalizacontrato, otrosingresos=otrosingresos, otrosingresostexto=otrosingresostexto, otrosgastos=otrosgastos, otrosgastostexto=otrosgastostexto)
+
+            if nombreempresa1:
+                empresa = models.empresa.objects.create(numexp=numexp)
             return HttpResponseRedirect('/')
         else:
             print form.errors
     else:
         form = forms.formCoche()
-        context.update({"form": form})
         lastNum = models.expediente.objects.all().order_by("numexp").reverse[0].values("numexp")
-        fecha = datetime.now()
         if not lastNum:
             lastNum = 40000
         else:
-            lastNum = 1
+            lastNum += 1
         form.fields["numexp"].initial = lastNum
+        context.update({"form": form})
+        fecha = datetime.now()
         context.update({"data": fecha.year+"-"+fecha.month+"-"+fecha.day})
         context.update({"hora": fecha.hour+":"+fecha.minute+":"+fecha.second})
         return render(request, 'coche.html', context)
