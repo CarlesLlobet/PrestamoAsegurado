@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Client Manager</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Área de clientes - PrestamoAsegurado.com</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="description" content="Servicio personalizado para clientes con productos contratados y registrados en PrestamoAsegurado" />
+		<meta http-equiv="keywords" content="crédito personal, atención personalizada crédito, préstamo personal, área cliente crédito, área cliente préstamo" />
+		<!--JQUERY-->
+		<script   src="/js/jquery.min.js"></script>
+		<!--BOOSTRAP JS-->
+		<script src="/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!--BOOSTRAP CSS-->
+		
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!--CUSTOM CSS-->
+		<script type="text/javascript" src="/usuarios/js/jseditar.js"></script>
+
+		<link rel='stylesheet' type='text/css' href='/usuarios/css/styletablas.css' />
+		<link rel="stylesheet" href="/usuarios/css/estilos2.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+		    <div class="row">
+		        <div class="col-sm-3 col-lg-2">
+		          <nav class="navbar navbar-default navbar-fixed-side">
+		            <div class="container">
+		              <div class="navbar-header">
+		              	<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+		                  <span class="sr-only">Toggle navigation</span>
+		                  <span class="icon-bar"></span>
+		                  <span class="icon-bar"></span>
+		                  <span class="icon-bar"></span>
+                		</button>
+										<div class="navbar-logo-cabezera">
+		                	<a href="/area-de-clientes.php" class="navbar-brand lt"><img src="/img/logo.png" class="img-responsive"></a>	<!--LOGO-->
+										</div>
+		              </div>
+		              <div class="collapse navbar-collapse">	<!--MENU-->
+		              	<ul class="nav navbar-nav"><li class=""><h2 class="text-primary" style="margin-left: 10px;">Primera llamada</h2><h4 class="text-primary" style="margin-left: 10px;"">Nuevo Expediente:</h4><a href="/usuarios/form/formulario.php"><button type="button" class="btn btn-primary">CLICK AQUI</button></a></li><li class=""><h2 class="text-primary" style="margin-left: 10px;">Segunda llamada</h2><h4 class="text-primary" style="margin-left: 10px;"">Estado Expediente:</h4><a href="/usuarios/expediente.php"><button type="button" class="btn btn-primary">CLICK AQUI</button></a></li><li class=""><h2 class="text-primary" style="margin-left: 10px;">Tercera llamada</h2><h4 class="text-primary" style="margin-left: 10px;"">Resolucion Expediente:</h4><a href="/usuarios/visualizar.php"><button type="button" class="btn btn-primary">CLICK AQUI</button></a></li><li class=""><br><br></li><li class=""><a href="/usuarios/cerrarsesion.php"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li></ul>		              </div>
+		            </div>
+		          </nav>
+		        </div>
+		        <div class="col-sm-9 col-lg-10">
+<div class="content">
+	<div class="clientes">
+		<div class="textoVerde">
+			<div class="ver">
+				<p>Buenos días, tardes noches, bienvenido a PRÉSTAMO ASEGURADO MI NOMBRE ES _________</p>
+				<p>Me gustaria recordarle  que <b>cumpliendo con la normativa legal vigente recogida en la LEY DE PROTECCION DE DATOS PERSONALES debo advertirle que esta llamada está siendo grabada, conforme a la ley 15/1999, y le informamos que mantendremos la privacidad de sus datos y no se compartirán con otras empresas o terceras personas para fines ajenos a su tramitación actual.</b></p>
+				<p>A continuacion vamos a repasar sus datos para asegurarnos que ustes es la persona que solicito el prestamo, digame su dni <br><br>(Repasar ficha completa del cliente)</p>
+				<br/><br/><table id="vistaCliente" class="tablas" width="100%"><tr><th colspan="4" style="text-align:right">N&uacute;mero expediente:</th> <td style="text-align:left" colspan="4">31768</td></tr><tr><th>Hora:</th> <td>13:05:33</td> <th>Fecha:</th> <td colspan="5">2016-12-06</td></tr><tr><th>Importe solicitado:</th> <td>12000</td> <th>Mensualidad cr&eacute;dito:</th> <td>60</td> <th>Cuota cr&eacute;dito:</th> <td colspan="3">267</td></tr><tr><th>Tipo de pr&eacute;stamo:</th> <td colspan="7">Prestamo Personal</td></tr><tr><th>Nota del prestmo:</th> <td colspan="7">SR SOLICITA PRESTAMO PERSONAL DE 12000 EUROS MENSUALIDADES 60 CUOTAS 267 EUROS MENSUALES </td></tr><tr><th>Nombre Completo:</th> <td>ANDRES JIMENEZ PE?A</td> <th>Direcci&oacute;n:</th> <td colspan="5">CALLE RIO TAJO 7 3RO DERECHA UTRERA SEVILLA</td></tr><tr><th>Tel&eacute;fono de contacto:</th> <td>0</td> <th>Tel&eacute;fono de contacto (M&oacute;vil):</th> <td>666106649</td> <th>E-mail:</th> <td colspan="3">andriusjimenez@hotmail.com</td></tr><tr><th>Nacionalidad:</th> <td>ESPA</td> <th>Fecha de nacimiento:</th> <td>1982-05-13</td> <th colspan="3">Documento Nacional de Identidad:</th> <td>47206849q</td></tr><tr><th>Edad:</th> <td>34</td> <th>Estado civil:</th> <td>casado</td> <td>bienesgananciales</td> <th colspan="2">Hijos a su cargo:</th> <td>3</td></tr><tr><th>Notas estado civil:</th> <td colspan="7">SR ES CASADO TIENE HIJOS 14 ,12 Y 6 A?OS GASTOS 100 EUROS ...........CADUCA DNI 23-03-2025</td></tr><tr><th>Trabajando a cuenta:</th> <td>ajena</td> <th>Tipo de contrato:</th> <td>temporal</td> <th>Fin contrato</th> <td colspan="3">2018-12-06</td></tr><tr><th colspan="8" style="text-align: center">Datos empresas</th></tr><tr><th>Notas opciones trabajo:</th> <td colspan="7"></td></tr><tr><th>Nombre de la empresa:</th> <td>TECADE</td> <th>Cargo en la empresa:</th> <td>OPERARIO</td> <th>Mensualidad:</th> <td colspan="3">1300</td></tr><tr><th>Segunda mensualidad:</th> <td>0</td> <th>Actividad:</th> <td>ESTRUCTURA DE PUENTE METALICO</td> <th>N&uacute;mero de pagas:</th> <td>12</td> <th>Antig&uuml;edad en la empresa:</th> <td>3 A?OS</td></tr><tr><th>Notas empresas:</th> <td colspan="7">SR TRABAJA ES UNA EMPRESA ES TEMPORAL FINALIZA EN EL DICIEMBRE 2018 COBRA 1300 EUROS ESTA 3 A?OS ........TIENE AYUDA DE SU ESPOSA COBRA 800 EUROS </td></tr><tr><th colspan="8" style="text-align: center">Datos viviendas</th></tr><tr><th>Tipo:</th> <td colspan="7">Propietario</td></tr><tr><th>Cuota de alquiler:</th> <td>0</td> <th>Cobra mensualmente:</th> <td colspan="5">0</td></tr><tr><th>Esta pagada?:</th> <td>Si</td> <th></th> <td colspan="5"></td></tr><tr><th>Valor de su vivienda:</th> <td>55000</td> <th>Valor de su hipoteca:</th> <td>25000</td> <th>Cuota de la hipoteca:</th> <td colspan="3">180</td></tr><tr><th>Tiempo restante:</th>	<td>8</td> <th>Metros cuadrados de su propiedad:</th> <td>65</td> <th>Entidad:</th>	<td colspan="3">BBVA</td></tr><tr><th>Direcci&oacute;n de la propiedad:</th> <td colspan="5">lamisma, 41710, LAMISMA (LA MISMA)</td> <th>% de propiedad:</th> <td>100</td></tr><tr><th>Notas viviendas:</th> <td colspan="7">SR TIENE UNA PROPIEDAD Y ESTA PAGANDOLA LE FALTAN 8 A?OS PAGA MENSUAL 180 EUROS  CON BBVA</td></tr><tr><th colspan="8" style="text-align: center">Datos cr&eacute;ditos alternativos</th></tr><tr><th>Tipo:</th> <td colspan="7">titular</td></tr><tr><th>Importe cr&eacute;dito:</th> <td>1300</td> <th>Cuota mensual cr&eacute;dito:</th> <td>50</td> <th>Entidad:</th> <td colspan="3">CAJA RURAL LUTRERA</td></tr><tr><th>Notas otros creditos:</th> <td colspan="7">TIENE UN CREDITO DE 1300 PAGA MENSUAL 50 EUROS CON CAJA RUDAL LUTRERA Y ESTA EN LA LISTA DE MOROSIDAD DE 6000 CON CETELEN </td></tr><tr><th>Notas tarjetas:</th> <td colspan="7"></td></tr><tr><th>Notas recibos:</th> <td colspan="7"></td></tr><tr><th colspan="8" style="text-align: center">Listado morosidad</th></tr><tr><th colspan="2">Importe deuda morosidad:</th> <td>6000</td> <th>Cobrador:</th> <td colspan="4">BANCO CETELEN </td></tr><tr><th colspan="2">Va a destinar su cr&eacute;dito a:</th> <td colspan="6">SR SOLICITA PARA REFORMA DE CASA  NRO DE CUENTA : NO LO TIENE POR EL MOMENTO </td></tr><tr><th colspan="2">&iquest;Dispone de justificante?</th> <td colspan="6">si</td></tr><tr><th colspan="2">Nos has conocido por:</th> <td colspan="6">web</td></tr><tr><th>Observaciones o incidencias:</th> <td colspan="4">06-12-16 LUZ CFM 1RA LLAMADA SE TERMINO DE LLENAR EL EXPEDIENTE PERO NO TIENE EN EL MOMENTO SU NRO DE CUENTA BANCARIA </td> <th>Apto:</th> <td colspan="2">En espera</td></tr></table><br/>
+
+				<div id="estudio" class="tablas" style="width:809px"><table id="ingresos" style="float:left" cellpadding="5%" cellspacing="5%" width="50%"><tr><th>Ingresos</th> <th>Importe</th> <th>Pagas</th></tr><tr><td>Mensualidad</td> <td>1300</td> <td>12</td></tr><tr><td></td> <td>0</td> <td></td></tr><tr><td></td> <td>0</td> <td></td></tr><tr><th>Total:</th> <td>1300</td> <td></td></tr><tr><th colspan="3" style="text-align:right;">Endeudamiento:</th></tr></table><table style="float-left;" id="gastos" cellpadding="5%" cellspacing="5%" width="50%"><tr><th>Gastos</th> <th>Importe</th></tr><tr><td>Cr&eacute;dito solicitado</td> <td>267</td></tr><tr><td>Cr&eacute;ditos</td> <td>50</td></tr><tr><td>Cuota hipoteca</td> <td>180</td></tr><tr><th>Total:</th> <td>497</td></tr><tr><td colspan="2">38.23%</td></tr></table></div><br/><div style="clear:both;"></div> <p><br><br>Una vez repasado todos sus datos y viendo que son correctos, le informo de la documentacion que tiene que aportarnos para realizar su solicitud y asi finalizar el proceso:</p> <p><br>-Si es trabajador por cuenta ajena (empleado) o cobra alguna prestación:<br>
+				<br>
+				Fotocopia del DNI por ambas caras<br>
+				Las 3 últimas nominas o justificantes de pensión<br>
+				Declaración de la renta del último año<br>
+				Contrato de trabajo<br>
+				Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+				Ultimo recibo del alquiler de la vivienda (si procede)<br>
+				Vida laboral<br>
+				Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la nomina o pensión.<br>
+				Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+				Documento de cesión de datos.<br><br><br>
+
+
+				-Si es autónomo:<br><br>
+
+				Fotocopia del DNI por ambas caras.<br>
+				4 últimos ivas trimestrales.<br>
+				Declaración de la renta del último año<br>
+				Impuesto de sociedades del último año<br>
+				Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+				Vida laboral si tiene<br>
+				Ultimo recibo del alquiler de la vivienda (si procede)<br>
+				Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+				Documento de cesión de datos<br><br><br>
+
+
+				-Si tiene avalista, los siguientes documentos de su avalista:<br><br>
+
+				Fotocopia del DNI por ambas caras
+				Las 3 últimas nominas o justificantes de pensión<br>
+				Declaración de la renta del último año<br>
+				Contrato de trabajo<br>
+				Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+				Ultimo recibo del alquiler de la vivienda (si procede)<br>
+				Vida laboral<br>
+				Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la nomina o pensión.<br>
+				Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+				Documento de cesión de datos.<p><p>Aparte de la documentacion requerida para poder llebar a cabo su tramite correctamente es necesario que le lea la cesion de datos para PRESTAMO ASEGURADO, esta conversacion esta siendo grabado por lo que al finalizar el documento de cesion de datos usted tendra que dar su beneplacito:</p><p>
+				<br> DOCUMENTO DE CONSENTIMIENTO DE CESIÓN DE DATOS
+				<br>
+				<br>El abajo firmante, ANDRES JIMENEZ PE?A , mayor de
+				<br>edad, con domicilio en   CALLE RIO TAJO 7 3RO DERECHA UTRERA SEVILLA con
+				<br>D.N.I: 47206849q mediante el presente documento
+				<br>
+				<br>DECLARA y MANIFIESTA que AUTORIZA a:
+				<br>
+				<br>Prestamo Asegurado, domiciliada en C/Pintor Fortuny 21 Local, Vildacenas (Barcelona 08840)
+				 y con CIF.  a la recogida de información referida a los datos de carácter
+				personal de quien suscribe y al tratamiento informático de dichos datos que se facilitan, con
+				previo consentimiento de quien firma el presente documento, para su tratamiento en los
+				ficheros de X. Los datos facilitados con consentimiento previo se enumeran en la
+				hoja anexa.
+				<br>
+				<br>Asimismo, el firmante del presente documento declara que ha sido previamente informado de
+				lo siguiente:
+				<br>
+				<br>I. Que Prestamo Asegurado, S.L dispone de un FICHERO “CLIENTES”, cuya finalidad es servir como
+				soporte de información a la realización de estudios de solicitud de servicios financieros.
+				<br>
+				<br>II. Que los datos de carácter personal facilitados van a ser incorporados a dicho FICHERO
+				“CLIENTES” y serán tratados de manera automatizada.
+				<br>
+				<br>III. Que Prestamo Asegurado dispone de todas las medidas de seguridad en materia de protección de
+				datos de carácter personal recogidas en el Real Decreto 1720/2007 de 21 de diciembre.
+				<br>
+				<br>IV. Que Prestamo Asegurado, S.L podrá ceder a terceros los datos personales facilitados por el abajo
+				firmante únicamente para fines relacionados con su solicitud.
+				<br>
+				<br>V. Que puede ejercitar, en todo momento, los derechos reconocidos en la Ley Orgánica
+				15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal, de acceso,
+				rectificación, cancelación y oposición, en los términos y condiciones que la normativa aplicable
+				establece, ante el Responsable del Fichero.
+				<br>
+				<br>Y en prueba de conformidad, el abajo firmante da su aceptación y consentimiento para que los
+				datos referentes a su persona sean incluidos en el mencionado FICHERO “CLIENTES”,
+				haciéndose responsable de la veracidad de los datos facilitados y de las modificaciones que
+				sufran en el futuro.
+				<br>
+				<br>En , a 29 de SEPTIEMBREde 2016.
+				<br>
+				<br>Una vez finalizado este texto usted esta de acuerdo y acepta las condiciones de Prestamo Asegurado?
+				<br><br>
+				Enviar toda esta informacion por email a la siguiente direccion: documentacion@prestamoasegurado.com<br><br>
+				Muchas gracias por su atención, en estos momentos estamos transfiriendo su expediente al departamento de análisis donde quedaran a la espera de que usted envié la documentación solicitada y proceder al estudio de su solicitud. Si desde que usted envíe su documentación, transcurren 5 días laborales y no ha recibido respuesta por parte de pretamo asegurado, deberá considerar que su solicitud ha sido denegada y si desea realizarnos cualquier consulta no dude en ponerse en contacto con nosotros donde estaremos encantados de atenderle.
+
+				</p><form id="form1" method="post" action="estudios.php?id=31768"><div id = "notas">Notas:<br/><textarea id="nota" name="nota" rows="10" cols="80" placeholder="En caso de que querais añadir cualquier cosa relacionada con el estudio y que no salga en la resolucion del expediente, escribirlo aqui"></textarea></div><br/></br><p>(Una vez acabado el estudio, apretar guardar estudio para enviar el expediente)<input type="hidden" name="pendiente" id="pendiente" value="1"/><br/></br><input type="submit" id="aceptar" name="aceptar" value="Guardar estudio"/></form>
+
+
+				<style>
+
+				.tablas {
+					width: 650px;
+					border:1px solid #000000;
+					border-spacing: 0px; }
+
+				.tablas a, .tablas, tbody, tfoot, tr, th, td {
+					font-family: Arial, Helvetica, sans-serif;
+				}
+
+				.tablas caption {
+					font-size: 1.8em;
+					text-align: left;
+					text-indent: 100px;
+					height: 40px;
+					color: #FFFFFF;
+					border:1px solid #000000; }
+
+				.tablas thead th {
+					height: 21px;
+					color: #FFFFFF;
+					font-size: 0.8em;
+					font-family: Arial;
+					font-weight: bold;
+					padding: 0px 7px;
+					margin: 20px 0px 0px;
+					text-align: left; }
+
+				.tablas tbody tr {	background: #ffffff; }
+
+				.tablas tbody tr.odd {	background: #f0f0f0; }
+
+				.tablas tbody th {
+					background: left center no-repeat;
+					background-position: 5px;
+					padding-left: 40px !important; }
+
+				.tablas tbody tr.odd th {
+					background: left center no-repeat;
+					background-position: 5px;
+					padding-left: 40px !important; }
+
+				.tablas tbody th, tbody td {
+					line-height: 1.4em;
+					font-family: Arial, Helvetica, sans-serif;
+					color: #000000;
+					padding: 10px 7px;
+					border-bottom: 1px solid #800000;
+					text-align: left; }
+
+				.tablas tbody a {
+					color: #000000;
+					font-weight: bold;
+					text-decoration: none; }
+
+				.tablas tbody a:hover {
+					color: #ffffff;
+					text-decoration: underline; }
+
+				.tablas tbody tr:hover th {
+					background: #800000 left center no-repeat;
+					background-position: 5px;
+					color: #ffffff; }
+
+				.tablas tbody tr.odd:hover th {
+					background: #000000 left center no-repeat;
+					background-position: 5px;
+					color: #ffffff; }
+
+				.tablas tbody tr:hover th a, tr.odd:hover th a	{
+						 color: #ffffff; }
+
+				.tablas tbody tr:hover td, tr:hover td a, tr.odd:hover td, tr.odd:hover td a {
+					background: #800000;
+					color: #ffffff;	 }
+
+				.tablas tbody tr.odd:hover td, tr.odd:hover td a{
+					background: #000000;
+					color: #ffffff;	 }
+
+				.tablas tfoot th, tfoot td {
+					background: #ffffff repeat-x bottom;
+					font-size: 0.8em;
+					color: #ffffff;
+					height: 21px;
+					}
+				</style>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+				</div>
+	    	</div>
+    	</div>
+    	<br><br>
+	</body>
+</html>
+</body>
+</html>

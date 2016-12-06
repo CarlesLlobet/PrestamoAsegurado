@@ -11,9 +11,53 @@ from Operadora import models
 def index(request):
     return render(request, 'index.html')
 
+def buscar_expediente(request):
+    context = {}
+    if request.method == 'POST':
+        form = forms.formBuscar(request.POST)
+        if form.is_valid():
+            numexp = form.cleaned_data['numexp']
+            dni = form.cleaned_data['dni']
+            if 'numexp' in request.POST:
+                expedient = models.expediente.objects.get(numexp=numexp)
+            elif 'dni' in request.POST:
+                expedient = models.expediente.objects.get(dni=dni)
+            return HttpResponseRedirect('/expediente/'+expedient.numexp+'/')
+    else:
+        form = forms.formBuscar()
+        context.update({"form": form})
+        return render(request, 'buscar_expediente.html', context)
+
+def expediente(request, numexp):
+    context = {}
+    if request.method == 'POST':
+        form = forms.formBuscar(request.POST)
+        if form.is_valid:
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            #TODO: Mirar a django com es crea un nou usuari
+    else:
+        expedient = models.expediente.objects.get(numexp=numexp)
+        if expedient.tipo == "Personal":
+            #TODO: Pillar les dades necessaries per aquest tipus
+            empreses_seves = models.empresa.objects.get(numexp=numexp)
+            #TODO: Ficarla al context
+            context.update({'numexp', expedient.numexp})
+            context.update({'hora', expedient.datayhora})
+            i = 0
+            for e in empreses_seves:
+                context.update({'nomempresa'+i, e.nombre})
+                context.update({'nomempresa'+i, e.cargo})
+                i += 1
+        elif expedient.tipo == "Hipotecario":
+        elif expedient.tipo == "Microcredito":
+        elif expedient.tipo == "Coche":
+        return render(request, 'expediente.html', context)
+
 
 def asnef(request):
-    return render(request, 'asnef.html')
+    context = {}
+    return render(request, 'asnef.html', context)
 
 
 def coche(request):
@@ -225,7 +269,7 @@ def coche(request):
             numexp = form.cleaned_data['numexp']
             datayhora = form.cleaned_data['datayhora']
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="coche", fecha_hora=datayhora)
+            expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(nombre=name, dni=dni, direccion=direccion, email=email, telefono=telefono, movil=movil, fechanacimiento=fechanacimiento, nacionalidad=nacionalidad, estadocivil=estadocivil, tipocasado=tipocasado, numerodehijos=numerohijos, sihijosmayores18=mayoresdeedad, sihijoscuantoscargo=cuantosacargo, sihijosingreso=ingresohijos, justificante=justificante, autoriza=autorizacion, medio=medio, metodopago=metodopago)
             personaanexos = models.personaanexos.objects.create(numexp=numexp, seguridadsocial=cotizacion, siajenatipo=tipotrabajo, siajenatemporal=finalizacontrato, otrosingresos=otrosingresos, otrosingresostexto=otrosingresostexto, otrosgastos=otrosgastos, otrosgastostexto=otrosgastostexto)
             paro = models.paro.objectos.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
@@ -313,7 +357,6 @@ def coche(request):
         else:
             print form.errors
     else:
-        context = {}
         form = forms.formCoche()
         lastNum = models.expediente.objects.all().order_by("numexp").last()
         if not lastNum:
@@ -327,15 +370,15 @@ def coche(request):
 
 
 def hipotecario(request):
-    context = Context({})
+    context = {}
     return render(request, 'hipotecario.html', context)
 
 
 def microcredito(request):
-    context = Context({})
+    context = {}
     return render(request, 'microcredito.html', context)
 
 
 def personal(request):
-    context = Context({})
+    context = {}
     return render(request, 'personal.html', context)
