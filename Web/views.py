@@ -86,6 +86,7 @@ def coche(request):
             viviendapoblacion1 = form.cleaned_data['viviendapoblacion1']
             viviendaprovincia1 = form.cleaned_data['viviendaprovincia1']
             viviendacodigopostal1 = form.cleaned_data['viviendacodigopostal1']
+
             viviendaalquiladavalor1 = form.cleaned_data['viviendaalquiladavalor1']
             viviendaalquiladavalorhipoteca1 = form.cleaned_data['viviendaalquiladavalorhipoteca1']
             viviendaalquiladaestapagada1 = form.cleaned_data['viviendaalquiladaestapagada1']
@@ -99,15 +100,53 @@ def coche(request):
             viviendaalquiladapoblacion1 = form.cleaned_data['viviendaalquiladapoblacion1']
             viviendaalquiladaprovincia1 = form.cleaned_data['viviendaalquiladaprovincia1']
             viviendaalquiladacodigopostal1 = form.cleaned_data['viviendaalquiladacodigopostal1']
-            viviendaalquiladacobraalquiler = form.cleaned_data['viviendaalquiladacobraalquiler']
+            viviendaalquiladacobraalquiler1 = form.cleaned_data['viviendaalquiladacobraalquiler1']
+            viviendaalquiladavalor2 = form.cleaned_data['viviendaalquiladavalor2']
+            viviendaalquiladavalorhipoteca2 = form.cleaned_data['viviendaalquiladavalorhipoteca2']
+            viviendaalquiladaestapagada2 = form.cleaned_data['viviendaalquiladaestapagada2']
+            viviendaalquiladalibredecargos2 = form.cleaned_data['viviendaalquiladalibredecargos2']
+            viviendaalquiladacuotamensual2 = form.cleaned_data['viviendaalquiladacuotamensual2']
+            viviendaalquiladaanos2 = form.cleaned_data['viviendaalquiladaanos2']
+            viviendaalquiladaentidad2 = form.cleaned_data['viviendaalquiladaentidad2']
+            viviendaalquiladametros2 = form.cleaned_data['viviendaalquiladametros2']
+            viviendaalquiladaporciento2 = form.cleaned_data['viviendaalquiladaporciento2']
+            viviendaalquiladadireccion2 = form.cleaned_data['viviendaalquiladadireccion2']
+            viviendaalquiladapoblacion2 = form.cleaned_data['viviendaalquiladapoblacion2']
+            viviendaalquiladaprovincia2 = form.cleaned_data['viviendaalquiladaprovincia2']
+            viviendaalquiladacodigopostal2 = form.cleaned_data['viviendaalquiladacodigopostal2']
+            viviendaalquiladacobraalquiler2 = form.cleaned_data['viviendaalquiladacobraalquiler2']
+            viviendaalquiladavalor3 = form.cleaned_data['viviendaalquiladavalor3']
+            viviendaalquiladavalorhipoteca3 = form.cleaned_data['viviendaalquiladavalorhipoteca3']
+            viviendaalquiladaestapagada3 = form.cleaned_data['viviendaalquiladaestapagada3']
+            viviendaalquiladalibredecargos3 = form.cleaned_data['viviendaalquiladalibredecargos3']
+            viviendaalquiladacuotamensual3 = form.cleaned_data['viviendaalquiladacuotamensual3']
+            viviendaalquiladaanos3 = form.cleaned_data['viviendaalquiladaanos3']
+            viviendaalquiladaentidad3 = form.cleaned_data['viviendaalquiladaentidad3']
+            viviendaalquiladametros3 = form.cleaned_data['viviendaalquiladametros3']
+            viviendaalquiladaporciento3 = form.cleaned_data['viviendaalquiladaporciento3']
+            viviendaalquiladadireccion3 = form.cleaned_data['viviendaalquiladadireccion3']
+            viviendaalquiladapoblacion3 = form.cleaned_data['viviendaalquiladapoblacion3']
+            viviendaalquiladaprovincia3 = form.cleaned_data['viviendaalquiladaprovincia3']
+            viviendaalquiladacodigopostal3 = form.cleaned_data['viviendaalquiladacodigopostal3']
+            viviendaalquiladacobraalquiler3 = form.cleaned_data['viviendaalquiladacobraalquiler3']
             alquilerpaga1 = form.cleaned_data['alquilerpaga1']
             alquilermetros1 = form.cleaned_data['alquilermetros1']
             alquilerdireccion1 = form.cleaned_data['alquilerdireccion1']
             alquilerpoblacion1 = form.cleaned_data['alquilerpoblacion1']
             alquilerprovincia1 = form.cleaned_data['alquilerprovincia1']
             alquilercodigopostal1 = form.cleaned_data['alquilercodigopostal1']
-
-
+            alquilerpaga2 = form.cleaned_data['alquilerpaga2']
+            alquilermetros2 = form.cleaned_data['alquilermetros2']
+            alquilerdireccion2 = form.cleaned_data['alquilerdireccion2']
+            alquilerpoblacion2 = form.cleaned_data['alquilerpoblacion2']
+            alquilerprovincia2 = form.cleaned_data['alquilerprovincia2']
+            alquilercodigopostal2 = form.cleaned_data['alquilercodigopostal2']
+            alquilerpaga3 = form.cleaned_data['alquilerpaga3']
+            alquilermetros3 = form.cleaned_data['alquilermetros3']
+            alquilerdireccion3 = form.cleaned_data['alquilerdireccion3']
+            alquilerpoblacion3 = form.cleaned_data['alquilerpoblacion3']
+            alquilerprovincia3 = form.cleaned_data['alquilerprovincia3']
+            alquilercodigopostal3 = form.cleaned_data['alquilercodigopostal3']
             direccionpersonal = form.cleaned_data['direccionpersonal']
             poblacionpersonal = form.cleaned_data['poblacionpersonal']
             provinciapersonal = form.cleaned_data['provinciapersonal']
@@ -169,6 +208,27 @@ def coche(request):
             anotaciones = models.anotaciones.objects.create(numexp=numexp, personales=anotacionespersonales, empresa=anotacionesingresos, vivienda=anotacionesviviendas, financieros=anotacionesfinancieras, destinado=anotacionesdestinado, coche=anotacionescoche)
             coches = models.coches.objects.create(numexp=numexp, motor=motor, marca=marca, modelo=modelo, antiguedad=antiguedad, matricula=matricula, estadodelvehiculo=estadovehiculo)
 
+            if (viviendaalquiladadireccion1):
+                viviendaalquilada = models.vivienda.objects.create(numexp=numexp, direccion=viviendaalquiladadireccion1, poblacion=viviendaalquiladapoblacion1, provincia=viviendaalquiladaprovincia1, codigopostal=viviendaalquiladacodigopostal1, valorvivienda=viviendaalquiladavalor1, valorhipoteca=viviendaalquiladavalorhipoteca1, estapagada=viviendaalquiladaestapagada1, sinopagadaanos=viviendaalquiladaanos1, sinopagadaentidad=viviendaalquiladaentidad1, librecargos=viviendaalquiladalibredecargos1, metros=viviendaalquiladametros1, porciento=viviendaalquiladaporciento1, valoralquilada=viviendaalquiladacobraalquiler1, sinopagadapagahipoteca=viviendaalquiladacuotamensual1)
+
+            if (viviendaalquiladadireccion2):
+                viviendaalquilada2 = models.vivienda.objects.create(numexp=numexp, direccion=viviendaalquiladadireccion2, poblacion=viviendaalquiladapoblacion2, provincia=viviendaalquiladaprovincia2, codigopostal=viviendaalquiladacodigopostal2, valorvivienda=viviendaalquiladavalor2, valorhipoteca=viviendaalquiladavalorhipoteca2, estapagada=viviendaalquiladaestapagada2, sinopagadaanos=viviendaalquiladaanos2, sinopagadaentidad=viviendaalquiladaentidad2, librecargos=viviendaalquiladalibredecargos2, metros=viviendaalquiladametros2, porciento=viviendaalquiladaporciento2, valoralquilada=viviendaalquiladacobraalquiler2, sinopagadapagahipoteca=viviendaalquiladacuotamensual2)
+
+            if (viviendaalquiladadireccion3):
+                viviendaalquilada3 = models.vivienda.objects.create(numexp=numexp, direccion=viviendaalquiladadireccion3, poblacion=viviendaalquiladapoblacion3, provincia=viviendaalquiladaprovincia3, codigopostal=viviendaalquiladacodigopostal3, valorvivienda=viviendaalquiladavalor3, valorhipoteca=viviendaalquiladavalorhipoteca3, estapagada=viviendaalquiladaestapagada3, sinopagadaanos=viviendaalquiladaanos3, sinopagadaentidad=viviendaalquiladaentidad3, librecargos=viviendaalquiladalibredecargos3, metros=viviendaalquiladametros3, porciento=viviendaalquiladaporciento3, valoralquilada=viviendaalquiladacobraalquiler3, sinopagadapagahipoteca=viviendaalquiladacuotamensual3)
+
+            if alquilerdireccion1:
+                alquiler = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion1, poblacion=alquilerpoblacion1, provincia=alquilerprovincia1, codigopostal=alquilercodigopostal1, metros=alquilermetros1, pagaalquiler=alquilerpaga1)
+
+            if alquilerdireccion2:
+                alquiler2 = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion2, poblacion=alquilerpoblacion2, provincia=alquilerprovincia2, codigopostal=alquilercodigopostal2, metros=alquilermetros2, pagaalquiler=alquilerpaga2)
+
+            if alquilerdireccion3:
+                alquiler3 = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion3, poblacion=alquilerpoblacion3, provincia=alquilerprovincia3, codigopostal=alquilercodigopostal3, metros=alquilermetros3, pagaalquiler=alquilerpaga3)
+
+            if direccionpersonal:
+                vivienda = models.vivienda.objects.create(numexp=numexp, direccion=direccionpersonal, poblacion=poblacionpersonal, provincia=provinciapersonal, codigopostal=codigopostalpersonal)
+
             if nombreempresa1:
                 empresa = models.empresa.objects.create(numexp=numexp, nombre=nombreempresa1, cargo=cargoempresa1, actividad=actividadempresa1, ingresos=ingresosempresa1, pagas=pagasempresa1, otrosingresos=otrosingresosempresa1, antiguedad=antiguedadempresa1)
 
@@ -208,7 +268,6 @@ def coche(request):
                 deberecivos2 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte2)
             if recivosimporte3:
                 deberecivos3 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte3)
-
             if morosoimporte1:
                 debemoroso1 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte1, quien=morosoquien1)
             if morosoimporte2:

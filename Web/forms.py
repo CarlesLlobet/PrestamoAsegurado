@@ -241,7 +241,7 @@ class formCoche(forms.Form):
 
     viviendaalquiladacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    viviendaalquiladacobraalquiler = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+    viviendaalquiladacobraalquiler1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
     alquilerpaga1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
