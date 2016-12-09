@@ -49,71 +49,67 @@ include '../../includes/connect.php';
                                 <p class="text-center">A continuacion le voy a solicitar sus datos personales:</p>
                             </b>
                             <br>
+
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="nombre" class="h4">*Nombre y apellidos</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" required >
+                                    {{ form.name }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="dni" class="h4">*DNI</label>
-                                    <input type="text" class="form-control" id="dni" name="dni" required>
+                                    {{ form.dni }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="direccion" class="h4">Direccion</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion">
+                                    {{ form.direccion }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="email" class="h4">*Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    {{ form.mail }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="telefono" class="h4">Telefono Fijo</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono" >
+                                    {{ form.telefono }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="movil" class="h4">*Movil</label>
-                                    <input type="text" class="form-control" id="movil" name="movil" required>
+                                    {{ form.movil }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="fechan" class="h4">*Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" id="fechan" name="fechan" required >
+                                    {{ form.fechanacimiento }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="nacionalidad" class="h4">*Nacionalidad</label>
-                                    <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" required>
+                                    {{ form.nacionalidad }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-4">
                                     <label for="estadocivil" class="h4">¿Cuál es su estado civil?</label>
-                                    <select class="form-control" id="estadocivil" name="estadocivil">
-                                        <option value="0">-- Selecciona --</option>
-                                        <option value="soltero">Soltero</option>
-                                        <option value="viudo">Viudo</option>
-                                        <option value="divorciado">Divorciado</option>
-                                        <option value="pareja">Pareja de hecho</option>
-                                        <option value="casado">Casado</option>
+                                    <select class="form-control" id="tipoestadocivil" name="tipoestadocivil">
+                                        {{ form.estadocivil }}
                                     </select>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div id="plsshw" class="form-group col-sm-4" style="display:none">
                                     <label for="tipoestadocivil" class="h4">Tipo de Casado***</label>
                                     <select class="form-control" id="tipoestadocivil" name="tipoestadocivil">
-                                        <option value="0" selected="selected">-- Selecciona --</option>
+                                        {{ form.estadocivil }}
                                     </select>
                                     <div class="help-block with-errors"></div>
                                 </div>

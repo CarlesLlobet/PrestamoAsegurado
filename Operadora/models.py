@@ -53,6 +53,8 @@ class expediente(models.Model):
 
 
 class persona(models.Model):
+    numexp = models.IntegerField()
+    avalista = models.BooleanField(default=False)
     nombre = models.CharField(max_length=100)
     dni = models.CharField(max_length=10)
     direccion = models.CharField(max_length=100)
@@ -70,7 +72,6 @@ class persona(models.Model):
     justificante = models.BooleanField()
     autoriza = models.BooleanField()
     medio = models.CharField(max_length=20, choices=Medios)
-    tieneavalista = models.BooleanField(default=False)
     metodopago = models.CharField(max_length=200, choices=RecibirMoney)
 
 
