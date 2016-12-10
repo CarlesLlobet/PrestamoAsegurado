@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from Operadora import forms
-from Operadora import   models
+from Operadora import models
 
 
 def index(request):
@@ -516,7 +516,7 @@ def coche(request):
 def microcredito(request):
     context = {}
     if request.method == 'POST':
-        form = forms.formMicrocreadito(request.POST)
+        form = forms.formMicrocredito(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
             dni = form.cleaned_data['dni']
