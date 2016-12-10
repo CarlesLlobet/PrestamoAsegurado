@@ -1,11 +1,11 @@
 from datetime import datetime
 
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.template import Context
 
 from Operadora import forms
-from Operadora import models
+from Operadora import   models
 
 
 def index(request):
@@ -29,31 +29,61 @@ def index(request):
 #         context.update({"form": form})
 #         return render(request, 'buscar_expediente.html', context)
 #
-# def expediente(request, numexp):
-#     context = {}
-#     if request.method == 'POST':
-#         form = forms.formBuscar(request.POST)
-#         if form.is_valid:
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#             #TODO: Mirar a django com es crea un nou usuari
-#     else:
-#         expedient = models.expediente.objects.get(numexp=numexp)
-#         if expedient.tipo == "Personal":
-#             #TODO: Pillar les dades necessaries per aquest tipus
-#             empreses_seves = models.empresa.objects.get(numexp=numexp)
-#             #TODO: Ficarla al context
-#             context.update({'numexp', expedient.numexp})
-#             context.update({'hora', expedient.datayhora})
-#             i = 0
-#             for e in empreses_seves:
-#                 context.update({'nomempresa'+i, e.nombre})
-#                 context.update({'nomempresa'+i, e.cargo})
-#                 i += 1
-#         elif expedient.tipo == "Hipotecario":
-#         elif expedient.tipo == "Microcredito":
-#         elif expedient.tipo == "Coche":
-#         return render(request, 'expediente.html', context)
+def expediente(request, numexp):
+    context = {}
+    if request.method == 'POST':
+        form = forms.formBuscar(request.POST)
+        if form.is_valid:
+            user = form.cleaned_data['username']
+            passwd = form.cleaned_data['password']
+            user = User.objects.create_user(username=user, password=passwd)
+    else:
+        expedient = models.expediente.objects.get(numexp=numexp)
+        if expedient.tipo == "Personal":
+            #TODO: Pillar les dades necessaries per aquest tipus
+            empreses_seves = models.empresa.objects.get(numexp=numexp)
+            #TODO: Ficarla al context
+            context.update({'numexp', expedient.numexp})
+            context.update({'hora', expedient.datayhora})
+            i = 0
+            for e in empreses_seves:
+                context.update({'nomempresa'+i, e.nombre})
+                context.update({'nomempresa'+i, e.cargo})
+                i += 1
+        elif expedient.tipo == "Hipotecario":
+            # TODO: Pillar les dades necessaries per aquest tipus
+            empreses_seves = models.empresa.objects.get(numexp=numexp)
+            # TODO: Ficarla al context
+            context.update({'numexp', expedient.numexp})
+            context.update({'hora', expedient.datayhora})
+            i = 0
+            for e in empreses_seves:
+                context.update({'nomempresa' + i, e.nombre})
+                context.update({'nomempresa' + i, e.cargo})
+                i += 1
+        elif expedient.tipo == "Microcredito":
+            # TODO: Pillar les dades necessaries per aquest tipus
+            empreses_seves = models.empresa.objects.get(numexp=numexp)
+            # TODO: Ficarla al context
+            context.update({'numexp', expedient.numexp})
+            context.update({'hora', expedient.datayhora})
+            i = 0
+            for e in empreses_seves:
+                context.update({'nomempresa' + i, e.nombre})
+                context.update({'nomempresa' + i, e.cargo})
+                i += 1
+        elif expedient.tipo == "Coche":
+            # TODO: Pillar les dades necessaries per aquest tipus
+            empreses_seves = models.empresa.objects.get(numexp=numexp)
+            # TODO: Ficarla al context
+            context.update({'numexp', expedient.numexp})
+            context.update({'hora', expedient.datayhora})
+            i = 0
+            for e in empreses_seves:
+                context.update({'nomempresa' + i, e.nombre})
+                context.update({'nomempresa' + i, e.cargo})
+                i += 1
+        return render(request, 'expediente.html', context)
 
 
 def asnef(request):
