@@ -33,6 +33,12 @@ my_default_errors_nacionalidad = {
     'required': _(u'Completa este campo'),
     'max_length': _(u'Este campo no puede pasar de 100 carácteres')
 }
+my_default_errors_username = {
+    'required': _(u'Completa este campo'),
+}
+my_default_errors_password = {
+    'required': _(u'Completa este campo'),
+}
 
 EstatsCivils = (
     ('Soltero', 'Soltero'),
@@ -77,6 +83,38 @@ Medios = (
     ('Otros', 'Otros')
 )
 
+class formBuscar(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(formCoche, self).__init__(*args, **kwargs)
+
+    def validarDNI(value):
+        tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
+        dig_ext = "XYZ"
+        reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
+        numeros = "1234567890"
+        dni = value.upper()
+        if len(dni) == 9:
+            dig_control = dni[8]
+            dni = dni[:8]
+            if dni[0] in dig_ext:
+                dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
+            if not len(dni) == len([n for n in dni if n in numeros]) \
+                    and tabla[int(dni) % 23] == dig_control:
+                raise ValidationError(_(my_default_errors_DNI['invalido']))
+
+    numexp = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                          error_messages=my_default_errors_DNI, validators=[validarDNI])
+
+class formExp(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(formCoche, self).__init__(*args, **kwargs)
+
+    username = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_username)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={"max_length": 100, "class": "form-control"}),
+                           error_messages=my_default_errors_password)
 
 class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
