@@ -1,6 +1,9 @@
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 
 EstatsCivils = (
@@ -45,6 +48,16 @@ Medios = (
     ('Publicidad Estatica', 'Publicidad Estatica'),
     ('Otros', 'Otros')
 )
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+       profile, created = perfil.objects.get_or_create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
+
+class perfil(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #Afegir altres parametres (numexp?)
 
 class expediente(models.Model):
     numexp = models.IntegerField()

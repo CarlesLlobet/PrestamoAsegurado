@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware'
+    'django.contrib.sessions.middleware.AuthenticationMiddleware'
 ]
 
 ROOT_URLCONF = 'PrestamoAsegurado.urls'
@@ -94,6 +96,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
+
+AUTH_PROFILE_MODULE = 'Operadora.UserProfile'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
