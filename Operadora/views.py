@@ -12,23 +12,23 @@ def index(request):
     return render(request, 'index.html')
 
 
-# def buscar_expediente(request):
-#     context = {}
-#     if request.method == 'POST':
-#         form = forms.formBuscar(request.POST)
-#         if form.is_valid():
-#             numexp = form.cleaned_data['numexp']
-#             dni = form.cleaned_data['dni']
-#             if 'numexp' in request.POST:
-#                 expedient = models.expediente.objects.get(numexp=numexp)
-#             elif 'dni' in request.POST:
-#                 expedient = models.expediente.objects.get(dni=dni)
-#             return HttpResponseRedirect('/expediente/'+expedient.numexp+'/')
-#     else:
-#         form = forms.formBuscar()
-#         context.update({"form": form})
-#         return render(request, 'buscar_expediente.html', context)
-#
+def buscar_expediente(request):
+    context = {}
+    if request.method == 'POST':
+        form = forms.formBuscar(request.POST)
+        if form.is_valid():
+            numexp = form.cleaned_data['numexp']
+            dni = form.cleaned_data['dni']
+            if 'numexp' in request.POST:
+                expedient = models.expediente.objects.get(numexp=numexp)
+            elif 'dni' in request.POST:
+                expedient = models.expediente.objects.get(dni=dni)
+            return HttpResponseRedirect('/expediente/'+expedient.numexp+'/formularios/')
+    else:
+        form = forms.formBuscar()
+        context.update({"form": form})
+        return render(request, 'buscar_expediente.html', context)
+
 def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
@@ -37,6 +37,7 @@ def expediente(request, numexp):
             user = form.cleaned_data['username']
             passwd = form.cleaned_data['password']
             user = User.objects.create_user(username=user, password=passwd)
+            return HttpResponseRedirect('/formularios/buscar_expediente/')
     else:
         expedient = models.expediente.objects.get(numexp=numexp)
         if expedient.tipo == "Personal":
@@ -497,7 +498,7 @@ def coche(request):
                 debemoroso3 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte3,
                                                                quien=morosoquien3)
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/formularios/')
         else:
             print form.errors
     else:
@@ -1349,7 +1350,7 @@ def personal(request):
                                                                    importe=avalistaorosoimporte3,
                                                                    quien=avalistaorosoquien3)
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/formularios/')
         else:
             print form.errors
     else:
