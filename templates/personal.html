@@ -100,14 +100,7 @@ include '../../includes/connect.php';
                             <div class="row">
                                 <div class="form-group col-sm-4">
                                     <label for="estadocivil" class="h4">¿Cuál es su estado civil?</label>
-                                    <select class="form-control" id="estadocivil" name="estadocivil">
-                                        <option value="0">-- Selecciona --</option>
-                                        <option value="soltero">Soltero</option>
-                                        <option value="viudo">Viudo</option>
-                                        <option value="divorciado">Divorciado</option>
-                                        <option value="pareja">Pareja de hecho</option>
-                                        <option value="casado">Casado</option>
-                                    </select>
+                                    {{ form.estadocivil }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div id="plsshw" class="form-group col-sm-4" style="display:none">
@@ -1651,6 +1644,7 @@ include '../../includes/connect.php';
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="an5" class="h4 ">Anotaciones para datos financieros...</label>
                                 <textarea class="form-control" id="an5" name="an5" rows="5" placeholder="Anotaciones para datos financieros..."></textarea>

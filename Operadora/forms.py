@@ -83,6 +83,7 @@ Medios = (
     ('Otros', 'Otros')
 )
 
+
 class formBuscar(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formCoche, self).__init__(*args, **kwargs)
@@ -107,14 +108,16 @@ class formBuscar(forms.Form):
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                           error_messages=my_default_errors_DNI, validators=[validarDNI])
 
+
 class formExp(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formCoche, self).__init__(*args, **kwargs)
 
     username = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                           error_messages=my_default_errors_username)
+                               error_messages=my_default_errors_username)
     password = forms.CharField(widget=forms.PasswordInput(attrs={"max_length": 100, "class": "form-control"}),
-                           error_messages=my_default_errors_password)
+                               error_messages=my_default_errors_password)
+
 
 class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -158,11 +161,12 @@ class formCoche(forms.Form):
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                                    error_messages=my_default_errors_nacionalidad)
 
-    estadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    estadocivil = forms.ChoiceField(widget=forms.Select(attrs={"class": "form-control"}),
+                                    choices=EstatsCivils)
 
     tipocasado = forms.ChoiceField(widget=forms.Select(choices=TipoCasado))
 
-    numerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+    numerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
 
     mayoresdeedad = forms.BooleanField(initial=False, required=False)
 
@@ -573,7 +577,6 @@ class formCoche(forms.Form):
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()
-
 
 
 class formMicrocredito(forms.Form):
@@ -1021,9 +1024,6 @@ class formMicrocredito(forms.Form):
         cleaned_data = super(formMicrocredito, self).clean()
 
 
-
-
-
 class formPersonal(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formPersonal, self).__init__(*args, **kwargs)
@@ -1066,7 +1066,8 @@ class formPersonal(forms.Form):
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                                    error_messages=my_default_errors_nacionalidad)
 
-    estadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
+    estadocivil = forms.ChoiceField(widget=forms.Select(attrs={"class": "form-control"}),
+                                    choices=EstatsCivils)
 
     tipocasado = forms.ChoiceField(widget=forms.Select(choices=TipoCasado))
 
@@ -1480,21 +1481,21 @@ class formPersonal(forms.Form):
     datayhora = forms.DateTimeField(disabled=True)
 
     avalistaame = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                  avalistarror_messages=my_default_errors_Name)
+                                  error_messages=my_default_errors_Name)
     avalistani = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                 avalistarror_messages=my_default_errors_DNI, validators=[validarDNI])
+                                 error_messages=my_default_errors_DNI, validators=[validarDNI])
     avalistaireccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                       avalistarror_messages=my_default_errors_direccion)
+                                       error_messages=my_default_errors_direccion)
     avalistamail = forms.EmailField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                    avalistarror_messages=my_default_errors_email, validators=[validate_email])
+                                    error_messages=my_default_errors_email, validators=[validate_email])
     avalistaelefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaovil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
-                                      avalistarror_messages=my_default_errors_movil)
+                                      error_messages=my_default_errors_movil)
     avalistaechanacimiento = forms.DateTimeField(required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD", "pickSeconds": False}),
                                                  error_messages=my_default_errors_fechanacimiento)
     avalistaacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                          avalistarror_messages=my_default_errors_nacionalidad)
+                                          error_messages=my_default_errors_nacionalidad)
     avalistastadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
     avalistaipocasado = forms.ChoiceField(widget=forms.Select(choices=TipoCasado))
     avalistaumerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -1541,13 +1542,11 @@ class formPersonal(forms.Form):
         options={"format": "YYYY-MM-DD", "pickSeconds": False}),
                                                   error_messages=my_default_errors_fechanacimiento)
     avalistainjuvilacion = forms.DateTimeField(label='execute_date', required=False,
-                                               avalistaidget=DateTimePicker(
-                                                   options={"format": "YYYY-MM-DD", "pickSeconds": False}),
-                                               avalistarror_messages=my_default_errors_fechanacimiento)
+                                               widget=DateTimePicker(
+                                                   options={"format": "YYYY-MM-DD", "pickSeconds": False}))
     avalistaarodesdecuando = forms.DateTimeField(label='execute_date', required=False,
-                                                 avalistaidget=DateTimePicker(
-                                                     options={"format": "YYYY-MM-DD", "pickSeconds": False}),
-                                                 avalistarror_messages=my_default_errors_fechanacimiento)
+                                                 widget=DateTimePicker(
+                                                     options={"format": "YYYY-MM-DD", "pickSeconds": False}))
     avalistaarocuantocobra = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistatrosingresos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistatrosgastos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -1611,61 +1610,61 @@ class formPersonal(forms.Form):
     avalistaiviendaalquiladavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalor2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalor3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistalquilerpaga1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -1746,7 +1745,6 @@ class formPersonal(forms.Form):
 
     def clean(self):
         cleaned_data = super(formPersonal, self).clean()
-
 
 
 class formHipotecario(forms.Form):
@@ -2205,21 +2203,21 @@ class formHipotecario(forms.Form):
     datayhora = forms.DateTimeField(disabled=True)
 
     avalistaame = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                  avalistarror_messages=my_default_errors_Name)
+                                  error_messages=my_default_errors_Name)
     avalistani = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                 avalistarror_messages=my_default_errors_DNI, validators=[validarDNI])
+                                 error_messages=my_default_errors_DNI, validators=[validarDNI])
     avalistaireccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                       avalistarror_messages=my_default_errors_direccion)
+                                       error_messages=my_default_errors_direccion)
     avalistamail = forms.EmailField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                    avalistarror_messages=my_default_errors_email, validators=[validate_email])
+                                    error_messages=my_default_errors_email, validators=[validate_email])
     avalistaelefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaovil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
-                                      avalistarror_messages=my_default_errors_movil)
+                                      error_messages=my_default_errors_movil)
     avalistaechanacimiento = forms.DateTimeField(required=False, widget=DateTimePicker(
         options={"format": "YYYY-MM-DD", "pickSeconds": False}),
                                                  error_messages=my_default_errors_fechanacimiento)
     avalistaacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                          avalistarror_messages=my_default_errors_nacionalidad)
+                                          error_messages=my_default_errors_nacionalidad)
     avalistastadocivil = forms.ChoiceField(widget=forms.Select(choices=EstatsCivils))
     avalistaipocasado = forms.ChoiceField(widget=forms.Select(choices=TipoCasado))
     avalistaumerohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -2266,13 +2264,13 @@ class formHipotecario(forms.Form):
         options={"format": "YYYY-MM-DD", "pickSeconds": False}),
                                                   error_messages=my_default_errors_fechanacimiento)
     avalistainjuvilacion = forms.DateTimeField(label='execute_date', required=False,
-                                               avalistaidget=DateTimePicker(
+                                               widget=DateTimePicker(
                                                    options={"format": "YYYY-MM-DD", "pickSeconds": False}),
-                                               avalistarror_messages=my_default_errors_fechanacimiento)
+                                               error_messages=my_default_errors_fechanacimiento)
     avalistaarodesdecuando = forms.DateTimeField(label='execute_date', required=False,
-                                                 avalistaidget=DateTimePicker(
+                                                 widget=DateTimePicker(
                                                      options={"format": "YYYY-MM-DD", "pickSeconds": False}),
-                                                 avalistarror_messages=my_default_errors_fechanacimiento)
+                                                 error_messages=my_default_errors_fechanacimiento)
     avalistaarocuantocobra = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistatrosingresos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistatrosgastos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -2336,61 +2334,61 @@ class formHipotecario(forms.Form):
     avalistaiviendaalquiladavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia1 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalor2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia2 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalor3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladavalorhipoteca3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaestapagada3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladalibredecargos3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacuotamensual3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaanos3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaentidad3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladametros3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladaporciento3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladadireccion3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladapoblacion3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladaprovincia3 = forms.CharField(
-        avalistaidget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
+        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), )
     avalistaiviendaalquiladacodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistaiviendaalquiladacobraalquiler3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
     avalistalquilerpaga1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))

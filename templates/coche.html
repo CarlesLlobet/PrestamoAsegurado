@@ -101,40 +101,36 @@ include '../../includes/connect.php';
                             <div class="row">
                                 <div class="form-group col-sm-4">
                                     <label for="estadocivil" class="h4">¿Cuál es su estado civil?</label>
-                                    <select class="form-control" id="tipoestadocivil" name="tipoestadocivil">
-                                        {{ form.estadocivil }}
-                                    </select>
+                                    {{ form.estadocivil }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div id="plsshw" class="form-group col-sm-4" style="display:none">
                                     <label for="tipoestadocivil" class="h4">Tipo de Casado***</label>
-                                    <select class="form-control" id="tipoestadocivil" name="tipoestadocivil">
-                                        {{ form.estadocivil }}
-                                    </select>
+                                    {{ form.tipocasado }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div id="plsshw2" class="col-sm-4">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="nhijos" class="h4">Numero de hijos</label>
-                                    <input type="text" class="form-control" id="nhijos" name="nhijos" >
+                                    {{ form.numerohijos }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div id ="123hijos" class="row" style="display: none">
                                 <div class="form-group col-sm-4">
                                     <label for="123" class="h4">Son mayores de edad?</label>
-                                    <input type="text" class="form-control" id="123" name="123">
+                                   {{ form.mayoresdeedad }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="123" class="h4">Cuantos estan a su cargo?</label>
-                                    <input type="text" class="form-control" id="123" name="123">
+                                    {{ form.cuantosacargo }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="123" class="h4">Recibe algun ingreso por ellos?</label>
-                                    <input type="text" class="form-control" id="123" name="123">
+                                    {{ form.ingresohijos }}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
