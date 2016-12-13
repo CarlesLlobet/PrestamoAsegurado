@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>Intranet</title>
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet"/>
+    <link href={% static "css/navbar-fixed-side.css" %} rel="stylesheet"/>
+    <link href={% static "css/custom.css" %} rel="stylesheet"/>
+    <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+        function saludar() {
+            var tiempo = new Date();
+            var hora, cad = "son las ";
+            with (tiempo) {
+                hora = getHours();
+                cad += hora + ":" + getMinutes() + ":" + getSeconds();
+            }
+            if (hora < 12)
+                cad = "Buenos días, ";
+            else if (hora < 18)
+                cad = "Buenas tardes, ";
+            else
+                cad = "Buenas noches, ";
+
+            return cad
+        }
+    </SCRIPT>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <h2 class="text-center">Bienvenido a Préstamo Asegurado</h2><br>
+            <p>
+                <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">document.write(saludar());</SCRIPT>
+                bienvenido a Préstamo Asegurado, mi nombre es ________
+            </p>
+
+            <p>Gracias por ponerse en contacto con nosotros, es la primera vez que nos llama?</p><br>
+            <center>
+                <button type="button" class="btn btn-primary btn-lg"
+                        onclick="$('#si').toggle();$('#no').hide();">SI
+                </button>
+                <button type="button" class="btn btn-primary btn-lg"
+                        onclick="$('#no').toggle();$('#si').hide();">NO
+                </button>
+            </center>
+            <br>
+            <div id="si" style="display: none">
+                <p> Sabe ya que tipo de prestamos ofrecemos? A continuacion les dire exactamente de que
+                    disponemos: </p><br>
+                <div class="row">
+                    <div class="col-sm-2 col-sm-offset-1 mi-container3">
+                        <p> Prestamo Personal:</p>
+                        <center><img src={% static "img/rapido.png" %} class="img-responsive" alt=""><br></center>
+                        <p> Préstamo personal es un producto que le permite cubrir muchas necesidades que con
+                            ahorro no podemos conseguir, puede solicitarlo por importes a partir de los
+                            1.000€.</p>
+                        <center><a href="personal">
+                            <button type="button" class="btn btn-primary">Clic Aqui</button>
+                        </a></center>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 mi-container3">
+                        <p> Prestamo Hipotecario:</p>
+                        <center><img src={% static "img/coche.png" %} class="img-responsive" alt=""><br></center>
+                        <p> Prestamos Hipotecarios le permiten el acceso de capital mas grande desde 10.000€
+                            hasta 200.000€. Te conseguimos la financiacion que te hace falta, para acceder a
+                            este servicio solo necesitas una propiedad sin hipoteca o con muy poca hipoteca.</p>
+                        <center><a href="hipotecario">
+                            <button type="button" class="btn btn-primary">Clic Aqui</button>
+                        </a></center>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 mi-container3">
+                        <p> Salir RAI/ASNEF:</p>
+                        <center><img src={% static "img/coche.png" %} class="img-responsive" alt=""><br></center>
+                        <p> Obtenga la mejor manera para salir de estas listas de morosidad y asi poder
+                            solicitar mas facilmente su prestamo en cualquier entidad. </p>
+                        <center><a href="asnef">
+                            <button type="button" class="btn btn-primary">Clic Aqui</button>
+                        </a></center>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 mi-container3">
+                        <p> Microcrédito:</p>
+                        <center><img src={% static "img/coche.png" %} class="img-responsive" alt=""><br></center>
+                        <p> Este tipo de credito esta enfocado a los imprevistos del dia a dia. Para la
+                            configuración de su micro crédito le informo de que usted podrá elegir una cantidad
+                            comprendida entre 50 y 900 euros, en tramos de 50 €, y un plazo de devolución a
+                            elegir entre 7, 15,21 y 30 días.</p>
+                        <center><a href="microcredito">
+                            <button type="button" class="btn btn-primary">Clic Aqui</button>
+                        </a></center>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 mi-container3">
+                        <p> Prestamo por su coche:</p>
+                        <center><img src={% static "img/coche.png" %} class="img-responsive" alt=""><br></center>
+                        <p> Le ofrecemos una alternativa fiable, rápida y segura: el empeño de tus coches con el
+                            que conseguirás el dinero rápido que necesitas para solucionar tus problemas de
+                            liquidez o adversidades económicas puntuales. Y seguiras conduciendolo.</p>
+                        <center><a href="coche">
+                            <button type="button" class="btn btn-primary">Clic Aqui</button>
+                        </a></center>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div id="no" style="display: none">
+                <p> Me podria decir cual es el motivo de su llamada?</p>
+                <p> (Una vez explicado el motivo de la llamda introducir el numero de expediente o dni para
+                    repasar el formualario y verificar sus datos.)</p>
+                <br><br>
+                <h3>Numero de expediente:</h3>
+                <form method="get" action="/usuarios/estudio/estudio.php">
+                    <input type="text" id="txtSearch" name="id" class="searchInput" value=""
+                           class="form-control"/><br><br>
+                    <input type="submit" value="Buscar por Numero de Expediente" class="btn btn-primary"
+                           disabled=""/>
+                </form>
+                <br/><br/>
+                <h3>DNI:</h3>
+                <form method="get" action="/usuarios/estudio/estudio.php">
+                    <input type="text" id="txtSearch" name="dni" class="searchInput" value=""
+                           class="form-control"/><br><br>
+                    <input type="submit" value="Buscar por DNI" class="btn btn-primary" disabled/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src={% static "js/jquery-3.1.1.min.js" %}></script>
+<script src={% static "js/validator.min.js" %}></script>
+</body>
+</html>
