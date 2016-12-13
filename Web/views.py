@@ -6,13 +6,13 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'web_index.html')
 
 def faq(request):
-    return render(request, 'preguntasfrequentes.html')
+    return render(request, 'web_faq.html')
 
 def servicios(request):
-    return render(request, 'servicios.html')
+    return render(request, 'web_services.html')
 
 def empresa(request):
-    return render(request, 'empresa.html')
+    return render(request, 'web_empresa.html')

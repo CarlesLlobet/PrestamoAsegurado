@@ -9,7 +9,7 @@ from Operadora import models
 
 
 def index(request):
-    return render(request, 'formularios.html')
+    return render(request, 'form_index.html')
 
 
 def buscar_expediente(request):
@@ -27,7 +27,7 @@ def buscar_expediente(request):
     else:
         form = forms.formBuscar()
         context.update({"form": form})
-        return render(request, 'buscar_expediente.html', context)
+        return render(request, 'form2_search.html', context)
 
 def expediente(request, numexp):
     context = {}
@@ -84,12 +84,12 @@ def expediente(request, numexp):
                 context.update({'nomempresa' + i, e.nombre})
                 context.update({'nomempresa' + i, e.cargo})
                 i += 1
-        return render(request, 'expediente.html', context)
+        return render(request, 'form2_exped.html', context)
 
 
 def asnef(request):
     context = {}
-    return render(request, 'asnef.html', context)
+    return render(request, 'form_asnef.html', context)
 
 
 def coche(request):
@@ -511,7 +511,7 @@ def coche(request):
         form.fields["numexp"].initial = lastNum
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        return render(request, 'coche.html', context)
+        return render(request, 'form_coche.html', context)
 
 def microcredito(request):
     context = {}
@@ -922,7 +922,7 @@ def microcredito(request):
         form.fields["numexp"].initial = lastNum
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        return render(request, 'microcredito.html', context)
+        return render(request, 'form_microcre.html', context)
 
 
 def personal(request):
@@ -1764,7 +1764,7 @@ def personal(request):
         form.fields["numexp"].initial = lastNum
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        return render(request, 'personal.html', context)
+        return render(request, 'form_person.html', context)
 
 
 
@@ -2607,4 +2607,4 @@ def hipotecario(request):
         form.fields["numexp"].initial = lastNum
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        return render(request, 'hipotecario.html', context)
+        return render(request, 'form_hipotec.html', context)
