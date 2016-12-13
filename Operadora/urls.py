@@ -18,7 +18,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='formularios'),
+    url(r'^$', views.index, name='index'),
     url(r'^asnef/$', views.asnef, name='asnef'),
     url(r'^coche/$', views.coche, name='coche'),
     url(r'^hipotecario/$', views.hipotecario, name='hipotecario'),

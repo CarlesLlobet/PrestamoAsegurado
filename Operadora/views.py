@@ -9,7 +9,7 @@ from Operadora import models
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'formularios.html')
 
 
 def buscar_expediente(request):
