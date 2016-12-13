@@ -6,26 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d1151a6-9c1c-4fc7-a0be-2aaa794a1e0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0002_auto_20161130_0929.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0003_auto_20161206_1939.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0004_auto_20161206_2015.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0005_auto_20161209_0105.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/0006_perfil.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Operadora/urls.py" afterPath="$PROJECT_DIR$/Operadora/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/preguntasfrequentes.html" afterPath="$PROJECT_DIR$/templates/preguntasfrequentes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/servicios.html" afterPath="$PROJECT_DIR$/templates/servicios.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrestamoAsegurado/settings.py" afterPath="$PROJECT_DIR$/PrestamoAsegurado/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrestamoAsegurado/urls.py" afterPath="$PROJECT_DIR$/PrestamoAsegurado/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,11 +82,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-12087">
               <caret line="461" column="98" lean-forward="false" selection-start-line="461" selection-start-column="98" selection-end-line="461" selection-end-column="98" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -207,7 +200,6 @@
         <option value="$PROJECT_DIR$/templates/hipotecario.html" />
         <option value="$PROJECT_DIR$/templates/microcredito.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Web/models.py" />
         <option value="$PROJECT_DIR$/Web/forms.py" />
         <option value="$PROJECT_DIR$/PrimeraLlamada/models.py" />
         <option value="$PROJECT_DIR$/PrimeraLlamada/forms.py" />
@@ -215,10 +207,8 @@
         <option value="$PROJECT_DIR$/templates/expediente.html" />
         <option value="$PROJECT_DIR$/requeriments.txt" />
         <option value="C:/Python27/Lib/site-packages/bootstrap3_datetime/widgets.py" />
-        <option value="$PROJECT_DIR$/PrestamoAsegurado/urls.py" />
         <option value="$PROJECT_DIR$/Operadora/models.py" />
         <option value="$PROJECT_DIR$/Operadora/views.py" />
-        <option value="$PROJECT_DIR$/PrestamoAsegurado/settings.py" />
         <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/templates/coche.html" />
         <option value="$PROJECT_DIR$/Operadora/forms.py" />
@@ -229,6 +219,9 @@
         <option value="$PROJECT_DIR$/templates/preguntasfrequentes.html" />
         <option value="$PROJECT_DIR$/templates/servicios.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/Web/models.py" />
+        <option value="$PROJECT_DIR$/PrestamoAsegurado/settings.py" />
+        <option value="$PROJECT_DIR$/PrestamoAsegurado/urls.py" />
       </list>
     </option>
   </component>
@@ -769,13 +762,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Operadora/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -971,14 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="52" column="1" lean-forward="false" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/coche.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
@@ -1007,14 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1073,6 +1043,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12087">
           <caret line="461" column="98" lean-forward="false" selection-start-line="461" selection-start-column="98" selection-end-line="461" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PrestamoAsegurado/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
           <folding />
         </state>
       </provider>
