@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
+from functools import wraps
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -11,7 +12,11 @@ from Operadora import models
 
 from mailer import Mailer, Message
 
+def group_check(user):
+    return user.groups.filter(name__in=['Operadors'])
 
+@login_required(login_url="/")
+@user_passes_test(group_check)
 def index(request):
     context = {}
     if request.method == 'POST':
@@ -30,6 +35,7 @@ def index(request):
         return render(request, 'form_index.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
@@ -96,11 +102,13 @@ def expediente(request, numexp):
         return render(request, 'form2_exped.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def asnef(request):
     context = {}
     return render(request, 'form_asnef.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def coche(request):
     context = {}
     if request.method == 'POST':
@@ -523,6 +531,7 @@ def coche(request):
         return render(request, 'form_coche.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def microcredito(request):
     context = {}
     if request.method == 'POST':
@@ -935,6 +944,7 @@ def microcredito(request):
         return render(request, 'form_microcre.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def personal(request):
     context = {}
     if request.method == 'POST':
@@ -1777,6 +1787,7 @@ def personal(request):
         return render(request, 'form_person.html', context)
 
 @login_required(login_url="/")
+@user_passes_test(group_check)
 def hipotecario(request):
     context = {}
     if request.method == 'POST':

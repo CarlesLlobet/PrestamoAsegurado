@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^servicios/$', views.servicios, name='servicios'),
     url(r'^empresa/$', views.empresa, name='empresa'),
+    url(r'^logout/$', views.logout, {'next_page': '/'})
 ]

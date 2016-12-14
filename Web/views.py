@@ -1,6 +1,3 @@
-from datetime import datetime
-
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -10,6 +7,7 @@ from Web import forms
 
 
 def index(request):
+    context = {}
     if request.method=="POST":
         form = forms.formLogin(request.POST)
         if form.is_valid():
@@ -20,8 +18,11 @@ def index(request):
                 if login.username == "opera":
                     return HttpResponseRedirect('/formularios')
                 else:
-                    return HttpResponseRedirect('/formularios') #TODO: Canviar pel lloc on van els users a penjar fotos
-    return render(request, 'web_index.html')
+                    return HttpResponseRedirect('/') #TODO: Canviar pel lloc on van els users a penjar fotos
+    else:
+        form = forms.formLogin()
+        context.update({"form": form})
+    return render(request, 'web_index.html', context)
 
 def faq(request):
     return render(request, 'web_faq.html')
