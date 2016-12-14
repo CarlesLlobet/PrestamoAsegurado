@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Operadora',
     'Web',
-    'bootstrap3',
-    'jquery',
     'bootstrap3_datetime'
 ]
 
