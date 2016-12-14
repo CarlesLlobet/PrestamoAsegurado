@@ -434,27 +434,24 @@
                     <div class="row" id="viviendapagada11" style="display:none">
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip" class="h4">Cuota mensual que paga de la hipoteca</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendacuotahip" name="viviendacuotahip" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.viviendacuotamensual1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship" class="h4">Años que le restan</label>
-                            <input type="text" class="form-control" id="viviendaanoship" name="viviendaanoship">
+                            {{ form.viviendaanos1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip" class="h4">Con que entidad?</label>
-                            <input type="text" class="form-control" id="viviendaentidadhip" name="viviendaentidadhip">
+                            {{ form.viviendaentidad1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
-                            <input type="text" class="form-control" id="viviendapoblacion" name="viviendapoblacion" >
+                            {{ form.viviendalibredecargos1 }}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -462,37 +459,34 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendam" class="h4">Metros aproximados de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendam" name="viviendam" >
+                            {{ form.viviendametros1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento" class="h4">% de la propiedad</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendaporciento" name="viviendaporciento">
-                                <div class="input-group-addon">%</div>
-                            </div>
+                            {{ form.viviendaporciento1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion" class="h4">Dirección</label>
-                            <input type="text" class="form-control" id="viviendadireccion" name="viviendadireccion">
+                            {{ form.viviendadireccion1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Población</label>
-                            <input type="text" class="form-control" id="viviendapoblacion" name="viviendapoblacion" >
+                            {{ form.viviendapoblacion1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia" class="h4">Província</label>
-                            <input type="text" class="form-control" id="viviendaprovincia" name="viviendaprovincia">
+                            {{ form.viviendaprovincia1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp" class="h4">Codigo Postal</label>
-                            <input type="text" class="form-control" id="viviendacp" name="viviendacp">
+                            {{ form.viviendacodigopostal1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -513,48 +507,41 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor2" class="h4">Valor estimado de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendavalor2" name="viviendavalor2" >
+                            {{ form.viviendavalor2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor2" class="h4">Valor de la hipoteca</label>
-                            <input type="text" class="form-control" id="viviendahipotecavalor2" name="viviendahipotecavalor2">
+                            {{ form.viviendavalorhipoteca2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada2" class="h4">Esta pagada?</label>
-                            <select class="form-control" id="viviendapagada2" name="viviendapagada2">
-                                <option value="0">-- Selecciona --</option>
-                                <option value="1">SI</option>
-                                <option value="0">NO</option>
-                            </select>
+                            {{ form.viviendaestapagada2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row" id="viviendapagada22" style="display:none">
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip2" class="h4">Cuota mensual que paga de la hipoteca</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendacuotahip2" name="viviendacuotahip2" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.viviendacuotamensual2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship2" class="h4">Años que le restan</label>
-                            <input type="text" class="form-control" id="viviendaanoship2" name="viviendaanoship2">
+                            {{ form.viviendaanos2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip2" class="h4">Con que entidad?</label>
-                            <input type="text" class="form-control" id="viviendaentidadhip2" name="viviendaentidadhip2">
+                            {{ form.viviendaentidad2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
-                            <input type="text" class="form-control" id="viviendapoblacion" name="viviendapoblacion" >
+                            {{ form.viviendalibredecargos2 }}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -562,37 +549,34 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendam2" class="h4">Metros aproximados de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendam2" name="viviendam2" >
+                            {{ form.viviendametros2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento2" class="h4">% de la propiedad</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendaporciento2" name="viviendaporciento2">
-                                <div class="input-group-addon">%</div>
-                            </div>
+                            {{ form.viviendaporciento2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion2" class="h4">Dirección</label>
-                            <input type="text" class="form-control" id="viviendadireccion2" name="viviendadireccion2">
+                            {{ form.viviendadireccion2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion2" class="h4">Población</label>
-                            <input type="text" class="form-control" id="viviendapoblacion2" name="viviendapoblacion2" >
+                            {{ form.viviendapoblacion2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia2" class="h4">Província</label>
-                            <input type="text" class="form-control" id="viviendaprovincia2" name="viviendaprovincia2">
+                            {{ form.viviendaprovincia2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp2" class="h4">Codigo Postal</label>
-                            <input type="text" class="form-control" id="viviendacp2" name="viviendacp2">
+                            {{ form.viviendacodigopostal2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -606,48 +590,41 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor3" class="h4">Valor estimado de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendavalor3" name="viviendavalor3" >
+                            {{ form.viviendavalor3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor3" class="h4">Valor de la hipoteca</label>
-                            <input type="text" class="form-control" id="viviendahipotecavalor3" name="viviendahipotecavalor3">
+                            {{ form.viviendavalorhipoteca3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada3" class="h4">Esta pagada?</label>
-                            <select class="form-control" id="viviendapagada3" name="viviendapagada3">
-                                <option value="0">-- Selecciona --</option>
-                                <option value="1">SI</option>
-                                <option value="0">NO</option>
-                            </select>
+                            {{ form.viviendaestapagada3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row" id="viviendapagada33" style="display:none">
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip3" class="h4">Cuota mensual que paga de la hipoteca</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendacuotahip3" name="viviendacuotahip3" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.viviendacuotamensual3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship3" class="h4">Años que le restan</label>
-                            <input type="text" class="form-control" id="viviendaanoship3" name="viviendaanoship3">
+                            {{ form.viviendaanos3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip3" class="h4">Con que entidad?</label>
-                            <input type="text" class="form-control" id="viviendaentidadhip3" name="viviendaentidadhip3">
+                            {{ form.viviendaentidad3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
-                            <input type="text" class="form-control" id="viviendapoblacion" name="viviendapoblacion" >
+                            {{ form.viviendalibredecargos3 }}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -655,37 +632,34 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendam3" class="h4">Metros aproximados de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendam3" name="viviendam3" >
+                            {{ form.viviendametros3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento3" class="h4">% de la propiedad</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="viviendaporciento3" name="viviendaporciento3">
-                                <div class="input-group-addon">%</div>
-                            </div>
+                            {{ form.viviendaporciento3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion3" class="h4">Dirección</label>
-                            <input type="text" class="form-control" id="viviendadireccion3" name="viviendadireccion3">
+                            {{ form.viviendadireccion3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion3" class="h4">Población</label>
-                            <input type="text" class="form-control" id="viviendapoblacion3" name="viviendapoblacion3" >
+                            {{ form.viviendapoblacion3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia3" class="h4">Província</label>
-                            <input type="text" class="form-control" id="viviendaprovincia3" name="viviendaprovincia3">
+                            {{ form.viviendaprovincia3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp3" class="h4">Codigo Postal</label>
-                            <input type="text" class="form-control" id="viviendacp3" name="viviendacp3">
+                            {{ form.viviendacodigopostal3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
