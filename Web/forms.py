@@ -10,7 +10,7 @@ class formLogin(forms.Form):
     username = forms.CharField(max_length=30,
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(max_length=30,
-                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     def clean(self):
         cleaned_data = super(formLogin, self).clean()
