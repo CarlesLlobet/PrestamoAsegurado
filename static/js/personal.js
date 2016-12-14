@@ -7,7 +7,7 @@ $(document).ready(function() {
     $("#importe_select2").change(function() { /*Si importe_select2 canvia*/
         calculacuota();
     });
-    $("#estadocivil").change(function() { /*Si estadovicil canvia*/
+    $("#id_estadocivil").change(function() { /*Si estadovicil canvia*/
         tipoestadocivil();
     });
     $("#ayudaimporte").change(function() { /*Si importe_select canvia*/
@@ -232,20 +232,17 @@ $(document).ready(function() {
 
 
     function tipoestadocivil() {
-        var estadocivil = $("#estadocivil").val();
+        var estadocivil = $("#id_estadocivil").val();
         if (estadocivil == 'casado') {
             div = document.getElementById('plsshw');
             div.style.display = "block";
             div2 = document.getElementById('plsshw2');
             div2.style.display = "none";
-            $("#tipoestadocivil").append('<option value="separacion">Separación de bienes</option>');
-            $("#tipoestadocivil").append('<option value="gananciales">Bienes gananciales</option>');
         } else {
             div = document.getElementById('plsshw');
             div.style.display = "none";
             div2 = document.getElementById('plsshw2');
             div2.style.display = "block";
-            $('#tipoestadocivil').children('option:not(:first)').remove();
         }
 
     };

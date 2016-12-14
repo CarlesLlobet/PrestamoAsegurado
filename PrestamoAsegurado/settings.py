@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Operadora',
     'Web',
-    'bootstrap3_datetime',
-    'bootstrap3'
+    'bootstrap3',
+    'jquery',
+    'bootstrap3_datetime'
 ]
 
 MIDDLEWARE = [
@@ -81,10 +82,20 @@ WSGI_APPLICATION = 'PrestamoAsegurado.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'OPTIONS': {
+    #         'host': 'prestamoasegurado.com',
+    #         'database': 'prestamoasegurado2017',
+    #         'user': 'pa2017',
+    #         'password': 'Hola123',
+    #         'default-character-set': 'utf8',
+    #     }
+    # }
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
     #'default': {
     #    'ENGINE': 'django.db.backends.mysql',
     #    'NAME': 'prestamoasegurado2017',

@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-from bootstrap3_datetime.widgets import DateTimePicker
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
-
+from bootstrap3_datetime.widgets import DateTimePicker
 
 my_default_errors_Name = {
     'required': _(u'Completa este campo'),
@@ -174,7 +173,7 @@ class formCoche(forms.Form):
 
     ingresohijos = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
 
-    anotacionespersonales = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}))
+    anotacionespersonales = forms.CharField(widget=forms.Textarea(attrs={"max_length": 500, "rows": 5, "placeholder": "Anotaciones para los datos personales...", "class": "form-control"}))
 
     cotizacion = forms.ChoiceField(widget=forms.Select(choices=Cotiza))
 

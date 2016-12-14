@@ -101,13 +101,13 @@
         </div>
         <div class="form-group">
             <label for="an2" class="h4 ">Anotaciones para los datos personales...</label>
-            <textarea class="form-control" id="an2" name="an2" rows="5" placeholder="Anotaciones para los datos personales..."></textarea>
+            {{ form.anotacionespersonales }}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
         <hr>
         <br><br><br>
-        <p>Su número de expediente es el ******, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
+        <p>Su número de expediente es el {{ form.numexp }}, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
         <br><br><br>
         <hr>
         <br><br><br>
@@ -125,25 +125,19 @@
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <label for="empresatipo" class="h4">Cotiza usted en la Seguridad Social?</label>
-                        <select class="form-control" id="empresatipo" name="empresatipo">
-                            <option value="0">-- Selecciona --</option>
-                            <option value="propia">Es por cuenta propia (Autonomo)</option>
-                            <option value="ajena">Es por cuenta  ajena</option>
-                        </select>
+                        {{ form.cotizacion }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div id="ajenasi" class="form-group col-sm-4" style="display:none">
                         <label for="empresaajena" class="h4">Tiene trabajo...</label>
-                        <select class="form-control" id="empresaajena" name="empresaajena">
-                            <option value="0" selected="selected">-- Selecciona --</option>
-                        </select>
+                        {{ form.tipotrabajo }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div id="ajenano" class="col-sm-4">
                     </div>
                     <div id="tempsi" class="form-group col-sm-4" style="display:none">
                         <label for="empresatiempo" class="h4">¿Cuando finaliza el contrato?</label>
-                        <input type="date" class="form-control" id="empresatiempo" name="empresatiempo">
+                        {{ form.finalizacontrato }}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -155,47 +149,41 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresanombre" class="h4">Nombre de la empresa</label>
-                            <input type="text" class="form-control" id="empresanombre" name="empresanombre" >
+                            {{ form.nombreempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo" class="h4">Cargo que desempeña</label>
-                            <input type="text" class="form-control" id="empresacargo" name="empresacargo">
+                            {{ form.cargoempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad" class="h4">Actividad de la empresa</label>
-                            <input type="text" class="form-control" id="empresaactividad" name="empresaactividad">
+                            {{ form.actividadempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos" class="h4">Que ingresos tiene mensualmente</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaingresos" name="empresaingresos" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.ingresosempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas" class="h4">Cuantas pagas cobra al año</label>
-                            <input type="text" class="form-control" id="empresapagas" name="empresapagas">
+                            {{ form.pagasempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros" class="h4">Algún otro ingreso mensual?</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaotros" name="empresaotros">
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.otrosingresosempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad" class="h4">La antigüedad de la empresa</label>
-                            <input type="date" class="form-control" id="empresaantiguedad" name="empresaantiguedad" >
+                            {{ form.antiguedadempresa1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -208,47 +196,41 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresanombre2" class="h4">Nombre de la empresa</label>
-                            <input type="text" class="form-control" id="empresanombre2" name="empresanombre2" >
+                            {{ form.nombreempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo2" class="h4">Cargo que desempeña</label>
-                            <input type="text" class="form-control" id="empresacargo2" name="empresacargo2">
+                            {{ form.cargoempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad2" class="h4">Actividad de la empresa</label>
-                            <input type="text" class="form-control" id="empresaactividad2" name="empresaactividad2">
+                            {{ form.actividadempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos2" class="h4">Que ingresos tiene mensualmente</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaingresos2" name="empresaingresos2" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.ingresosempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas2" class="h4">Cuantas pagas cobra al año</label>
-                            <input type="text" class="form-control" id="empresapagas2" name="empresapagas2">
+                            {{ form.pagasempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros2" class="h4">Algún otro ingreso mensual?</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaotros2" name="empresaotros2">
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.otrosingresosempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad2" class="h4">La antigüedad de la empresa</label>
-                            <input type="date" class="form-control" id="empresaantiguedad2" name="empresaantiguedad2" >
+                            {{ form.antiguedadempresa2 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -262,47 +244,41 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresanombre3" class="h4">Nombre de la empresa</label>
-                            <input type="text" class="form-control" id="empresanombre3" name="empresanombre3" >
+                            {{ form.nombreempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo3" class="h4">Cargo que desempeña</label>
-                            <input type="text" class="form-control" id="empresacargo3" name="empresacargo3">
+                            {{ form.cargoempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad3" class="h4">Actividad de la empresa</label>
-                            <input type="text" class="form-control" id="empresaactividad3" name="empresaactividad3">
+                            {{ form.actividadempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos3" class="h4">Que ingresos tiene mensualmente</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaingresos3" name="empresaingresos3" >
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.ingresosempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas3" class="h4">Cuantas pagas cobra al año</label>
-                            <input type="text" class="form-control" id="empresapagas3" name="empresapagas3">
+                            {{ form.pagasempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros3" class="h4">Algún otro ingreso mensual?</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="empresaotros3" name="empresaotros3">
-                                <div class="input-group-addon">€</div>
-                            </div>
+                            {{ form.otrosingresosempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad3" class="h4">La antigüedad de la empresa</label>
-                            <input type="date" class="form-control" id="empresaantiguedad3" name="empresaantiguedad3" >
+                            {{ form.antiguedadempresa3 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -324,15 +300,12 @@
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <label for="ayudaimporte" class="h4">Importe</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="ayudaimporte" name="ayudaimporte">
-                            <div class="input-group-addon">€</div>
-                        </div>
+                        {{ form.importejuvilacion }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="ayudapagas" class="h4">Numero de Pagas</label>
-                        <input type="text" class="form-control" id="ayudapagas" name="ayudapagas">
+                        {{ form.numerodepagasjuvilacion }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-4">
@@ -347,12 +320,12 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label for="ayudainicio" class="h4">Fecha inicio prestaciones</label>
-                        <input type="date" class="form-control" id="ayudainicio" name="ayudainicio" >
+                        {{ form.iniciojuvilacion }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="ayudafin" class="h4">Fecha fin prestaciones</label>
-                        <input type="date" class="form-control" id="ayudafin" name="ayudafin">
+                        {{ form.finjuvilacion }}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -370,15 +343,12 @@
                 <br>
                 <div class="form-group col-sm-6">
                     <label for="parofecha" class="h4">¿Desde cuando?</label>
-                    <input type="date" class="form-control" id="parofecha" name="parofecha" >
+                    {{ form.parodesdecuando }}
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="parodinero" class="h4">¿Cuánto cobra?</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="parodinero" name="parodinero">
-                        <div class="input-group-addon">€</div>
-                    </div>
+                    {{ form.parocuantocobra }}
                     <div class="help-block with-errors"></div>
                 </div>
                 <br>
@@ -395,38 +365,26 @@
                 <br>
                 <div class="form-group col-sm-6">
                     <label for="ingresoextra" class="h4">¿Tiene algún otro tipo de ingreso?</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="ingresoextra" name="ingresoextra">
-                        <div class="input-group-addon">€</div>
-                    </div>
+                    {{ form.otrosingresos }}
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="gastoextra" class="h4">¿Tiene algún otro tipo de gasto?</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="gastoextra" name="gastoextra">
-                        <div class="input-group-addon">€</div>
-                    </div>
+                    {{ form.otrosgastos }}
                     <div class="help-block with-errors"></div>
                 </div>
                 <br>
                 <br>
                 <div class="form-group col-sm-6">
                     <label for="ingresoextra" class="h4">En concepto de que tiene el ingreso?</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="ingresoextra" name="ingresoextra">
-                        <div class="input-group-addon">€</div>
-                    </div>
+                    {{ form.otrosingresostexto }}
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="gastoextra" class="h4">En concepto de que tiene el gasto?</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="gastoextra" name="gastoextra">
-                        <div class="input-group-addon">€</div>
-                    </div>
+                    {{ form.otrosgastostexto }}
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -436,7 +394,7 @@
         <br>
         <div class="form-group">
             <label for="an3" class="h4 ">Anotaciones para tipos de ingresos...</label>
-            <textarea class="form-control" id="an3" name="an3" rows="5" placeholder="Anotaciones para tipos de ingresos..."></textarea>
+            {{ form.anotacionesingresos }}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
@@ -459,21 +417,17 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor" class="h4">Valor estimado de la vivienda</label>
-                            <input type="text" class="form-control" id="viviendavalor" name="viviendavalor" >
+                            {{ form.viviendavalor1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor" class="h4">Valor de la hipoteca</label>
-                            <input type="text" class="form-control" id="viviendahipotecavalor" name="viviendahipotecavalor">
+                            {{ form.viviendavalorhipoteca1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada" class="h4">Esta pagada?</label>
-                            <select class="form-control" id="viviendapagada" name="viviendapagada">
-                                <option value="0">-- Selecciona --</option>
-                                <option value="1">SI</option>
-                                <option value="0">NO</option>
-                            </select>
+                            {{ form.viviendaestapagada1 }}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
