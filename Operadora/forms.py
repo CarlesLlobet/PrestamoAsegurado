@@ -109,8 +109,8 @@ class formBuscar(forms.Form):
 
     def clean(self):
         cleaned_data = super(formBuscar, self).clean()
-        dni = self.cleaned_data['dni']
-        numexp = self.cleaned_data['numexp']
+        dni = cleaned_data['dni']
+        numexp = cleaned_data['numexp']
 
         if dni == "" and numexp == "":
             raise forms.ValidationError(

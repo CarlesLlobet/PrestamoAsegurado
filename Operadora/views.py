@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -28,7 +29,7 @@ def index(request):
         context.update({"form": form})
         return render(request, 'form_index.html', context)
 
-
+@login_required(login_url="/")
 def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
@@ -94,12 +95,12 @@ def expediente(request, numexp):
                 i += 1
         return render(request, 'form2_exped.html', context)
 
-
+@login_required(login_url="/")
 def asnef(request):
     context = {}
     return render(request, 'form_asnef.html', context)
 
-
+@login_required(login_url="/")
 def coche(request):
     context = {}
     if request.method == 'POST':
@@ -521,7 +522,7 @@ def coche(request):
         context.update({"form": form})
         return render(request, 'form_coche.html', context)
 
-
+@login_required(login_url="/")
 def microcredito(request):
     context = {}
     if request.method == 'POST':
@@ -933,7 +934,7 @@ def microcredito(request):
         context.update({"form": form})
         return render(request, 'form_microcre.html', context)
 
-
+@login_required(login_url="/")
 def personal(request):
     context = {}
     if request.method == 'POST':
@@ -1775,7 +1776,7 @@ def personal(request):
         context.update({"form": form})
         return render(request, 'form_person.html', context)
 
-
+@login_required(login_url="/")
 def hipotecario(request):
     context = {}
     if request.method == 'POST':
