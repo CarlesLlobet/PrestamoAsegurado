@@ -49,16 +49,6 @@ Medios = (
     ('Otros', 'Otros')
 )
 
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-       profile, created = perfil.objects.get_or_create(user=instance)
-
-post_save.connect(create_user_profile, sender=User)
-
-class perfil(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #Afegir altres parametres (numexp?)
-
 class expediente(models.Model):
     numexp = models.IntegerField()
     tipo = models.CharField(max_length=10)
