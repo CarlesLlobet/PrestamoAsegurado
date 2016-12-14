@@ -154,7 +154,7 @@ class formCoche(forms.Form):
     movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                error_messages=my_default_errors_movil)
 
-    fechanacimiento = forms.DateTimeField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickTime": False}),
+    fechanacimiento = forms.DateTimeField(widget=DateTimePicker(attrs={"type":"date"},options={"format": "YYYY-MM-DD", "pickTime": False}),
                                           error_messages=my_default_errors_fechanacimiento)
 
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
