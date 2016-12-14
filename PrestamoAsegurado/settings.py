@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Operadora',
     'Web',
-    'bootstrap3_datetime'
+    'bootstrap3_datetime',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [

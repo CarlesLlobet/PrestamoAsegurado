@@ -1,3 +1,9 @@
 .idea/workspace.xml
 *.pyc
 *.xml
+.idea/dataSources/40b9ddf1-9a3e-457f-87bb-38904c8fc546/
+.idea/dataSources/58667eb6-b0a7-4308-bff3-091aa41ac6b5/_src_/
+.idea/dataSources/58667eb6-b0a7-4308-bff3-091aa41ac6b5/_staging_/
+.idea/dataSources/fc72af03-5c69-4057-b8b6-f389f3ba9d27/_src_/
+.idea/dataSources/fc72af03-5c69-4057-b8b6-f389f3ba9d27/_staging_/
+templates/forms/

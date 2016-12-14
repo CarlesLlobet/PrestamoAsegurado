@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-
+from bootstrap3_datetime.widgets import DateTimePicker
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
-from bootstrap3_datetime.widgets import DateTimePicker
+
 
 my_default_errors_Name = {
     'required': _(u'Completa este campo'),
@@ -155,8 +155,8 @@ class formCoche(forms.Form):
     movil = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                error_messages=my_default_errors_movil)
 
-    fechanacimiento = forms.DateTimeField(required=False, widget=DateTimePicker(
-        options={"format": "YYYY-MM-DD", "pickSeconds": False}), error_messages=my_default_errors_fechanacimiento)
+    fechanacimiento = forms.DateTimeField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickSeconds": False}),
+                                          error_messages=my_default_errors_fechanacimiento)
 
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                                    error_messages=my_default_errors_nacionalidad)
