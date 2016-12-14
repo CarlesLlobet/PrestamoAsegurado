@@ -54,7 +54,6 @@ class expediente(models.Model):
     tipo = models.CharField(max_length=10)
     fecha_hora = models.DateTimeField()
 
-
 class persona(models.Model):
     numexp = models.IntegerField()
     avalista = models.BooleanField(default=False)

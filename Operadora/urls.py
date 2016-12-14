@@ -24,6 +24,5 @@ urlpatterns = [
     url(r'^hipotecario/$', views.hipotecario, name='hipotecario'),
     url(r'^microcredito/$', views.microcredito, name='microcredito'),
     url(r'^personal/$', views.personal, name='personal'),
-    url(r'^buscar_expediente/$', views.personal, name='buscar_expediente'),
-    url(r'^expediente/$', views.personal, name='expediente'),
+    url(r'^expediente/(?P<numexp>[0-9]+)/$', views.personal, name='expediente'),
 ]

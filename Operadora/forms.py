@@ -102,20 +102,19 @@ class formBuscar(forms.Form):
                     and tabla[int(dni) % 23] == dig_control:
                 raise ValidationError(_(my_default_errors_DNI['invalido']))
 
-    numexp = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}))
+    numexp = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),required=False)
 
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                          error_messages=my_default_errors_DNI, validators=[validarDNI])
+                          error_messages=my_default_errors_DNI, validators=[validarDNI],required=False)
 
+    def clean(self):
+        cleaned_data = super(formBuscar, self).clean()
+        dni = self.cleaned_data['dni']
+        numexp = self.cleaned_data['numexp']
 
-class formExp(forms.Form):
-    def __init__(self, *args, **kwargs):
-        super(formCoche, self).__init__(*args, **kwargs)
-
-    username = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                               error_messages=my_default_errors_username)
-    password = forms.CharField(widget=forms.PasswordInput(attrs={"max_length": 100, "class": "form-control"}),
-                               error_messages=my_default_errors_password)
+        if dni == "" and numexp == "":
+            raise forms.ValidationError(
+                _(u'Siusplau especifica un DNI o Número d\'Expedient a buscar'))
 
 
 class formCoche(forms.Form):

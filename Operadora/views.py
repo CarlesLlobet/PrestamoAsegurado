@@ -1,18 +1,17 @@
+# -*- coding: utf-8 -*-
 from datetime import datetime
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from Operadora import forms
 from Operadora import models
 
+from mailer import Mailer, Message
+
 
 def index(request):
-    return render(request, 'form_index.html')
-
-
-def buscar_expediente(request):
     context = {}
     if request.method == 'POST':
         form = forms.formBuscar(request.POST)
@@ -23,33 +22,42 @@ def buscar_expediente(request):
                 expedient = models.expediente.objects.get(numexp=numexp)
             elif 'dni' in request.POST:
                 expedient = models.expediente.objects.get(dni=dni)
-            return HttpResponseRedirect('/expediente/'+expedient.numexp+'/formularios/')
+            return HttpResponseRedirect('/expediente/' + expedient.numexp)
     else:
         form = forms.formBuscar()
         context.update({"form": form})
-        return render(request, 'form2_search.html', context)
+        return render(request, 'form_index.html', context)
+
 
 def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
-        form = forms.formBuscar(request.POST)
-        if form.is_valid:
-            user = form.cleaned_data['username']
-            passwd = form.cleaned_data['password']
-            user = User.objects.create_user(username=user, password=passwd)
-            return HttpResponseRedirect('/formularios/buscar_expediente/')
+        person = models.persona.objects.get(numexp=numexp)
+        user = User.objects.create_user(numexp, person.email, person.dni)
+        user.save()
+        g = Group.objects.get(name='Clients')
+        g.user_set.add(user)
+        message = Message(From="prestamo@noreply.com",
+                          To=[person.email],
+                          Subject=u'Nueva cuenta en Prestamo Asegurado')
+        message.Body = u'Acaba de crearse una cuenta para que pueda enviarnos las fotos de ... \n Su usuario sera ' + unicode(
+            numexp) + u' y su contraseña' + unicode(
+            person.dni) + u'\n Gracias por su atencion,\n\n Cordialmente, \n Prestamo Asegurado'
+        sender = Mailer('localhost')
+        sender.send(message)
+        return HttpResponseRedirect('/formularios')
     else:
         expedient = models.expediente.objects.get(numexp=numexp)
         if expedient.tipo == "Personal":
-            #TODO: Pillar les dades necessaries per aquest tipus
+            # TODO: Pillar les dades necessaries per aquest tipus
             empreses_seves = models.empresa.objects.get(numexp=numexp)
-            #TODO: Ficarla al context
+            # TODO: Ficarla al context
             context.update({'numexp', expedient.numexp})
             context.update({'hora', expedient.datayhora})
             i = 0
             for e in empreses_seves:
-                context.update({'nomempresa'+i, e.nombre})
-                context.update({'nomempresa'+i, e.cargo})
+                context.update({'nomempresa' + i, e.nombre})
+                context.update({'nomempresa' + i, e.cargo})
                 i += 1
         elif expedient.tipo == "Hipotecario":
             # TODO: Pillar les dades necessaries per aquest tipus
@@ -512,6 +520,7 @@ def coche(request):
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
         return render(request, 'form_coche.html', context)
+
 
 def microcredito(request):
     context = {}
@@ -1765,7 +1774,6 @@ def personal(request):
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
         return render(request, 'form_person.html', context)
-
 
 
 def hipotecario(request):
