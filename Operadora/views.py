@@ -15,24 +15,24 @@ from mailer import Mailer, Message
 def group_check(user):
     return user.groups.filter(name__in=['Operadors'])
 
-@login_required(login_url="/")
-@user_passes_test(group_check)
+#@login_required(login_url="/")
+#@user_passes_test(group_check)
 def index(request):
-    context = {}
-    if request.method == 'POST':
-        form = forms.formBuscar(request.POST)
-        if form.is_valid():
-            numexp = form.cleaned_data['numexp']
-            dni = form.cleaned_data['dni']
-            if 'numexp' in request.POST:
-                expedient = models.expediente.objects.get(numexp=numexp)
-            elif 'dni' in request.POST:
-                expedient = models.expediente.objects.get(dni=dni)
-            return HttpResponseRedirect('/expediente/' + expedient.numexp)
-    else:
-        form = forms.formBuscar()
-        context.update({"form": form})
-        return render(request, 'form_index.html', context)
+    #context = {}
+    #if request.method == 'POST':
+    #    form = forms.formBuscar(request.POST)
+    #    if form.is_valid():
+    #        numexp = form.cleaned_data['numexp']
+    #        dni = form.cleaned_data['dni']
+    #        if 'numexp' in request.POST:
+    #            expedient = models.expediente.objects.get(numexp=numexp)
+    #        elif 'dni' in request.POST:
+    #            expedient = models.expediente.objects.get(dni=dni)
+    #        return HttpResponseRedirect('/expediente/' + expedient.numexp)
+    #else:
+    #    form = forms.formBuscar()
+    #    context.update({"form": form})
+        return render(request, 'form_index.html')
 
 @login_required(login_url="/")
 @user_passes_test(group_check)
@@ -107,8 +107,8 @@ def asnef(request):
     context = {}
     return render(request, 'form_asnef.html', context)
 
-@login_required(login_url="/")
-@user_passes_test(group_check)
+#@login_required(login_url="/")
+#@user_passes_test(group_check)
 def coche(request):
     context = {}
     if request.method == 'POST':
@@ -314,6 +314,7 @@ def coche(request):
             justificante = form.cleaned_data['justificante']
             autorizacion = form.cleaned_data['autorizacion']
             medio = form.cleaned_data['medio']
+            anotacionesgenerales = form.cleaned_data['anotacionesgenerales']
             numexp = form.cleaned_data['numexp']
             datayhora = form.cleaned_data['datayhora']
 
@@ -340,10 +341,10 @@ def coche(request):
             anotaciones = models.anotaciones.objects.create(numexp=numexp, personales=anotacionespersonales,
                                                             empresa=anotacionesingresos, vivienda=anotacionesviviendas,
                                                             financieros=anotacionesfinancieras,
-                                                            destinado=anotacionesdestinado, coche=anotacionescoche)
+                                                            destinado=anotacionesdestinado, generales=anotacionesgenerales )
             coches = models.coches.objects.create(numexp=numexp, motor=motor, marca=marca, modelo=modelo,
                                                   antiguedad=antiguedad, matricula=matricula,
-                                                  estadodelvehiculo=estadovehiculo)
+                                                  estadodelvehiculo=estadovehiculo, coche=anotacionescoche)
 
             if viviendadireccion1:
                 vivienda = models.vivienda.objects.create(numexp=numexp, direccion=viviendadireccion1,
@@ -530,8 +531,8 @@ def coche(request):
         context.update({"form": form})
         return render(request, 'form_coche.html', context)
 
-@login_required(login_url="/")
-@user_passes_test(group_check)
+#@login_required(login_url="/")
+#@user_passes_test(group_check)
 def microcredito(request):
     context = {}
     if request.method == 'POST':
@@ -943,8 +944,8 @@ def microcredito(request):
         context.update({"form": form})
         return render(request, 'form_microcre.html', context)
 
-@login_required(login_url="/")
-@user_passes_test(group_check)
+#@login_required(login_url="/")
+#@user_passes_test(group_check)
 def personal(request):
     context = {}
     if request.method == 'POST':
@@ -1786,8 +1787,8 @@ def personal(request):
         context.update({"form": form})
         return render(request, 'form_person.html', context)
 
-@login_required(login_url="/")
-@user_passes_test(group_check)
+#@login_required(login_url="/")
+#@user_passes_test(group_check)
 def hipotecario(request):
     context = {}
     if request.method == 'POST':

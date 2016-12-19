@@ -1,0 +1,794 @@
+{% load staticfiles %}
+<b>
+    <center>
+        <p class="text-center">¿Desea aportar los datos de un avalista o cónyuge?</p>
+        <input type="radio" id="finpatt4" name="fin4" value="1" onclick="$('#abriravalista').show();"> Si</button>
+        <input type="radio" name="fin4" onclick="$('#abriravalista').hide();" checked="checked"> No</button>
+    </center>
+</b>
+<br><br><br>
+<div id="abriravalista" class="well" style="display: none">
+    <b>
+        <p class="text-center">A continuacion le voy a solicitar los datos personales del avalista:</p>
+    </b>
+    <br>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="nombre" class="h4">*Nombre y apellidos</label>
+            {{ form.avalistaame }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="dni" class="h4">*DNI</label>
+            {{ form.avalistani }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="direccion" class="h4">Direccion</label>
+            {{ form.avalistaireccion }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="email" class="h4">*Email</label>
+            {{ form.avalistamail }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="telefono" class="h4">Telefono Fijo</label>
+            {{ form.avalistaelefono }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="movil" class="h4">*Movil</label>
+            {{ form.avalistaovil }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="fechan" class="h4">*Fecha de nacimiento</label>
+            {{ form.avalistaechanacimiento }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="nacionalidad" class="h4">*Nacionalidad</label>
+            {{ form.avalistaacionalidad }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label for="estadocivil" class="h4">¿Cuál es su estado civil?</label>
+            {{ form.avalistastadocivil }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div id="plsshw" class="form-group col-sm-4" style="display:none">
+            <label for="tipoestadocivil" class="h4">Tipo de Casado***</label>
+            {{ form.avalistaipocasado }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div id="plsshw2" class="col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="nhijos" class="h4">Numero de hijos</label>
+            {{ form.avalistaumerohijos }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div id ="123hijos" class="row" style="display: none">
+        <div class="form-group col-sm-4">
+            <label for="123" class="h4">Son mayores de edad?</label>
+            {{ form.avalistaayoresdeedad }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="123" class="h4">Cuantos estan a su cargo?</label>
+            {{ form.avalistauantosacargo }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="123" class="h4">Recibe algun ingreso por ellos?</label>
+            {{ form.avalistangresohijos }}
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+    <b>
+        <p class="text-center">A continuación le voy a solicitar sus datos profesionales:</p>
+    </b>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN A</b> - Actualmente, ¿cotiza usted en la seguridad social?
+            <input type="radio" id="optprof1" name="optprof1" value="1" onclick="$('#prof1').show();"> Si</button>
+            <input type="radio" name="optprof1" onclick="$('#prof1').hide();" checked="checked"> No</button>
+        </p>
+        <div id="prof1" style="display:none">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="empresatipo" class="h4">Cotiza usted en la Seguridad Social?</label>
+                    {{ form.avalistaotizacion }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div id="ajenasi" class="form-group col-sm-4" style="display:none">
+                    <label for="empresaajena" class="h4">Tiene trabajo...</label>
+                    {{ form.avalistaipotrabajo }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div id="ajenano" class="col-sm-4">
+                </div>
+                <div id="tempsi" class="form-group col-sm-4" style="display:none">
+                    <label for="empresatiempo" class="h4">¿Cuando finaliza el contrato?</label>
+                    {{ form.avalistainalizacontrato }}
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <br>
+            <p>Datos de la empresa: Por cuenta ajena o propia.</p>
+            <br>
+            <div id="empresa1" class="well">
+                <h2>Empresa</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="empresanombre" class="h4">Nombre de la empresa</label>
+                        {{ form.avalistaombreempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="empresacargo" class="h4">Cargo que desempeña</label>
+                        {{ form.avalistaargoempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="empresaactividad" class="h4">Actividad de la empresa</label>
+                        {{ form.avalistactividadempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="empresaingresos" class="h4">Que ingresos tiene mensualmente</label>
+                        {{ form.avalistangresosempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="empresapagas" class="h4">Cuantas pagas cobra al año</label>
+                        {{ form.avalistaagasempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="empresaotros" class="h4">Algún otro ingreso mensual?</label>
+                        {{ form.avalistatrosingresosempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="empresaantiguedad" class="h4">La antigüedad de la empresa</label>
+                        {{ form.avalistantiguedadempresa1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN B</b> - Actualmente, ¿cobra una paga, ayuda o jubilación?
+            <input type="radio" id="optprof2" name="optprof2" onclick="$('#prof2').show();"> Si</button>
+            <input type="radio" name="optprof2" onclick="$('#prof2').hide();" checked="checked"> No</button>
+        </p>
+        <div id="prof2" style="display:none">
+            <br>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="ayudaimporte" class="h4">Importe</label>
+                    {{ form.avalistamportejuvilacion }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="ayudapagas" class="h4">Numero de Pagas</label>
+                    {{ form.avalistaumerodepagasjuvilacion }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="ayudatotal" class="h4">Importe Anual</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="ayudatotal" name="ayudatotal" disabled>
+                        <div class="input-group-addon">€</div>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="ayudainicio" class="h4">Fecha inicio prestaciones</label>
+                    {{ form.avalistaniciojuvilacion }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="ayudafin" class="h4">Fecha fin prestaciones</label>
+                    {{ form.avalistainjuvilacion }}
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN C</b> - Actualmente, ¿se encuentra sin empleo, sin cobrar subsidio (paro)?
+            <input type="radio" id="optprof3" name="optprof3" onclick="$('#prof3').show();"> Si</button>
+            <input type="radio" name="optprof3" onclick="$('#prof3').hide();" checked="checked"> No</button>
+        </p>
+        <div class="row" id="prof3" style="display:none">
+            <br>
+            <div class="form-group col-sm-6">
+                <label for="parofecha" class="h4">¿Desde cuando?</label>
+                {{ form.avalistaarodesdecuando }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="parodinero" class="h4">¿Cuánto cobra?</label>
+                {{ form.avalistaarocuantocobra }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OTROS</b> - ¿Tiene usted otros ingresos y/o gastos?
+            <input type="radio" id="optprof4" name="optprof4" onclick="$('#prof4').show();"> Si</button>
+            <input type="radio" name="optprof4" onclick="$('#prof4').hide();" checked="checked"> No</button>
+        </p>
+        <div class="row" id="prof4" style="display:none">
+            <br>
+            <div class="form-group col-sm-6">
+                <label for="ingresoextra" class="h4">¿Tiene algún otro tipo de ingreso?</label>
+                {{ form.avalistatrosingresos }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="gastoextra" class="h4">¿Tiene algún otro tipo de gasto?</label>
+                {{ form.avalistatrosgastos }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <br>
+            <div class="form-group col-sm-6">
+                <label for="ingresoextra" class="h4">En concepto de que tiene el ingreso?</label>
+                {{ form.avalistatrosingresostexto }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="gastoextra" class="h4">En concepto de que tiene el gasto?</label>
+                {{ form.avalistatrosgastostexto }}
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p class="text-center">En caso de cobrar algun tipo de ingreso sin declarar tambien seria importante notificarnoslo dado que a la hora de realizar el estudio se podria tener en cuenta.</p>
+    <br>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+    <b>
+        <p class="text-center">A continuación le voy a solicitar sus datos patrimoniales:</p>
+    </b>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN A</b> - ¿Tiene usted vivienda de propiedad?
+            <input type="radio" id="optpat1" name="optpat1" value="1" onclick="$('#pat1').show();"> Si</button>
+            <input type="radio" name="optpat1" onclick="$('#pat1').hide();" checked="checked"> No</button>
+        </p>
+        <div id="pat1" style="display:none">
+            <br>
+            <div id="viviendap1" class="well">
+                <h2>Vivienda Propiedad</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendavalor" class="h4">Valor estimado de la vivienda</label>
+                        {{ form.avalistaiviendavalor1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendahipotecavalor" class="h4">Valor de la hipoteca</label>
+                        {{ form.avalistaiviendavalorhipoteca1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapagada" class="h4">Esta pagada?</label>
+                        {{ form.avalistaiviendaestapagada1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row" id="viviendapagada11" style="display:none">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendacuotahip" class="h4">Cuota mensual que paga de la hipoteca</label>
+                        {{ form.avalistaiviendacuotamensual1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaanoship" class="h4">Años que le restan</label>
+                        {{ form.avalistaiviendaanos1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaentidadhip" class="h4">Con que entidad?</label>
+                        {{ form.avalistaiviendaentidad1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
+                        {{ form.avalistaiviendalibredecargos1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendam" class="h4">Metros aproximados de la vivienda</label>
+                        {{ form.avalistaiviendametros1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaporciento" class="h4">% de la propiedad</label>
+                        {{ form.avalistaiviendaporciento1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendadireccion" class="h4">Dirección</label>
+                        {{ form.avalistaiviendadireccion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapoblacion" class="h4">Población</label>
+                        {{ form.avalistaiviendapoblacion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaprovincia" class="h4">Província</label>
+                        {{ form.avalistaiviendaprovincia1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendacp" class="h4">Codigo Postal</label>
+                        {{ form.avalistaiviendacodigopostal1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
+                        <input type="text" class="form-control" id="viviendapoblacion" name="viviendapoblacion" >
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN B</b> - ¿Tiene usted vivienda de propiedad en alquiler?
+            <input type="radio" id="optpat2" name="optpat2" value="1" onclick="$('#pat2').show();"> Si</button>
+            <input type="radio" name="optpat2" onclick="$('#pat2').hide();" checked="checked"> No</button>
+        </p>
+        <div id="pat2" style="display:none">
+            <br>
+            <div id="viviendap1" class="well">
+                <h2>Vivienda Alquilada</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendavalora" class="h4">Valor estimado de la vivienda</label>
+                        {{ form.avalistaiviendaalquiladavalor1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendahipotecavalora" class="h4">Valor de la hipoteca</label>
+                        {{ form.avalistaiviendaalquiladavalorhipoteca1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapagadaa" class="h4">Esta pagada?</label>
+                        {{ form.avalistaiviendaalquiladaestapagada1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row" id="viviendapagadaa11" style="display:none">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendacuotahipa" class="h4">Cuota mensual que paga de la hipoteca</label>
+                        {{ form.avalistaiviendaalquiladacuotamensual1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaanoshipa" class="h4">Años que le restan</label>
+                        {{ form.avalistaiviendaalquiladaanos1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaentidadhipa" class="h4">Con que entidad?</label>
+                        {{ form.avalistaiviendaalquiladaentidad1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendacobraa" class="h4">Cuanto cobra de alquiler?</label>
+                        {{ form.avalistaiviendaalquiladacobraalquiler1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
+                        {{ form.avalistaiviendaalquiladalibredecargos1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendama" class="h4">Metros aproximados de la vivienda</label>
+                        {{ form.avalistaiviendaalquiladametros1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaporcientoa" class="h4">% de la propiedad</label>
+                        <div class="input-group">
+                            {{ form.avalistaiviendaalquiladaporciento1 }}
+                            <div class="input-group-addon">%</div>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendadirecciona" class="h4">Dirección</label>
+                        {{ form.avalistaiviendaalquiladadireccion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="viviendapoblaciona" class="h4">Población</label>
+                        {{ form.avalistaiviendaalquiladapoblacion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendaprovinciaa" class="h4">Província</label>
+                        {{ form.avalistaiviendaalquiladaprovincia1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="viviendacpa" class="h4">Codigo Postal</label>
+                        {{ form.avalistaiviendaalquiladacodigopostal1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCIÓN C</b> - ¿Vive usted en alquiler?
+            <input type="radio" id="optpat3" name="optpat3" value="1" onclick="$('#pat3').show();"> Si</button>
+            <input type="radio" name="optpat3" onclick="$('#pat3').hide();" checked="checked"> No</button>
+        </p>
+        <div id="pat3" style="display:none">
+            <div id="alquiler1" class="well">
+                <h2>Alquiler 1</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="alquilerpaga" class="h4">Que paga usted de alquiler?</label>
+                        {{ form.avalistalquilerpaga1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="alquilerm" class="h4">Metros aproximados de la vivienda</label>
+                        {{ form.avalistalquilermetros1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="alquilerdireccion" class="h4">Dirección</label>
+                        {{ form.avalistalquilerdireccion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="alquilerpoblacion" class="h4">Población</label>
+                        {{ form.avalistalquilerpoblacion1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="alquilerprovincia" class="h4">Província</label>
+                        {{ form.avalistalquilerprovincia1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="alquilercp" class="h4">Codigo Postal</label>
+                        {{ form.avalistalquilercodigopostal1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="well">
+        <p>
+            <b>OPCION D</b> - ¿Vive a cuenta de algún familiar (padres, hermanos...)?
+            <input type="radio" id="optpat4" name="optpat4" value="1" onclick="$('#pat4').show();"> Si</button>
+            <input type="radio" name="optpat4" onclick="$('#pat4').hide();" checked="checked"> No</button>
+        </p>
+        <div id="pat4" style="display:none">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="familiardireccion" class="h4">Direccion</label>
+                    {{ form.avalistaireccionpersonal }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="familiarpoblacion" class="h4">Poblacion</label>
+                    {{ form.avalistaoblacionpersonal }}
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="familiarprovincia" class="h4">Provincia</label>
+                    {{ form.avalistarovinciapersonal }}
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="familiarcp" class="h4">Codigo Postal</label>
+                    {{ form.avalistaodigopostalpersonal }}
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+    <b>
+        <p class="text-center">A continuación le voy a solicitar algunos datos financieros:</p>
+    </b>
+    <div class="well">
+        <p>
+            ¿Tiene algún otro crédito con otra entidad financiera, banco o caja?
+            <input type="radio" id="finpatt1" name="fin1" value="1" onclick="$('#finpat1').show();"> Si</button>
+            <input type="radio" name="fin1" onclick="$('#finpat1').hide();" checked="checked"> No</button>
+        </p>
+        <div id="finpat1" style="display:none">
+            <br>
+            <div id="credito1" class="well">
+                <h2>Credito 1</h2>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="credtipo1" class="h4">Tipo de Credito</label>
+                        {{ form.avalistareditotipo1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-6" id="creditoaval1" style="display:none">
+                        <label for="credaval1" class="h4">Tanto porciento de avalista</label>
+                        {{ form.avalistareditotantoporciento1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="credimp1" class="h4">Importe Pendiente</label>
+                        {{ form.avalistareditoimporte1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="credcuota1" class="h4">Cuota mensual que paga</label>
+                        {{ form.avalistareditocuota1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="credent1" class="h4">Entidad</label>
+                        {{ form.avalistareditoentidad1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botoncredito2" class ="text-center">
+                <button type="button" class="btn btn-info" onclick="$('#credito2').show();$('#botoncredito2').hide();$('#botoncredito3').show();">Añadir credito</button>
+            </div>
+            <div id="credito2" class="well" style="display:none">
+                <h2>Credito 2</h2>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="credtipo2" class="h4">Tipo de Credito</label>
+                        {{ form.avalistareditotipo2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-6" id="creditoaval2" style="display:none">
+                        <label for="credaval2" class="h4">Tanto porciento de avalista</label>
+                        {{ form.avalistareditotantoporciento2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="credimp2" class="h4">Importe Pendiente</label>
+                        {{ form.avalistareditoimporte2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="credcuota2" class="h4">Cuota mensual que paga</label>
+                        {{ form.avalistareditocuota2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="credent2" class="h4">Entidad</label>
+                        {{ form.avalistareditoentidad2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botoncredito3" class ="text-center" style="display:none">
+                <button type="button" class="btn btn-danger" onclick="quitarcredito2()">Quitar credito 2</button>
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <p>
+            ¿Dispone de tarjetas de crédito?
+            <input type="radio" id="finpatt2" name="fin2" value="1" onclick="$('#finpat2').show();"> Si</button>
+            <input type="radio" name="fin2" onclick="$('#finpat2').hide();" checked="checked"> No</button>
+        </p>
+        <div id="finpat2" style="display:none">
+            <br>
+            <div id="tarj1" class="well">
+                <h2>Tarjeta de Credito 1</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="targcuota1" class="h4">Que cuota mensual paga?</label>
+                        {{ form.avalistaarjetacuota1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="targimp1" class="h4">Importe</label>
+                        {{ form.avalistaarjetaimporte1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="targent1" class="h4">Entidad</label>
+                        {{ form.avalistaarjetaentidad1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botontarg2" class ="text-center">
+                <button type="button" class="btn btn-info" onclick="$('#targ2').show();$('#botontarg2').hide();$('#botontarg3').show();">Añadir tarjeta</button>
+            </div>
+            <div id="targ2" class="well" style="display:none">
+                <h2>Tarjeta de Credito 2</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="targcuota2" class="h4">Que cuota mensual paga?</label>
+                        {{ form.avalistaarjetacuota2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="targimp2" class="h4">Importe</label>
+                        {{ form.avalistaarjetaimporte2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="targent2" class="h4">Entidad</label>
+                        {{ form.avalistaarjetaentidad2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botontarg3" class ="text-center" style="display:none">
+                <button type="button" class="btn btn-danger" onclick="quitartarg2()">Quitar tarjeta 2</button>
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <p>
+            ¿Tiene los recibos al corriente de pago?
+            <input type="radio" id="finpatt3" name="fin3" value="1" onclick="$('#finpat3').show();"> No
+            <input type="radio" name="fin3" onclick="$('#finpat3').hide();" checked="checked"> Si
+        </p>
+        <div id="finpat3" style="display:none">
+            <br>
+            <div id="rec1" class="well">
+                <h2>Recibo 1</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="recimp1" class="h4">Importe?</label>
+                        {{ form.avalistaecivosimporte1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botonrec2" class ="text-center">
+                <button type="button" class="btn btn-info" onclick="$('#rec2').show();$('#botonrec2').hide();$('#botonrec3').show();">Añadir recibo</button>
+            </div>
+            <div id="rec2" class="well" style="display:none">
+                <h2>Recibo 2</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="recimp2" class="h4">Importe?</label>
+                        {{ form.avalistaecivosimporte2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botonrec3" class ="text-center" style="display:none">
+                <button type="button" class="btn btn-danger" onclick="quitarrec2()">Quitar recibo 2</button>
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <p>
+            ¿Se encuentra usted en alguna lista de morosidad?
+            <input type="radio" id="finpatt4" name="fin4" value="1" onclick="$('#finpat4').show();"> Si</button>
+            <input type="radio" name="fin4" onclick="$('#finpat4').hide();" checked="checked"> No</button>
+        </p>
+        <div id="finpat4" style="display:none">
+            <br>
+            <div id="mor1" class="well">
+                <h2>Lista Morosidad 1</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="morimp1" class="h4">Importe?</label>
+                        {{ form.avalistaorosoimporte1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="morwho1" class="h4">Quien te reclama la deuda?</label>
+                        {{ form.avalistaorosoquien1 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botonmor2" class ="text-center">
+                <button type="button" class="btn btn-info" onclick="$('#mor2').show();$('#botonmor2').hide();$('#botonmor3').show();">Añadir lista de morosidad</button>
+            </div>
+            <div id="mor2" class="well" style="display:none">
+                <h2>Lista Morosidad 2</h2>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="morimp2" class="h4">Importe?</label>
+                        {{ form.avalistaorosoimporte2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="morwho2" class="h4">Quien te reclama la deuda?</label>
+                        {{ form.avalistaorosoquien2 }}
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="botonmor3" class ="text-center" style="display:none">
+                <button type="button" class="btn btn-danger" onclick="quitarmor2()">Quitar lista morosidad 2</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="an6" class="h4 ">Anotaciones de avalista...</label>
+    <textarea class="form-control" id="an6" name="an6" rows="5"
+        placeholder="Anotaciones de avalista..."></textarea>
+    <div class="help-block with-errors"></div>
+</div>

@@ -1,0 +1,51 @@
+{% load staticfiles %}
+        <b>
+            <p class="text-center">A continuacion le voy a solicitar los datos de su coche:</p>
+        </b>
+        <br>
+
+         <b>
+        <div class="row">
+    <div class="form-group col-sm-6">
+        <label for="nombre" class="h4">*Motor</label>
+        {{ form.motor }}
+        <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="dni" class="h4">*Marca</label>
+        {{ form.marca }}
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label for="nombre" class="h4">*Modelo</label>
+        {{ form.modelo }}
+        <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="dni" class="h4">*Antiguedad</label>
+        {{ form.antiguedad }}
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+ <div class="row">
+    <div class="form-group col-sm-6">
+        <label for="nombre" class="h4">*Matricula</label>
+        {{ form.matricula }}
+        <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="dni" class="h4">*Estado del vehiculo</label>
+        {{ form.estadovehiculo }}
+        <div class="help-block with-errors"></div>
+    </div>
+
+
+
+            </div>
+            <div class="form-group">
+            <label for="an6" class="h4 ">Anotaciones de su coche...</label>
+            {{ form.anotacionescoche }}
+            <div class="help-block with-errors"></div>
+            </div>

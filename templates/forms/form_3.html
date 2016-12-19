@@ -1,0 +1,77 @@
+{% load staticfiles %}
+            <br><br><br>
+            <hr>
+            <br><br><br>
+        <b>
+            <p class="text-center">Le informamos que si una vez llegada la fecha de devolución usted no puede hacer frente al pago o desea ampliar el plazo, podrá hacerlo siguiendo las indicaciones que figuran en el contrato. <br>
+                Si su solicitud fuera aprobada, como quiere recibir el dinero?
+                <br><br>
+                <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                {{ form.metodopago }}
+            </div>
+        </div>
+                <br><br>
+                Qué es Hal-Cash? <br>
+                Hal-Cash es un servicio bancario que le permite enviar dinero a cualquier persona a su teléfono móvil de manera inmediata. Ellos podrán retirarlo desde el mismo instante en que reciban la orden HalCash, en un cajero asociado sin ser cliente del banco ni usar tarjetas de crédito.
+                Para mas información http://www.halcash.com
+            </p>
+        </b>
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <div class="form-group">
+            <label for="an6" class="h4 ">Disculpe, ¿me puede decir para qué va a ser destinada su solicitud? Es muy importante para la resolución:</label>
+            {{ form.anotacionesdestinado }}
+            <div class="help-block with-errors"></div>
+        </div>
+        <br><br>
+        <b>
+            <p class="text-center">Si el departamento nos solicita justificante, ¿lo podría aportar?
+                {{ form.justificante }}
+            </p>
+        </b>
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <b>
+            <p class="text-center"> Le recuerdo que sus datos van a ser tratados conforme a la ley de protección de datos personales. ¿Autoriza usted el tratamiento de sus datos personales por parte de Prestamo Asegurado?
+                {{ form.autorizacion }}
+                <br>En caso de NO AUTORIZARLOS, informamos que no podemos continuar con su solicitud, pues no nos autoriza el uso de sus datos. Así lo especifica la ley.
+                En todo momento puede ejercitar su derecho de acceso, rectificación, cancelación y oposición llamando por telefono al mismo numero al que ha llamado ya y con su identificador podremos ejercer cualquiera de las acciones.<br><br>
+                Su expediente es apto para analisis y ha pasado los primeros filtros. <br><br>
+                Con lo que su solicitud esta en proceso de resolverse, en principio, favorablemente. <br><br>
+                Le rogamos nos llame dentro de 5 minutos. Yo traslado su solicitud al departamento correspondiente entre tanto, para que continuen con la tramitación de su solicitud, y le demos una respuesta, indicandonos su numero de expediente. <br><br>
+                Y recuerde sin pagar un céntimo de comisión adicional, a las condiciones bancarias actuales.
+            </p>
+        </b>
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <b>
+            <p class="text-center">¿Le importaría decirme a través de que medio nos ha conocido?
+            </p>
+        </b>
+        <div class="row">
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label for="medio" class="h4"></label>
+                {{ form.medio }}
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="an7" class="h4 ">OBSERVACIONES GENERALES ACERCA DEL EXPEDIENTE:</label>
+            <textarea class="form-control" id="an7" name="an7" rows="5" placeholder="Observaciones..."></textarea>
+            <div class="help-block with-errors"></div>
+        </div>
+        <!-- SUBMIIIIT -->
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Enviar Formulario</button>
+
+        <div id="msgSubmit" class="h3 text-center hidden"></div>
+        <div class="clearfix"></div>
+    </form>
+    <!--ACABA FORMULARI -->

@@ -148,3 +148,4 @@ STATICFILES_DIRS = [
     os.path.join('../static'),
     os.path.join('static')
 ]
+

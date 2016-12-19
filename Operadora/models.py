@@ -87,6 +87,9 @@ class personaanexos(models.Model):
     otrosingresostexto = models.CharField(max_length=100)
     otrosgastos = models.IntegerField()
     otrosgastostexto = models.CharField(max_length=100)
+    importeselect1 = models.IntegerField()
+    importeselect2 = models.IntegerField()
+    importeselect3 = models.IntegerField()
 
 
 class empresa(models.Model):
@@ -176,7 +179,7 @@ class anotaciones(models.Model):
     financieros = models.CharField(max_length=500)
     avalista = models.CharField(max_length=500, null=True)
     destinado = models.CharField(max_length=500)
-
+    generales = models.CharField(max_length=500)
 
 class coches(models.Model):
     numexp = models.IntegerField()

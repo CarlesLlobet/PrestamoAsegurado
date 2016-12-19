@@ -1,51 +1,259 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <meta charset="utf-8">
-        <title>PrestamoAsegurado</title>
-        <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-        <meta name="author" content="htmlcoder.me">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="images/favicon.ico">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-        <link href={% static "css/bootstrap.css"%} rel="stylesheet">
-        <link href={% static "fonts/font-awesome/css/font-awesome.css"%} rel="stylesheet">
-        <link href={% static "fonts/fontello/css/fontello.css"%} rel="stylesheet">
-        <link href={% static "plugins/magnific-popup/magnific-popup.css"%} rel="stylesheet">
-        <link href={% static "plugins/rs-plugin/css/settings.css"%} rel="stylesheet">
-        <link href={% static "css/animations.css"%} rel="stylesheet">
-        <link href={% static "plugins/owl-carousel/owl.carousel.css"%} rel="stylesheet">
-        <link href={% static "plugins/owl-carousel/owl.transitions.css"%} rel="stylesheet">
-        <link href={% static "plugins/hover/hover-min.css"%} rel="stylesheet">
-        <link href={% static "css/style.css"%} rel="stylesheet">
-        <link href={% static "css/typography-default.css"%} rel="stylesheet">
-        <link href={% static "css/skins/dark_cyan.css"%} rel="stylesheet">
-        <link href={% static "css/custom.css"%} rel="stylesheet">
-    </head>
-    <body class="no-trans  transparent-header  ">
-        {% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>PrestamoAsegurado</title>
+    <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
+    <meta name="author" content="htmlcoder.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+    <link href={% static "css/bootstrap.css" %} rel="stylesheet">
+    <link href={% static "fonts/font-awesome/css/font-awesome.css" %} rel="stylesheet">
+    <link href={% static "fonts/fontello/css/fontello.css" %} rel="stylesheet">
+    <link href={% static "plugins/magnific-popup/magnific-popup.css" %} rel="stylesheet">
+    <link href={% static "plugins/rs-plugin/css/settings.css" %} rel="stylesheet">
+    <link href={% static "css/animations.css" %} rel="stylesheet">
+    <link href={% static "plugins/owl-carousel/owl.carousel.css" %} rel="stylesheet">
+    <link href={% static "plugins/owl-carousel/owl.transitions.css" %} rel="stylesheet">
+    <link href={% static "plugins/hover/hover-min.css" %} rel="stylesheet">
+    <link href={% static "css/style.css" %} rel="stylesheet">
+    <link href={% static "css/typography-default.css" %} rel="stylesheet">
+    <link href={% static "css/skins/dark_cyan.css" %} rel="stylesheet">
+    <link href={% static "css/custom.css" %} rel="stylesheet">
+</head>
+<body class="no-trans  transparent-header  ">
+<!-- scrollToTop -->
+<!-- ================ -->
+<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
 
-        {% endblock %}
-    <script type="text/javascript" src={% static "plugins/jquery.min.js" %}></script>
-    <script type="text/javascript" src={% static "js/bootstrap.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/modernizr.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.tools.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.revolution.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/isotope/isotope.pkgd.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/magnific-popup/jquery.magnific-popup.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/waypoints/jquery.waypoints.min.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/jquery.countTo.js" %}></script>
-    <script src={% static "plugins/jquery.parallax-1.1.3.js" %}></script>
-    <script src={% static "plugins/jquery.validate.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/owl-carousel/owl.carousel.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/jquery.browser.js" %}></script>
-    <script type="text/javascript" src={% static "plugins/SmoothScroll.js" %}></script>
-    <script type="text/javascript" src={% static "js/template.js" %}></script>
-    <script type="text/javascript" src={% static "js/custom.js" %}></script>
+<!-- page wrapper start -->
+<!-- ================ -->
+<div class="page-wrapper">
 
-    </body>
+    <!-- header-container start -->
+    <div class="header-container">
+
+        <!-- header-top start -->
+        <!-- classes:  -->
+        <!-- "dark": dark version of header top e.g. class="header-top dark" -->
+        <!-- "colored": colored version of header top e.g. class="header-top colored" -->
+        <!-- ================ -->
+        <div class="header-top dark ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-6 col-md-9">
+                        <!-- header-top-first start -->
+                        <!-- ================ -->
+                        <div class="header-top-first clearfix">
+                            <ul class="social-links circle small clearfix hidden-xs">
+                                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i
+                                        class="fa fa-twitter"></i></a></li>
+
+                                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i
+                                        class="fa fa-facebook"></i></a></li>
+
+                            </ul>
+                            <div class="social-links hidden-lg hidden-md hidden-sm circle small">
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fa fa-share-alt"></i></button>
+                                    <ul class="dropdown-menu dropdown-animation">
+                                        <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i
+                                                class="fa fa-twitter"></i></a></li>
+
+                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i
+                                                class="fa fa-facebook"></i></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- header-top-first end -->
+                    </div>
+                    <div class="col-xs-9 col-sm-6 col-md-3">
+
+                        <!-- header-top-second start -->
+                        <!-- ================ -->
+                        <div id="header-top-second" class="clearfix">
+
+                            <!-- header top dropdowns start -->
+                            <!-- ================ -->
+                            <div class="header-top-dropdown text-right">
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn dropdown-toggle btn-default btn-sm"
+                                            data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                        <li>
+                                            <!--<form class="login-form margin-clear">
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label">Username</label>
+                                                    {{ form.username }}
+                                                    <i class="fa fa-user form-control-feedback"></i>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label">Password</label>
+                                                    {{ form.password }}
+                                                    <i class="fa fa-lock form-control-feedback"></i>
+                                                </div>
+                                                <button type="submit" class="btn btn-gray btn-sm">Log In</button>
+                                            </form>-->
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                {{ form.as_p }}
+                                                <button type="submit">Login</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--  header top dropdowns end -->
+                        </div>
+                        <!-- header-top-second end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-top end -->
+
+        <!-- header start -->
+        <!-- classes:  -->
+        <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+        <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+        <!-- "full-width": mandatory class for the full-width menu layout -->
+        <!-- "centered": mandatory class for the centered logo layout -->
+        <!-- ================ -->
+        <header class="header  fixed    clearfix">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <!-- header-left start -->
+                        <!-- ================ -->
+                        <div class="header-left clearfix">
+
+                            <!-- logo -->
+                            <div id="logo" class="logo">
+                                <a href="web_index.html"><img id="logo_img" src="http://prestamoasegurado.com/img/logo.png"
+                                                              alt="PrestamoAsegurado"></a>
+                            </div>
+                            <br>
+
+                        </div>
+                        <!-- header-left end -->
+
+                    </div>
+                    <div class="col-md-7 col-md-offset-2">
+                        <br>
+                        <!-- header-right start -->
+                        <!-- ================ -->
+                        <div class="header-right clearfix">
+
+                            <!-- main-navigation start -->
+                            <!-- classes: -->
+                            <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+                            <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+                            <!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+                            <!-- ================ -->
+                            <div class="main-navigation  animated with-dropdown-buttons">
+
+                                <!-- navbar start -->
+                                <!-- ================ -->
+                                <nav class="navbar navbar-default" role="navigation">
+                                    <div class="container-fluid">
+
+                                        <!-- Toggle get grouped for better mobile display -->
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                                    data-target="#navbar-collapse-1">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+
+                                        </div>
+
+{% block content %}
+
+{% endblock %}
+
+<footer id="footer" class="container-fluid">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-3 col-xs-5">
+                <center><img alt="" src="favicon.png" class="img-responisve">
+                </center>
+                <h5 class="colortaronja text-center"><b>Préstamo Asegurado</b></h5>
+                <h6 class="colorblanc text-center"><b>Su web de Préstamos</b></h6>
+            </div>
+            <div class="col-md-3 col-xs-5">
+                <p class="colortaronja"><b>Contacto</b>
+                </p>
+                <p class="colorgris">C/Pintor Fortuny 21 Local
+                    <br>08840 Viladecans (Barcelona)</p>
+                <!-- <p class="colortaronja"><b>Mail</b>
+                </p>
+                <p class="colorgris">info@prestamoasegurado.com</p> -->
+            </div>
+            <div class="col-md-1 col-xs-5">
+                <p class="colortaronja"><b>Siguenos</b>
+                </p>
+                <p class="colorgris"><a href="https://www.facebook.com/Pr%C3%A9stamo-Asegurado-1384381671579983/">Facebook</a>
+                </p>
+                <p class="colorgris"><a href="https://twitter.com/prestasegurado">Twitter</a>
+                </p>
+            </div>
+            <div class="col-md-offset-1 col-md-2 col-xs-5">
+                <p class="colortaronja"><b>Llámanos</b>
+                </p>
+                <p class="colorgris">807 464 206
+                </p>
+            </div>
+        </div>
+        <p class="text-center numtext">*El precio máximo por minuto de la llamada es de 1,21€/min si llama desde un
+            teléfono fijo y de 1,57€/min euro si llama desde un teléfono móvil, Impuestos incluidos. Servicio solo para
+            mayores de 18 años</p>
+        <br>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <p class="text-center colorgris">
+                    <a href="politica.php">Protección de datos</a> |
+                    <a href="aviso.php">Aviso Legal</a> |
+                    <a href="gastos.php">Comisiones y gastos</a> |
+                    <a href="cookies.php">Políticas de cookies</a>
+                </p>
+            </div>
+        </div>
+        <p class="text-center colorgris">
+            Web desarrollada por <a class="colorblau" href="http://booleanwork.com">BooleanWork</a>
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src={% static "plugins/jquery.min.js" %}></script>
+<script type="text/javascript" src={% static "js/bootstrap.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/modernizr.js" %}></script>
+<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.tools.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.revolution.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/isotope/isotope.pkgd.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/magnific-popup/jquery.magnific-popup.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/waypoints/jquery.waypoints.min.js" %}></script>
+<script type="text/javascript" src={% static "plugins/jquery.countTo.js" %}></script>
+<script src={% static "plugins/jquery.parallax-1.1.3.js" %}></script>
+<script src={% static "plugins/jquery.validate.js" %}></script>
+<script type="text/javascript" src={% static "plugins/owl-carousel/owl.carousel.js" %}></script>
+<script type="text/javascript" src={% static "plugins/jquery.browser.js" %}></script>
+<script type="text/javascript" src={% static "plugins/SmoothScroll.js" %}></script>
+<script type="text/javascript" src={% static "js/template.js" %}></script>
+<script type="text/javascript" src={% static "js/custom.js" %}></script>
+
+</body>
 </html>
