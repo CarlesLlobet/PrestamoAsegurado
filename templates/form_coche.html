@@ -8,7 +8,8 @@
     <hr>
     <br><br><br>
         <!--COMENÇA FORMULARI -->
-    <form role="form" id="form" data-toggle="validator">
+    <form method="post">
+    {% csrf_token %}
 
     {% include "forms/form_1.html" %}
 

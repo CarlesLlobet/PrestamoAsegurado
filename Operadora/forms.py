@@ -5,7 +5,6 @@ from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
 from bootstrap3_datetime.widgets import DateTimePicker
 
-
 my_default_errors_Name = {
     'required': _(u'Completa este campo'),
     'max_length': _(u'Este campo no puede pasar de 100 carácteres')
@@ -498,7 +497,6 @@ class formCoche(forms.Form):
         cleaned_data = super(formCoche, self).clean()
 
 
-
 class formMicrocredito(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formMicrocredito, self).__init__(*args, **kwargs)
@@ -520,9 +518,9 @@ class formMicrocredito(forms.Form):
 
     # IMPORTES
     importeselect1 = forms.ChoiceField(widget=forms.Select(attrs={"class": "form-control"}),
-                                    choices=importeselect1, required=False)
+                                       choices=importeselect1, required=False)
     importeselect2 = forms.ChoiceField(widget=forms.Select(attrs={"class": "form-control"}),
-                                    choices=importeselect2, required=False)
+                                       choices=importeselect2, required=False)
     importeselect3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
     # PERSONALES
     name = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
@@ -843,6 +841,7 @@ class formMicrocredito(forms.Form):
 
     def clean(self):
         cleaned_data = super(formMicrocredito, self).clean()
+
 
 class formPersonal(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -1355,6 +1354,7 @@ class formPersonal(forms.Form):
 
     def clean(self):
         cleaned_data = super(formPersonal, self).clean()
+
 
 class formHipotecario(forms.Form):
     def __init__(self, *args, **kwargs):
