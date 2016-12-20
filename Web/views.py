@@ -18,10 +18,10 @@ def index(request):
             if usr is not None:
                 if usr.is_active:
                     login(request, usr)
-                    if user == "opera":
+                    if user == "operadora":
                         return HttpResponseRedirect('/formularios')
                     else:
-                        return HttpResponseRedirect('/') #TODO: Canviar pel lloc on van els users a penjar fotos
+                        return HttpResponseRedirect('/formularios') #TODO: Canviar pel lloc on van els users a penjar fotos
             else:
                 form = forms.formLogin()
                 context.update({"incorrect": "incorrect"})
