@@ -14,11 +14,11 @@ from mailer import Mailer, Message
 
 
 def group_check(user):
-    return user.groups.filter(name__in=['Operadors'])
+    return user.groups.filter(name__in=['Operadoras'])
 
 
-# @login_required(login_url="/")
-# @user_passes_test(group_check)
+@login_required(login_url="/")
+@user_passes_test(group_check)
 def index(request):
     # context = {}
     # if request.method == 'POST':
@@ -112,8 +112,8 @@ def asnef(request):
     return render(request, 'form_asnef.html', context)
 
 
-# @login_required(login_url="/")
-# @user_passes_test(group_check)
+@login_required(login_url="/")
+@user_passes_test(group_check)
 def coche(request):
     print "coche"
     context = {}
