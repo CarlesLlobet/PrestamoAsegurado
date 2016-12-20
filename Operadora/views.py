@@ -115,8 +115,10 @@ def asnef(request):
 # @login_required(login_url="/")
 # @user_passes_test(group_check)
 def coche(request):
+    print "coche"
     context = {}
     if request.method == 'POST':
+        print "POST"
         form = forms.formCoche(request.POST)
         if form.is_valid():
             name = form.cleaned_data["name"]
@@ -526,6 +528,7 @@ def coche(request):
         else:
             print(form.errors)
     else:
+        print "GET"
         form = forms.formCoche()
     lastNum = models.expediente.objects.all().order_by("numexp").last()
     if not lastNum:

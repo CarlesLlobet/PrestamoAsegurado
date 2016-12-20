@@ -92,7 +92,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
                                         <li>
-                                            <!--<form class="login-form margin-clear">
+                                            <form class="login-form margin-clear" method="post" action="#">
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">Username</label>
                                                     {{ form.username }}
@@ -101,15 +101,20 @@
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">Password</label>
                                                     {{ form.password }}
+                                                    {% if form.name.errors %}
+                                                        <span class="error" style="color:red">
+                                                            {% for error in form.name.errors %}{{ error }}{% endfor %}
+                                                        </span>
+                                                    {% endif %}
                                                     <i class="fa fa-lock form-control-feedback"></i>
                                                 </div>
                                                 <button type="submit" class="btn btn-gray btn-sm">Log In</button>
-                                            </form>-->
-                                            <form method="post">
+                                            </form>
+                                            <!--<form method="POST" action="#">
                                                 {% csrf_token %}
                                                 {{ form.as_p }}
-                                                <button type="submit">Login</button>
-                                            </form>
+                                                <button type="submit" class="btn btn-gray btn-sm">Login</button>
+                                            </form>-->
                                         </li>
                                     </ul>
                                 </div>
