@@ -101,6 +101,18 @@ $(document).ready(function () {
         }
     });
 
+        function calculhelp() {
+            var a = $('#ayudaimporte').val();
+            var b = $('#ayudapagas').val();
+            if (a != null && b != null) {
+                $("#ayudatotal").val(a * b);
+            }
+            ;
+
+        };
+
+
+
 
 
         function credtip1() {
@@ -212,15 +224,6 @@ $(document).ready(function () {
         };
 
 
-        function calculhelp() {
-            var a = $('#ayudaimporte').val();
-            var b = $('#ayudapagas').val();
-            if (a != null && b != null) {
-                $("#ayudatotal").val(a * b);
-            }
-            ;
-
-        };
 
 
 

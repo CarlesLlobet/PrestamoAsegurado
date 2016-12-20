@@ -19,10 +19,10 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^asnef/$', views.asnef, name='asnef'),
-    url(r'^coche/$', views.coche, name='coche'),
-    url(r'^hipotecario/$', views.hipotecario, name='hipotecario'),
-    url(r'^microcredito/$', views.microcredito, name='microcredito'),
-    url(r'^personal/$', views.personal, name='personal'),
-    url(r'^expediente/(?P<numexp>[0-9]+)/$', views.personal, name='expediente'),
+    url(r'asnef/$', views.asnef, name='asnef'),
+    url(r'coche/$', views.coche, name='coche'),
+    url(r'hipotecario/$', views.hipotecario, name='hipotecario'),
+    url(r'microcredito/$', views.microcredito, name='microcredito'),
+    url(r'personal/$', views.personal, name='personal'),
+    url(r'expediente/(?P<numexp>[0-9]+)/$', views.personal, name='expediente'),
 ]
