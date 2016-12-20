@@ -93,6 +93,7 @@
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
                                         <li>
                                             <form class="login-form margin-clear" method="post" action="#">
+                                                {% csrf_token %}
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">Username</label>
                                                     {{ form.username }}
@@ -101,9 +102,9 @@
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">Password</label>
                                                     {{ form.password }}
-                                                    {% if form.name.errors %}
+                                                    {% if incorrect %}
                                                         <span class="error" style="color:red">
-                                                            {% for error in form.name.errors %}{{ error }}{% endfor %}
+                                                            Usuario o contraseña incorrectos
                                                         </span>
                                                     {% endif %}
                                                     <i class="fa fa-lock form-control-feedback"></i>
