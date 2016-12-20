@@ -527,15 +527,15 @@ def coche(request):
             print(form.errors)
     else:
         form = forms.formCoche()
-        lastNum = models.expediente.objects.all().order_by("numexp").last()
-        if not lastNum:
-            lastNum = 40000
-        else:
-            lastNum += 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
-        context.update({"form": form})
-        return render(request, 'form_coche.html', context)
+    lastNum = models.expediente.objects.all().order_by("numexp").last()
+    if not lastNum:
+        lastNum = 40000
+    else:
+        lastNum += 1
+    form.fields["numexp"].initial = lastNum
+    form.fields["datayhora"].initial = datetime.now()
+    context.update({"form": form})
+    return render(request, 'form_coche.html', context)
 
 
 # @login_required(login_url="/")
