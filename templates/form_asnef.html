@@ -1,0 +1,17 @@
+{% extends "forms/form_base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <p class="text-align">A continuación vamos a rellenar un sencillo formulario con sus datos generales, le garantizamos que el departamento nos dará una respuesta solicitándonos la documentación necesaria y n.º de cuenta.</p>
+    <p class="text-align">A continuación, le voy a solicitar algunos datos personales, laborales, financieros, etc., pero antes cumpliendo con la normativa legal vigente recogida en la LEY DE PROTECCION DE DATOS PERSONALES debo advertirle que esta llamada está siendo grabada, conforme a la ley 15/1999, y le informamos que mantendremos la privacidad de sus datos y no se compartirán con otras empresas o terceras personas para fines ajenos a su tramitación actual.</p>
+    <p class="text-align"> El tipo de prestamo que desea solicitar es <b>Prestamo coche</b>. </p>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+        <!--COMENÇA FORMULARI -->
+   <form action="/formularios/asnef/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+    </form>
+
+{% endblock content %}

@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
-from functools import wraps
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User, Group
-from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from mailer import Mailer, Message
 
 from Operadora import forms
 from Operadora import models
-
-from mailer import Mailer, Message
 
 
 def group_check(user):
@@ -108,17 +106,31 @@ def expediente(request, numexp):
 @login_required(login_url="/")
 @user_passes_test(group_check)
 def asnef(request):
-    context = {}
-    return render(request, 'form_asnef.html', context)
+    if request.method == 'POST':
+        form = forms.formAsnef(request.POST)
+        if form.is_valid():
+            numexp = form.cleaned_data["numexp"]
+            datayhora = form.cleaned_data["datayhora"]
+            models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
+            return HttpResponseRedirect('/formularios/asnef/')
+    else:
+        form = forms.formAsnef()
+
+        lastNum2 = models.expediente.objects.all().order_by("numexp").last()
+        lastNum = lastNum2
+        if not lastNum2:
+            lastNum = 40000
+        else:
+            lastNum = lastNum2.numexp + 1
+        form.fields["numexp"].initial = lastNum
+        form.fields["datayhora"].initial = datetime.now()
+    return render(request, 'form_asnef.html', {'form': form})
 
 
 @login_required(login_url="/")
 @user_passes_test(group_check)
 def coche(request):
-    print "coche"
-    context = {}
     if request.method == 'POST':
-        print "POST"
         form = forms.formCoche(request.POST)
         if form.is_valid():
             name = form.cleaned_data["name"]
@@ -523,22 +535,18 @@ def coche(request):
             coches = models.coches.objects.create(numexp=numexp, motor=motor, marca=marca, modelo=modelo,
                                                   antiguedad=antiguedad, matricula=matricula,
                                                   estadodelvehiculo=estadovehiculo, coche=anotacionescoche)
-
-            return HttpResponseRedirect('/formularios/')
-        else:
-            print(form.errors)
+            return HttpResponseRedirect('/formularios/coche/')
     else:
-        print "GET"
         form = forms.formCoche()
-    lastNum = models.expediente.objects.all().order_by("numexp").last()
-    if not lastNum:
-        lastNum = 40000
-    else:
-        lastNum += 1
-    form.fields["numexp"].initial = lastNum
-    form.fields["datayhora"].initial = datetime.now()
-    context.update({"form": form})
-    return render(request, 'form_coche.html', context)
+        lastNum2 = models.expediente.objects.all().order_by("numexp").last()
+        lastNum = lastNum2
+        if not lastNum2:
+            lastNum = 40000
+        else:
+            lastNum = lastNum2.numexp + 1
+        form.fields["numexp"].initial = lastNum
+        form.fields["datayhora"].initial = datetime.now()
+    return render(request, 'form_coche.html', {'form': form})
 
 
 # @login_required(login_url="/")
@@ -952,10 +960,8 @@ def microcredito(request):
             if morosoimporte3:
                 debemoroso3 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte3,
                                                                quien=morosoquien3)
+            return HttpResponseRedirect('/formularios/microcredito/')
 
-            return HttpResponseRedirect('/microcredito/')
-        else:
-            print form.errors
     else:
         form = forms.formMicrocredito()
         lastNum = models.expediente.objects.all().order_by("numexp").last()
@@ -966,7 +972,7 @@ def microcredito(request):
         form.fields["numexp"].initial = lastNum
         form.fields["datayhora"].initial = datetime.now()
         context.update({"form": form})
-        return render(request, 'form_microcre.html', context)
+    return render(request, 'form_microcre.html', context)
 
 
 # @login_required(login_url="/")
@@ -1544,7 +1550,6 @@ def personal(request):
                                                             pagas=avalistaagasempresa1,
                                                             otrosingresos=avalistatrosingresosempresa1,
                                                             antiguedad=avalistantiguedadempresa1)
-
 
             if avalistareditotipo1:
                 avaldebecredito1 = models.debecredito.objetos.create(numexp=numexp, avalista=True,
