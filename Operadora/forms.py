@@ -177,7 +177,7 @@ class formCoche(forms.Form):
     dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                           error_messages=my_default_errors_DNI, validators=[validarDNI])
     direccion = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
-                                error_messages=my_default_errors_direccion)
+                                error_messages=my_default_errors_direccion, required=False)
     email = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
                             error_messages=my_default_errors_email, validators=[validate_email])
     telefono = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
