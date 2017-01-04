@@ -143,7 +143,7 @@ class formAsnef(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formAsnef, self).__init__(*args, **kwargs)
     # NECESARIOS
-    numexp = forms.CharField()
+    numexp = forms.IntegerField()
     datayhora = forms.DateTimeField()
 
     def clean(self):
@@ -508,14 +508,7 @@ class formCoche(forms.Form):
         attrs={"max_length": 500, "rows": 5, "placeholder": "Observaciones generales...",
                "class": "form-control"}), required=False)
     # NECESARIOS
-    numexp = forms.IntegerField(disabled=True)
-    datayhora = forms.DateTimeField(disabled=True, required=False)
-
-    def clean_numexp(self):
-        numexp = self.cleaned_data['numexp']
-        if numexp is None:
-            return self.fields['numexp'].initial
-        return numexp
+    datayhora = forms.DateTimeField()
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()
@@ -720,8 +713,6 @@ class formCoche(forms.Form):
         autorizacion = cleaned_data.get("autorizacion")
         medio = cleaned_data.get("medio")
         anotacionesgenerales = cleaned_data.get("anotacionesgenerales")
-        numexp = cleaned_data.get("numexp")
-        datayhora = cleaned_data.get("datayhora")
 
 
 class formMicrocredito(forms.Form):

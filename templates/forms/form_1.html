@@ -1,5 +1,10 @@
 {% load staticfiles %}
-
+        {{ form.datayhora }}
+				{% if form.datayhora.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.datayhora.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <b>
             <p class="text-center">A continuacion le voy a solicitar sus datos personales:</p>
         </b>

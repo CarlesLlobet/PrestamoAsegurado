@@ -129,7 +129,7 @@ def asnef(request):
 
 @login_required(login_url="/")
 @user_passes_test(group_check)
-def coche(request):
+def coche(request, numexp):
     if request.method == 'POST':
         form = forms.formCoche(request.POST)
         if form.is_valid():
@@ -337,7 +337,6 @@ def coche(request):
             numexp = form.cleaned_data["numexp"]
             datayhora = form.cleaned_data["datayhora"]
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
                                                     fechanacimiento=fechanacimiento,
@@ -538,14 +537,11 @@ def coche(request):
             return HttpResponseRedirect('/formularios/coche/')
     else:
         form = forms.formCoche()
-        lastNum2 = models.expediente.objects.all().order_by("numexp").last()
-        lastNum = lastNum2
-        if not lastNum2:
-            lastNum = 40000
-        else:
-            lastNum = lastNum2.numexp + 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
+
+        form.fields["numexp"].initial = numexp
+        datayhora = datetime.now()
+        form.fields["datayhora"].initial = datayhora
+        expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
     return render(request, 'form_coche.html', {'form': form})
 
 

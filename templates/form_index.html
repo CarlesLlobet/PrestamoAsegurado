@@ -53,6 +53,13 @@
             <div id="si" style="display: none">
                 <p> Sabe ya que tipo de prestamos ofrecemos? A continuacion les dire exactamente de que
                     disponemos: </p><br>
+                {% lastNum2 = models.expediente.objects.all().order_by("numexp").last() %}
+                {% lastNum = lastNum2 %}
+                {% if not lastNum2 %}
+                    {% lastNum = 40000 %}
+                {% else %}
+                    {% lastNum = lastNum2.numexp + 1 %}
+                {% endif %}
                 <div class="row">
                     <div class="col-sm-2 col-sm-offset-1 mi-container3">
                         <p> Prestamo Personal:</p>
@@ -60,7 +67,7 @@
                         <p> Préstamo personal es un producto que le permite cubrir muchas necesidades que con
                             ahorro no podemos conseguir, puede solicitarlo por importes a partir de los
                             1.000€.</p>
-                        <center><a href="personal">
+                        <center><a href="personal/{{ lastNum }}">
                             <button type="button" class="btn btn-primary">Clic Aqui</button>
                         </a></center>
                         <br>
@@ -71,7 +78,7 @@
                         <p> Prestamos Hipotecarios le permiten el acceso de capital mas grande desde 10.000€
                             hasta 200.000€. Te conseguimos la financiacion que te hace falta, para acceder a
                             este servicio solo necesitas una propiedad sin hipoteca o con muy poca hipoteca.</p>
-                        <center><a href="hipotecario">
+                        <center><a href="hipotecario/{{ lastNum }}">
                             <button type="button" class="btn btn-primary">Clic Aqui</button>
                         </a></center>
                         <br>
@@ -81,7 +88,7 @@
                         <center><img src={% static "img/coche.png" %} class="img-responsive" alt=""><br></center>
                         <p> Obtenga la mejor manera para salir de estas listas de morosidad y asi poder
                             solicitar mas facilmente su prestamo en cualquier entidad. </p>
-                        <center><a href="asnef">
+                        <center><a href="asnef/{{ lastNum }}">
                             <button type="button" class="btn btn-primary">Clic Aqui</button>
                         </a></center>
                         <br>
@@ -93,7 +100,7 @@
                             configuración de su micro crédito le informo de que usted podrá elegir una cantidad
                             comprendida entre 50 y 900 euros, en tramos de 50 €, y un plazo de devolución a
                             elegir entre 7, 15,21 y 30 días.</p>
-                        <center><a href="microcredito">
+                        <center><a href="microcredito/{{ lastNum }}">
                             <button type="button" class="btn btn-primary">Clic Aqui</button>
                         </a></center>
                         <br>
@@ -104,7 +111,7 @@
                         <p> Le ofrecemos una alternativa fiable, rápida y segura: el empeño de tus coches con el
                             que conseguirás el dinero rápido que necesitas para solucionar tus problemas de
                             liquidez o adversidades económicas puntuales. Y seguiras conduciendolo.</p>
-                        <center><a href="coche">
+                        <center><a href="coche/{{ lastNum }}">
                             <button type="button" class="btn btn-primary">Clic Aqui</button>
                         </a></center>
                         <br>
