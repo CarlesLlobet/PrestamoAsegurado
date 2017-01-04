@@ -32,7 +32,13 @@ def index(request):
     # else:
     #    form = forms.formBuscar()
     #    context.update({"form": form})
-    return render(request, 'form_index.html')
+    lastNum2 = models.expediente.objects.all().order_by("numexp").last()
+    lastNum = lastNum2
+    if not lastNum2:
+        lastNum = 40000
+    else:
+        lastNum = lastNum2.numexp + 1
+    return render(request, 'form_index.html', {'numexp': lastNum})
 
 
 @login_required(login_url="/")
@@ -334,8 +340,6 @@ def coche(request, numexp):
             autorizacion = form.cleaned_data["autorizacion"]
             medio = form.cleaned_data["medio"]
             anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
-            numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_data["datayhora"]
 
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
@@ -537,10 +541,7 @@ def coche(request, numexp):
             return HttpResponseRedirect('/formularios/coche/')
     else:
         form = forms.formCoche()
-
-        form.fields["numexp"].initial = numexp
         datayhora = datetime.now()
-        form.fields["datayhora"].initial = datayhora
         expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
     return render(request, 'form_coche.html', {'form': form})
 

@@ -507,8 +507,6 @@ class formCoche(forms.Form):
     anotacionesgenerales = forms.CharField(widget=forms.Textarea(
         attrs={"max_length": 500, "rows": 5, "placeholder": "Observaciones generales...",
                "class": "form-control"}), required=False)
-    # NECESARIOS
-    datayhora = forms.DateTimeField()
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()
