@@ -142,14 +142,9 @@ class formBuscar(forms.Form):
 class formAsnef(forms.Form):
     def __init__(self, *args, **kwargs):
         super(formAsnef, self).__init__(*args, **kwargs)
-    # NECESARIOS
-    numexp = forms.IntegerField()
-    datayhora = forms.DateTimeField()
 
     def clean(self):
         cleaned_data = super(formAsnef, self).clean()
-        numexp = cleaned_data.get("numexp")
-        datayhora = cleaned_data.get("datayhora")
 
 
 class formCoche(forms.Form):
@@ -1051,9 +1046,6 @@ class formMicrocredito(forms.Form):
     anotacionesfinancieras = forms.CharField(widget=forms.Textarea(
         attrs={"max_length": 500, "rows": 5, "placeholder": "Anotaciones para los datos financieros...",
                "class": "form-control"}), required=False)
-    # NECESARIOS
-    numexp = forms.CharField(disabled=True)
-    datayhora = forms.DateTimeField(disabled=True)
 
     def clean(self):
         cleaned_data = super(formMicrocredito, self).clean()
@@ -1564,8 +1556,6 @@ class formPersonal(forms.Form):
     avalistaorosoquien2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
                                           required=False)
     # NECESARIOS
-    numexp = forms.CharField(disabled=True)
-    datayhora = forms.DateTimeField(disabled=True)
 
     def clean(self):
         cleaned_data = super(formPersonal, self).clean()
@@ -2076,8 +2066,6 @@ class formHipotecario(forms.Form):
     avalistaorosoquien2 = forms.CharField(widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}),
                                           required=False)
     # NECESARIOS
-    numexp = forms.CharField(disabled=True)
-    datayhora = forms.DateTimeField(disabled=True)
 
     def clean(self):
         cleaned_data = super(formHipotecario, self).clean()

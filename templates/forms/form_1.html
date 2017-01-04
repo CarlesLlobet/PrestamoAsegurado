@@ -1,10 +1,4 @@
 {% load staticfiles %}
-        {{ form.datayhora }}
-				{% if form.datayhora.errors %}
-					<span class="error" style="color:red">
-						{% for error in form.datayhora.errors %}{{ error }}{% endfor %}
-					</span>
-				{% endif %}
         <b>
             <p class="text-center">A continuacion le voy a solicitar sus datos personales:</p>
         </b>
@@ -181,12 +175,7 @@
         <br><br><br>
         <hr>
         <br><br><br>
-        <p>Su número de expediente es el {{ form.numexp }}
-				{% if form.numexp.errors %}
-					<span class="error" style="color:red">
-						{% for error in form.numexp.errors %}{{ error }}{% endfor %}
-					</span>
-				{% endif %}, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
+        <p>Su número de expediente es el {{ numexp }}, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
         <br><br><br>
         <hr>
         <br><br><br>

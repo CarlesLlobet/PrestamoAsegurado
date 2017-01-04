@@ -111,31 +111,25 @@ def expediente(request, numexp):
 
 @login_required(login_url="/")
 @user_passes_test(group_check)
-def asnef(request):
+def asnef(request, numexp):
+    context = {}
     if request.method == 'POST':
         form = forms.formAsnef(request.POST)
         if form.is_valid():
-            numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_data["datayhora"]
-            models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             return HttpResponseRedirect('/formularios/asnef/')
     else:
         form = forms.formAsnef()
-
-        lastNum2 = models.expediente.objects.all().order_by("numexp").last()
-        lastNum = lastNum2
-        if not lastNum2:
-            lastNum = 40000
-        else:
-            lastNum = lastNum2.numexp + 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
-    return render(request, 'form_asnef.html', {'form': form})
+        datayhora = datetime.now()
+        expedient = models.expediente.objects.create(numexp=numexp, tipo="ASNEF", fecha_hora=datayhora)
+        context.update({'form': form})
+        context.update({'numexp': numexp})
+    return render(request, 'form_asnef.html', )
 
 
 @login_required(login_url="/")
 @user_passes_test(group_check)
 def coche(request, numexp):
+    context = {}
     if request.method == 'POST':
         form = forms.formCoche(request.POST)
         if form.is_valid():
@@ -543,12 +537,14 @@ def coche(request, numexp):
         form = forms.formCoche()
         datayhora = datetime.now()
         expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
-    return render(request, 'form_coche.html', {'form': form})
+        context.update({'form': form})
+        context.update({"numexp": numexp})
+    return render(request, 'form_coche.html', context)
 
 
 # @login_required(login_url="/")
 # @user_passes_test(group_check)
-def microcredito(request):
+def microcredito(request, numexp):
     context = {}
     if request.method == 'POST':
         form = forms.formMicrocredito(request.POST)
@@ -757,10 +753,7 @@ def microcredito(request):
             autorizacion = form.cleaned_data["autorizacion"]
             medio = form.cleaned_data["medio"]
             anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
-            numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_dat["datayhora"]
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="Microcredito", fecha_hora=datayhora)
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
                                                     fechanacimiento=fechanacimiento,
@@ -961,20 +954,16 @@ def microcredito(request):
 
     else:
         form = forms.formMicrocredito()
-        lastNum = models.expediente.objects.all().order_by("numexp").last()
-        if not lastNum:
-            lastNum = 40000
-        else:
-            lastNum += 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
+        datayhora = datetime.now()
+        expedient = models.expediente.objects.create(numexp=numexp, tipo="Microcredito", fecha_hora=datayhora)
         context.update({"form": form})
+        context.update({"numexp": numexp})
     return render(request, 'form_microcre.html', context)
 
 
 # @login_required(login_url="/")
 # @user_passes_test(group_check)
-def personal(request):
+def personal(request, numexp):
     context = {}
     if request.method == 'POST':
         form = forms.formPersonal(request.POST)
@@ -1266,10 +1255,7 @@ def personal(request):
             avalistaorosoquien1 = form.cleaned_data["avalistaorosoquien1"]
             avalistaorosoimporte2 = form.cleaned_data["avalistaorosoimporte2"]
             avalistaorosoquien2 = form.cleaned_data["avalistaorosoquien2"]
-            numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_dat["datayhora"]
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
                                                     fechanacimiento=fechanacimiento,
@@ -1592,20 +1578,16 @@ def personal(request):
             print form.errors
     else:
         form = forms.formPersonal()
-        lastNum = models.expediente.objects.all().order_by("numexp").last()
-        if not lastNum:
-            lastNum = 40000
-        else:
-            lastNum += 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
+        datayhora = datetime.now()
+        expedient = models.expediente.objects.create(numexp=numexp, tipo="Personal", fecha_hora=datayhora)
         context.update({"form": form})
+        context.update({"numexp": numexp})
         return render(request, 'form_person.html', context)
 
 
 # @login_required(login_url="/")
 # @user_passes_test(group_check)
-def hipotecario(request):
+def hipotecario(request, numexp):
     context = {}
     if request.method == 'POST':
         form = forms.formHipotecario(request.POST)
@@ -1897,10 +1879,7 @@ def hipotecario(request):
             avalistaorosoquien1 = form.cleaned_data["avalistaorosoquien1"]
             avalistaorosoimporte2 = form.cleaned_data["avalistaorosoimporte2"]
             avalistaorosoquien2 = form.cleaned_data["avalistaorosoquien2"]
-            numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_dat["datayhora"]
 
-            expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
                                                     fechanacimiento=fechanacimiento,
@@ -2222,12 +2201,8 @@ def hipotecario(request):
             print form.errors
     else:
         form = forms.formHipotecario()
-        lastNum = models.expediente.objects.all().order_by("numexp").last()
-        if not lastNum:
-            lastNum = 40000
-        else:
-            lastNum += 1
-        form.fields["numexp"].initial = lastNum
-        form.fields["datayhora"].initial = datetime.now()
+        datayhora = datetime.now()
+        expedient = models.expediente.objects.create(numexp=numexp, tipo="Hipotecario", fecha_hora=datayhora)
         context.update({"form": form})
+        context.update({"numexp": numexp})
         return render(request, 'form_hipotec.html', context)
