@@ -508,8 +508,14 @@ class formCoche(forms.Form):
         attrs={"max_length": 500, "rows": 5, "placeholder": "Observaciones generales...",
                "class": "form-control"}), required=False)
     # NECESARIOS
-    numexp = forms.CharField(disabled=True, required=False)
+    numexp = forms.IntegerField(disabled=True)
     datayhora = forms.DateTimeField(disabled=True, required=False)
+
+    def clean_numexp(self):
+        numexp = self.cleaned_data['numexp']
+        if numexp is None:
+            return self.fields['numexp'].initial
+        return numexp
 
     def clean(self):
         cleaned_data = super(formCoche, self).clean()
