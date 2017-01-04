@@ -9,6 +9,11 @@
                 <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 {{ form.metodopago }}
+				{% if form.metodopago.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.metodopago.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             </div>
         </div>
                 <br><br>
@@ -23,12 +28,22 @@
         <div class="form-group">
             <label for="an6" class="h4 ">Disculpe, ¿me puede decir para qué va a ser destinada su solicitud? Es muy importante para la resolución:</label>
             {{ form.anotacionesdestinado }}
+				{% if form.anotacionesdestinado.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionesdestinado.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
         </div>
         <br><br>
         <b>
             <p class="text-center">Si el departamento nos solicita justificante, ¿lo podría aportar?
                 {{ form.justificante }}
+				{% if form.justificante.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.justificante.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             </p>
         </b>
         <br><br><br>
@@ -37,6 +52,11 @@
         <b>
             <p class="text-center"> Le recuerdo que sus datos van a ser tratados conforme a la ley de protección de datos personales. ¿Autoriza usted el tratamiento de sus datos personales por parte de Prestamo Asegurado?
                 {{ form.autorizacion }}
+				{% if form.autorizacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.autorizacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <br>En caso de NO AUTORIZARLOS, informamos que no podemos continuar con su solicitud, pues no nos autoriza el uso de sus datos. Así lo especifica la ley.
                 En todo momento puede ejercitar su derecho de acceso, rectificación, cancelación y oposición llamando por telefono al mismo numero al que ha llamado ya y con su identificador podremos ejercer cualquiera de las acciones.<br><br>
                 Su expediente es apto para analisis y ha pasado los primeros filtros. <br><br>
@@ -56,6 +76,11 @@
             <div class="form-group col-sm-6 col-sm-offset-3">
                 <label for="medio" class="h4"></label>
                 {{ form.medio }}
+				{% if form.medio.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.medio.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>

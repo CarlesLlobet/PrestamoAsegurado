@@ -9,11 +9,21 @@
     <div class="form-group col-sm-6">
         <label for="nombre" class="h4">*Motor</label>
         {{ form.motor }}
+				{% if form.motor.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.motor.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
     <div class="form-group col-sm-6">
         <label for="dni" class="h4">*Marca</label>
         {{ form.marca }}
+				{% if form.marca.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.marca.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
 </div>
@@ -21,11 +31,21 @@
     <div class="form-group col-sm-6">
         <label for="nombre" class="h4">*Modelo</label>
         {{ form.modelo }}
+				{% if form.modelo.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.modelo.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
     <div class="form-group col-sm-6">
         <label for="dni" class="h4">*Antiguedad</label>
         {{ form.antiguedad }}
+				{% if form.antiguedad.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.antiguedad.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
 </div>
@@ -33,11 +53,21 @@
     <div class="form-group col-sm-6">
         <label for="nombre" class="h4">*Matricula</label>
         {{ form.matricula }}
+				{% if form.matricula.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.matricula.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
     <div class="form-group col-sm-6">
         <label for="dni" class="h4">*Estado del vehiculo</label>
         {{ form.estadovehiculo }}
+				{% if form.estadovehiculo.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.estadovehiculo.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
         <div class="help-block with-errors"></div>
     </div>
 
@@ -47,5 +77,10 @@
             <div class="form-group">
             <label for="an6" class="h4 ">Anotaciones de su coche...</label>
             {{ form.anotacionescoche }}
+				{% if form.anotacionescoche.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionescoche.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
             </div>

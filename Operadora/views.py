@@ -335,7 +335,7 @@ def coche(request):
             medio = form.cleaned_data["medio"]
             anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
             numexp = form.cleaned_data["numexp"]
-            datayhora = form.cleaned_dat["datayhora"]
+            datayhora = form.cleaned_data["datayhora"]
 
             expedient = models.expediente.objects.create(numexp=numexp, tipo="Coche", fecha_hora=datayhora)
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,

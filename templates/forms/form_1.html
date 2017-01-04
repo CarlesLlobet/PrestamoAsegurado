@@ -9,16 +9,25 @@
             <div class="form-group col-sm-6">
                 <label for="nombre" class="h4">*Nombre y apellidos</label>
                 {{ form.name }}
-                {% if form.name.errors %}
-                    <span class="error" style="color:red">
-                        {% for error in form.name.errors %}{{ error }}{% endfor %}
-                    </span>
-                {% endif %}
-                <div class="help-block with-errors"></div>
+				{% if form.name.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.name.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             </div>
             <div class="form-group col-sm-6">
                 <label for="dni" class="h4">*DNI</label>
                 {{ form.dni }}
+				{% if form.dni.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.dni.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
+				{% if form.dni.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.dni.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -26,11 +35,21 @@
             <div class="form-group col-sm-6">
                 <label for="direccion" class="h4">Direccion</label>
                 {{ form.direccion }}
+				{% if form.direccion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.direccion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group col-sm-6">
                 <label for="email" class="h4">*Email</label>
                 {{ form.email }}
+				{% if form.email.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.email.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -38,11 +57,21 @@
             <div class="form-group col-sm-6">
                 <label for="telefono" class="h4">Telefono Fijo</label>
                 {{ form.telefono }}
+				{% if form.telefono.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.telefono.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group col-sm-6">
                 <label for="movil" class="h4">*Movil</label>
                 {{ form.movil }}
+				{% if form.movil.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.movil.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -50,11 +79,21 @@
             <div class="form-group col-sm-6">
                 <label for="fechan" class="h4">*Fecha de nacimiento</label>
                 {{ form.fechanacimiento }}
+				{% if form.fechanacimiento.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.fechanacimiento.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group col-sm-6">
                 <label for="nacionalidad" class="h4">*Nacionalidad</label>
                 {{ form.nacionalidad }}
+				{% if form.nacionalidad.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.nacionalidad.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -62,11 +101,21 @@
             <div class="form-group col-sm-4">
                 <label for="estadocivil" class="h4">¿Cuál es su estado civil?</label>
                 {{ form.estadocivil }}
+				{% if form.estadocivil.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.estadocivil.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div id="plsshw" class="form-group col-sm-4" style="display:none">
                 <label for="tipoestadocivil" class="h4">Tipo de Casado***</label>
                 {{ form.tipocasado }}
+				{% if form.tipocasado.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tipocasado.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div id="plsshw2" class="col-sm-4">
@@ -74,6 +123,11 @@
             <div id="plsshw" class="form-group col-sm-4">
                 <label for="nhijos" class="h4">Numero de hijos</label>
                 {{ form.numerohijos }}
+				{% if form.numerohijos.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.numerohijos.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -81,28 +135,53 @@
             <div class="form-group col-sm-4">
                 <label for="123" class="h4">Son mayores de edad?</label>
                {{ form.mayoresdeedad }}
+				{% if form.mayoresdeedad.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.mayoresdeedad.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group col-sm-4">
                 <label for="123" class="h4">Cuantos estan a su cargo?</label>
                 {{ form.cuantosacargo }}
+				{% if form.cuantosacargo.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.cuantosacargo.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group col-sm-4">
                 <label for="123" class="h4">Recibe algun ingreso por ellos?</label>
                 {{ form.ingresohijos }}
+				{% if form.ingresohijos.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.ingresohijos.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                 <div class="help-block with-errors"></div>
             </div>
         </div>
         <div class="form-group">
             <label for="an2" class="h4 ">Anotaciones para los datos personales...</label>
             {{ form.anotacionespersonales }}
+				{% if form.anotacionespersonales.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionespersonales.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
         <hr>
         <br><br><br>
-        <p>Su número de expediente es el {{ form.numexp }}, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
+        <p>Su número de expediente es el {{ form.numexp }}
+				{% if form.numexp.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.numexp.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}, por favor tome nota. Este número es indispensable para resolver su solicitud, este número es muy importante ya que se trata de su identificador dentro de nuestra bases de datos de cliente. En caso de perdida podriamos localizarlo por su dni pero el proceso seria mucho mas largo.</p>
         <br><br><br>
         <hr>
         <br><br><br>
@@ -121,11 +200,21 @@
                     <div class="form-group col-sm-4">
                         <label for="empresatipo" class="h4">Cotiza usted en la Seguridad Social?</label>
                         {{ form.cotizacion }}
+				{% if form.cotizacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.cotizacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div id="ajenasi" class="form-group col-sm-4" style="display:none">
                         <label for="empresaajena" class="h4">Tiene trabajo...</label>
                         {{ form.tipotrabajo }}
+				{% if form.tipotrabajo.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tipotrabajo.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div id="ajenano" class="col-sm-4">
@@ -133,6 +222,11 @@
                     <div id="tempsi" class="form-group col-sm-4" style="display:none">
                         <label for="empresatiempo" class="h4">¿Cuando finaliza el contrato?</label>
                         {{ form.finalizacontrato }}
+				{% if form.finalizacontrato.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.finalizacontrato.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -145,16 +239,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresanombre" class="h4">Nombre de la empresa</label>
                             {{ form.nombreempresa1 }}
+				{% if form.nombreempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.nombreempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo" class="h4">Cargo que desempeña</label>
                             {{ form.cargoempresa1 }}
+				{% if form.cargoempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.cargoempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad" class="h4">Actividad de la empresa</label>
                             {{ form.actividadempresa1 }}
+				{% if form.actividadempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.actividadempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -162,16 +271,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos" class="h4">Que ingresos tiene mensualmente</label>
                             {{ form.ingresosempresa1 }}
+				{% if form.ingresosempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.ingresosempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas" class="h4">Cuantas pagas cobra al año</label>
                             {{ form.pagasempresa1 }}
+				{% if form.pagasempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.pagasempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros" class="h4">Algún otro ingreso mensual?</label>
                             {{ form.otrosingresosempresa1 }}
+				{% if form.otrosingresosempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosingresosempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -179,6 +303,11 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad" class="h4">La antigüedad de la empresa</label>
                             {{ form.antiguedadempresa1 }}
+				{% if form.antiguedadempresa1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.antiguedadempresa1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -192,16 +321,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresanombre2" class="h4">Nombre de la empresa</label>
                             {{ form.nombreempresa2 }}
+				{% if form.nombreempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.nombreempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo2" class="h4">Cargo que desempeña</label>
                             {{ form.cargoempresa2 }}
+				{% if form.cargoempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.cargoempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad2" class="h4">Actividad de la empresa</label>
                             {{ form.actividadempresa2 }}
+				{% if form.actividadempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.actividadempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -209,16 +353,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos2" class="h4">Que ingresos tiene mensualmente</label>
                             {{ form.ingresosempresa2 }}
+				{% if form.ingresosempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.ingresosempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas2" class="h4">Cuantas pagas cobra al año</label>
                             {{ form.pagasempresa2 }}
+				{% if form.pagasempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.pagasempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros2" class="h4">Algún otro ingreso mensual?</label>
                             {{ form.otrosingresosempresa2 }}
+				{% if form.otrosingresosempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosingresosempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -226,6 +385,11 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad2" class="h4">La antigüedad de la empresa</label>
                             {{ form.antiguedadempresa2 }}
+				{% if form.antiguedadempresa2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.antiguedadempresa2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -240,16 +404,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresanombre3" class="h4">Nombre de la empresa</label>
                             {{ form.nombreempresa3 }}
+				{% if form.nombreempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.nombreempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresacargo3" class="h4">Cargo que desempeña</label>
                             {{ form.cargoempresa3 }}
+				{% if form.cargoempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.cargoempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaactividad3" class="h4">Actividad de la empresa</label>
                             {{ form.actividadempresa3 }}
+				{% if form.actividadempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.actividadempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -257,16 +436,31 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaingresos3" class="h4">Que ingresos tiene mensualmente</label>
                             {{ form.ingresosempresa3 }}
+				{% if form.ingresosempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.ingresosempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresapagas3" class="h4">Cuantas pagas cobra al año</label>
                             {{ form.pagasempresa3 }}
+				{% if form.pagasempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.pagasempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="empresaotros3" class="h4">Algún otro ingreso mensual?</label>
                             {{ form.otrosingresosempresa3 }}
+				{% if form.otrosingresosempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosingresosempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -274,6 +468,11 @@
                         <div class="form-group col-sm-4">
                             <label for="empresaantiguedad3" class="h4">La antigüedad de la empresa</label>
                             {{ form.antiguedadempresa3 }}
+				{% if form.antiguedadempresa3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.antiguedadempresa3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -296,11 +495,21 @@
                     <div class="form-group col-sm-4">
                         <label for="ayudaimporte" class="h4">Importe</label>
                         {{ form.importejuvilacion }}
+				{% if form.importejuvilacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.importejuvilacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="ayudapagas" class="h4">Numero de Pagas</label>
                         {{ form.numerodepagasjuvilacion }}
+				{% if form.numerodepagasjuvilacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.numerodepagasjuvilacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-4">
@@ -316,11 +525,21 @@
                     <div class="form-group col-sm-6">
                         <label for="ayudainicio" class="h4">Fecha inicio prestaciones</label>
                         {{ form.iniciojuvilacion }}
+				{% if form.iniciojuvilacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.iniciojuvilacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="ayudafin" class="h4">Fecha fin prestaciones</label>
                         {{ form.finjuvilacion }}
+				{% if form.finjuvilacion.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.finjuvilacion.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -339,11 +558,21 @@
                 <div class="form-group col-sm-6">
                     <label for="parofecha" class="h4">¿Desde cuando?</label>
                     {{ form.parodesdecuando }}
+				{% if form.parodesdecuando.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.parodesdecuando.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="parodinero" class="h4">¿Cuánto cobra?</label>
                     {{ form.parocuantocobra }}
+				{% if form.parocuantocobra.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.parocuantocobra.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
                 <br>
@@ -361,12 +590,22 @@
                 <div class="form-group col-sm-6">
                     <label for="ingresoextra" class="h4">¿Tiene algún otro tipo de ingreso?</label>
                     {{ form.otrosingresos }}
+				{% if form.otrosingresos.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosingresos.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="gastoextra" class="h4">¿Tiene algún otro tipo de gasto?</label>
                     {{ form.otrosgastos }}
+				{% if form.otrosgastos.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosgastos.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
                 <br>
@@ -374,12 +613,22 @@
                 <div class="form-group col-sm-6">
                     <label for="ingresoextra" class="h4">En concepto de que tiene el ingreso?</label>
                     {{ form.otrosingresostexto }}
+				{% if form.otrosingresostexto.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosingresostexto.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="gastoextra" class="h4">En concepto de que tiene el gasto?</label>
                     {{ form.otrosgastostexto }}
+				{% if form.otrosgastostexto.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.otrosgastostexto.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -390,6 +639,11 @@
         <div class="form-group">
             <label for="an3" class="h4 ">Anotaciones para tipos de ingresos...</label>
             {{ form.anotacionesingresos }}
+				{% if form.anotacionesingresos.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionesingresos.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
@@ -413,16 +667,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendavalor1 }}
+				{% if form.viviendavalor1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalor1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendavalorhipoteca1 }}
+				{% if form.viviendavalorhipoteca1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalorhipoteca1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada" class="h4">Esta pagada?</label>
                             {{ form.viviendaestapagada1 }}
+				{% if form.viviendaestapagada1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaestapagada1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -430,16 +699,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendacuotamensual1 }}
+				{% if form.viviendacuotamensual1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacuotamensual1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship" class="h4">Años que le restan</label>
                             {{ form.viviendaanos1 }}
+				{% if form.viviendaanos1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaanos1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip" class="h4">Con que entidad?</label>
                             {{ form.viviendaentidad1 }}
+				{% if form.viviendaentidad1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaentidad1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -447,6 +731,11 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendalibredecargos1 }}
+				{% if form.viviendalibredecargos1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendalibredecargos1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -455,16 +744,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendam" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendametros1 }}
+				{% if form.viviendametros1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendametros1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento" class="h4">% de la propiedad</label>
                             {{ form.viviendaporciento1 }}
+				{% if form.viviendaporciento1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaporciento1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion" class="h4">Dirección</label>
                             {{ form.viviendadireccion1 }}
+				{% if form.viviendadireccion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendadireccion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -472,16 +776,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Población</label>
                             {{ form.viviendapoblacion1 }}
+				{% if form.viviendapoblacion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendapoblacion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia" class="h4">Província</label>
                             {{ form.viviendaprovincia1 }}
+				{% if form.viviendaprovincia1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaprovincia1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp" class="h4">Codigo Postal</label>
                             {{ form.viviendacodigopostal1 }}
+				{% if form.viviendacodigopostal1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacodigopostal1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -495,16 +814,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor2" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendavalor2 }}
+				{% if form.viviendavalor2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalor2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor2" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendavalorhipoteca2 }}
+				{% if form.viviendavalorhipoteca2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalorhipoteca2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada2" class="h4">Esta pagada?</label>
                             {{ form.viviendaestapagada2 }}
+				{% if form.viviendaestapagada2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaestapagada2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -512,16 +846,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip2" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendacuotamensual2 }}
+				{% if form.viviendacuotamensual2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacuotamensual2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship2" class="h4">Años que le restan</label>
                             {{ form.viviendaanos2 }}
+				{% if form.viviendaanos2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaanos2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip2" class="h4">Con que entidad?</label>
                             {{ form.viviendaentidad2 }}
+				{% if form.viviendaentidad2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaentidad2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -529,6 +878,11 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendalibredecargos2 }}
+				{% if form.viviendalibredecargos2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendalibredecargos2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -537,16 +891,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendam2" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendametros2 }}
+				{% if form.viviendametros2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendametros2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento2" class="h4">% de la propiedad</label>
                             {{ form.viviendaporciento2 }}
+				{% if form.viviendaporciento2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaporciento2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion2" class="h4">Dirección</label>
                             {{ form.viviendadireccion2 }}
+				{% if form.viviendadireccion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendadireccion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -554,16 +923,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion2" class="h4">Población</label>
                             {{ form.viviendapoblacion2 }}
+				{% if form.viviendapoblacion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendapoblacion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia2" class="h4">Província</label>
                             {{ form.viviendaprovincia2 }}
+				{% if form.viviendaprovincia2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaprovincia2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp2" class="h4">Codigo Postal</label>
                             {{ form.viviendacodigopostal2 }}
+				{% if form.viviendacodigopostal2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacodigopostal2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -578,16 +962,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalor3" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendavalor3 }}
+				{% if form.viviendavalor3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalor3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalor3" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendavalorhipoteca3 }}
+				{% if form.viviendavalorhipoteca3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendavalorhipoteca3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagada3" class="h4">Esta pagada?</label>
                             {{ form.viviendaestapagada3 }}
+				{% if form.viviendaestapagada3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaestapagada3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -595,16 +994,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahip3" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendacuotamensual3 }}
+				{% if form.viviendacuotamensual3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacuotamensual3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoship3" class="h4">Años que le restan</label>
                             {{ form.viviendaanos3 }}
+				{% if form.viviendaanos3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaanos3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhip3" class="h4">Con que entidad?</label>
                             {{ form.viviendaentidad3 }}
+				{% if form.viviendaentidad3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaentidad3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -612,6 +1026,11 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendalibredecargos3 }}
+				{% if form.viviendalibredecargos3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendalibredecargos3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -620,16 +1039,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendam3" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendametros3 }}
+				{% if form.viviendametros3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendametros3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporciento3" class="h4">% de la propiedad</label>
                             {{ form.viviendaporciento3 }}
+				{% if form.viviendaporciento3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaporciento3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadireccion3" class="h4">Dirección</label>
                             {{ form.viviendadireccion3 }}
+				{% if form.viviendadireccion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendadireccion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -637,16 +1071,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion3" class="h4">Población</label>
                             {{ form.viviendapoblacion3 }}
+				{% if form.viviendapoblacion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendapoblacion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovincia3" class="h4">Província</label>
                             {{ form.viviendaprovincia3 }}
+				{% if form.viviendaprovincia3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaprovincia3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacp3" class="h4">Codigo Postal</label>
                             {{ form.viviendacodigopostal3 }}
+				{% if form.viviendacodigopostal3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendacodigopostal3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -671,16 +1120,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalora" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendaalquiladavalor1 }}
+				{% if form.viviendaalquiladavalor1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalor1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalora" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendaalquiladavalorhipoteca1 }}
+				{% if form.viviendaalquiladavalorhipoteca1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalorhipoteca1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagadaa" class="h4">Esta pagada?</label>
                             {{ form.viviendaalquiladaestapagada1 }}
+				{% if form.viviendaalquiladaestapagada1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaestapagada1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -688,16 +1152,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahipa" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendaalquiladacuotamensual1 }}
+				{% if form.viviendaalquiladacuotamensual1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacuotamensual1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoshipa" class="h4">Años que le restan</label>
                             {{ form.viviendaalquiladaanos1 }}
+				{% if form.viviendaalquiladaanos1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaanos1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhipa" class="h4">Con que entidad?</label>
                             {{ form.viviendaalquiladaentidad1 }}
+				{% if form.viviendaalquiladaentidad1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaentidad1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -705,11 +1184,21 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacobraa" class="h4">Cuanto cobra de alquiler?</label>
                             {{ form.viviendaalquiladacobraalquiler1 }}
+				{% if form.viviendaalquiladacobraalquiler1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacobraalquiler1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendaalquiladalibredecargos1 }}
+				{% if form.viviendaalquiladalibredecargos1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladalibredecargos1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -718,12 +1207,22 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendama" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendaalquiladametros1 }}
+				{% if form.viviendaalquiladametros1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladametros1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporcientoa" class="h4">% de la propiedad</label>
                             <div class="input-group">
                                 {{ form.viviendaalquiladaporciento1 }}
+				{% if form.viviendaalquiladaporciento1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaporciento1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                                 <div class="input-group-addon">%</div>
                             </div>
                             <div class="help-block with-errors"></div>
@@ -731,6 +1230,11 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendadirecciona" class="h4">Dirección</label>
                             {{ form.viviendaalquiladadireccion1 }}
+				{% if form.viviendaalquiladadireccion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladadireccion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -738,16 +1242,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblaciona" class="h4">Población</label>
                             {{ form.viviendaalquiladapoblacion1 }}
+				{% if form.viviendaalquiladapoblacion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladapoblacion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovinciaa" class="h4">Província</label>
                             {{ form.viviendaalquiladaprovincia1 }}
+				{% if form.viviendaalquiladaprovincia1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaprovincia1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacpa" class="h4">Codigo Postal</label>
                             {{ form.viviendaalquiladacodigopostal1 }}
+				{% if form.viviendaalquiladacodigopostal1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacodigopostal1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -761,16 +1280,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalora2" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendaalquiladavalor2 }}
+				{% if form.viviendaalquiladavalor2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalor2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalora2" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendaalquiladavalorhipoteca2 }}
+				{% if form.viviendaalquiladavalorhipoteca2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalorhipoteca2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagadaa2" class="h4">Esta pagada?</label>
                             {{ form.viviendaalquiladaestapagada2 }}
+				{% if form.viviendaalquiladaestapagada2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaestapagada2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -778,16 +1312,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahipa2" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendaalquiladacuotamensual2 }}
+				{% if form.viviendaalquiladacuotamensual2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacuotamensual2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoshipa2" class="h4">Años que le restan</label>
                             {{ form.viviendaalquiladaanos2 }}
+				{% if form.viviendaalquiladaanos2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaanos2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhipa2" class="h4">Con que entidad?</label>
                             {{ form.viviendaalquiladaentidad2 }}
+				{% if form.viviendaalquiladaentidad2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaentidad2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -795,11 +1344,21 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacobraa2" class="h4">Cuanto cobra de alquiler?</label>
                             {{ form.viviendaalquiladacobraalquiler2 }}
+				{% if form.viviendaalquiladacobraalquiler2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacobraalquiler2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendaalquiladalibredecargos2 }}
+				{% if form.viviendaalquiladalibredecargos2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladalibredecargos2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -807,16 +1366,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendama2" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendaalquiladametros2 }}
+				{% if form.viviendaalquiladametros2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladametros2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporcientoa2" class="h4">% de la propiedad</label>
                             {{ form.viviendaalquiladaporciento2 }}
+				{% if form.viviendaalquiladaporciento2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaporciento2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadirecciona2" class="h4">Dirección</label>
                             {{ form.viviendaalquiladadireccion2 }}
+				{% if form.viviendaalquiladadireccion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladadireccion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -824,16 +1398,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblaciona2" class="h4">Población</label>
                             {{ form.viviendaalquiladapoblacion2 }}
+				{% if form.viviendaalquiladapoblacion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladapoblacion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovinciaa2" class="h4">Província</label>
                             {{ form.viviendaalquiladaprovincia2 }}
+				{% if form.viviendaalquiladaprovincia2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaprovincia2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacpa2" class="h4">Codigo Postal</label>
                             {{ form.viviendaalquiladacodigopostal2 }}
+				{% if form.viviendaalquiladacodigopostal2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacodigopostal2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -848,16 +1437,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendavalora3" class="h4">Valor estimado de la vivienda</label>
                             {{ form.viviendaalquiladavalor3 }}
+				{% if form.viviendaalquiladavalor3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalor3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendahipotecavalora3" class="h4">Valor de la hipoteca</label>
                             {{ form.viviendaalquiladavalorhipoteca3 }}
+				{% if form.viviendaalquiladavalorhipoteca3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladavalorhipoteca3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapagadaa3" class="h4">Esta pagada?</label>
                             {{ form.viviendaalquiladaestapagada3 }}
+				{% if form.viviendaalquiladaestapagada3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaestapagada3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -865,16 +1469,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacuotahipa3" class="h4">Cuota mensual que paga de la hipoteca</label>
                             {{ form.viviendaalquiladacuotamensual3 }}
+				{% if form.viviendaalquiladacuotamensual3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacuotamensual3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaanoshipa3" class="h4">Años que le restan</label>
                             {{ form.viviendaalquiladaanos3 }}
+				{% if form.viviendaalquiladaanos3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaanos3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaentidadhipa3" class="h4">Con que entidad?</label>
                             {{ form.viviendaalquiladaentidad3 }}
+				{% if form.viviendaalquiladaentidad3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaentidad3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -882,11 +1501,21 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendacobraa3" class="h4">Cuanto cobra de alquiler?</label>
                             {{ form.viviendaalquiladacobraalquiler3 }}
+				{% if form.viviendaalquiladacobraalquiler3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacobraalquiler3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblacion3" class="h4">Esta libre de cargos?</label>
                             {{ form.viviendaalquiladalibredecargos3 }}
+				{% if form.viviendaalquiladalibredecargos3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladalibredecargos3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -894,16 +1523,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendama3" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.viviendaalquiladametros3 }}
+				{% if form.viviendaalquiladametros3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladametros3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaporcientoa3" class="h4">% de la propiedad</label>
                             {{ form.viviendaalquiladaporciento3 }}
+				{% if form.viviendaalquiladaporciento3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaporciento3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendadirecciona3" class="h4">Dirección</label>
                             {{ form.viviendaalquiladadireccion3 }}
+				{% if form.viviendaalquiladadireccion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladadireccion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -911,16 +1555,31 @@
                         <div class="form-group col-sm-4">
                             <label for="viviendapoblaciona3" class="h4">Población</label>
                             {{ form.viviendaalquiladapoblacion3 }}
+				{% if form.viviendaalquiladapoblacion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladapoblacion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendaprovinciaa3" class="h4">Província</label>
                             {{ form.viviendaalquiladaprovincia3 }}
+				{% if form.viviendaalquiladaprovincia3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladaprovincia3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="viviendacpa3" class="h4">Codigo Postal</label>
                             {{ form.viviendaalquiladacodigopostal3 }}
+				{% if form.viviendaalquiladacodigopostal3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.viviendaalquiladacodigopostal3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -944,16 +1603,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpaga" class="h4">Que paga usted de alquiler?</label>
                             {{ form.alquilerpaga1 }}
+				{% if form.alquilerpaga1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpaga1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerm" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.alquilermetros1 }}
+				{% if form.alquilermetros1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilermetros1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerdireccion" class="h4">Dirección</label>
                             {{ form.alquilerdireccion1 }}
+				{% if form.alquilerdireccion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerdireccion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -961,16 +1635,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpoblacion" class="h4">Población</label>
                             {{ form.alquilerpoblacion1 }}
+				{% if form.alquilerpoblacion1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpoblacion1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerprovincia" class="h4">Província</label>
                             {{ form.alquilerprovincia1 }}
+				{% if form.alquilerprovincia1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerprovincia1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilercp" class="h4">Codigo Postal</label>
                             {{ form.alquilercodigopostal1 }}
+				{% if form.alquilercodigopostal1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilercodigopostal1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -984,16 +1673,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpaga2" class="h4">Que paga usted de alquiler?</label>
                             {{ form.alquilerpaga2 }}
+				{% if form.alquilerpaga2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpaga2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerm2" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.alquilermetros2 }}
+				{% if form.alquilermetros2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilermetros2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerdireccion2" class="h4">Dirección</label>
                             {{ form.alquilerdireccion2 }}
+				{% if form.alquilerdireccion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerdireccion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1001,16 +1705,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpoblacion2" class="h4">Población</label>
                             {{ form.alquilerpoblacion2 }}
+				{% if form.alquilerpoblacion2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpoblacion2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerprovincia2" class="h4">Província</label>
                             {{ form.alquilerprovincia2 }}
+				{% if form.alquilerprovincia2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerprovincia2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilercp2" class="h4">Codigo Postal</label>
                             {{ form.alquilercodigopostal2 }}
+				{% if form.alquilercodigopostal2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilercodigopostal2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1025,16 +1744,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpaga3" class="h4">Que paga usted de alquiler?</label>
                             {{ form.alquilerpaga3 }}
+				{% if form.alquilerpaga3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpaga3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerm3" class="h4">Metros aproximados de la vivienda</label>
                             {{ form.alquilermetros3 }}
+				{% if form.alquilermetros3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilermetros3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerdireccion3" class="h4">Dirección</label>
                             {{ form.alquilerdireccion3 }}
+				{% if form.alquilerdireccion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerdireccion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1042,16 +1776,31 @@
                         <div class="form-group col-sm-4">
                             <label for="alquilerpoblacion3" class="h4">Población</label>
                             {{ form.alquilerpoblacion3 }}
+				{% if form.alquilerpoblacion3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerpoblacion3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilerprovincia3" class="h4">Província</label>
                             {{ form.alquilerprovincia3 }}
+				{% if form.alquilerprovincia3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilerprovincia3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="alquilercp3" class="h4">Codigo Postal</label>
                             {{ form.alquilercodigopostal3 }}
+				{% if form.alquilercodigopostal3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.alquilercodigopostal3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1073,11 +1822,21 @@
                     <div class="form-group col-sm-6">
                         <label for="familiardireccion" class="h4">Direccion</label>
                         {{ form.direccionpersonal }}
+				{% if form.direccionpersonal.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.direccionpersonal.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="familiarpoblacion" class="h4">Poblacion</label>
                         {{ form.poblacionpersonal }}
+				{% if form.poblacionpersonal.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.poblacionpersonal.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -1085,11 +1844,21 @@
                     <div class="form-group col-sm-6">
                         <label for="familiarprovincia" class="h4">Provincia</label>
                         {{ form.provinciapersonal }}
+				{% if form.provinciapersonal.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.provinciapersonal.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="familiarcp" class="h4">Codigo Postal</label>
                         {{ form.codigopostalpersonal }}
+				{% if form.codigopostalpersonal.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.codigopostalpersonal.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -1099,6 +1868,11 @@
         <div class="form-group">
             <label for="an4" class="h4 ">Anotaciones para tipos de vivienda...</label>
             {{ form.anotacionesviviendas }}
+				{% if form.anotacionesviviendas.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionesviviendas.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
@@ -1121,11 +1895,21 @@
                         <div class="form-group col-sm-6">
                             <label for="credtipo1" class="h4">Tipo de Credito</label>
                             {{ form.creditotipo1 }}
+				{% if form.creditotipo1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotipo1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-6" id="creditoaval1" style="display:none">
                             <label for="credaval1" class="h4">Tanto porciento de avalista</label>
                             {{ form.creditotantoporciento1 }}
+				{% if form.creditotantoporciento1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotantoporciento1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1133,16 +1917,31 @@
                         <div class="form-group col-sm-4">
                             <label for="credimp1" class="h4">Importe Pendiente</label>
                             {{ form.creditoimporte1 }}
+				{% if form.creditoimporte1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoimporte1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credcuota1" class="h4">Cuota mensual que paga</label>
                             {{ form.creditocuota1 }}
+				{% if form.creditocuota1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditocuota1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credent1" class="h4">Entidad</label>
                             {{ form.creditoentidad1 }}
+				{% if form.creditoentidad1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoentidad1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1156,11 +1955,21 @@
                         <div class="form-group col-sm-6">
                             <label for="credtipo2" class="h4">Tipo de Credito</label>
                             {{ form.creditotipo2 }}
+				{% if form.creditotipo2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotipo2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-6" id="creditoaval2" style="display:none">
                             <label for="credaval2" class="h4">Tanto porciento de avalista</label>
                             {{ form.creditotantoporciento2 }}
+				{% if form.creditotantoporciento2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotantoporciento2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1168,16 +1977,31 @@
                         <div class="form-group col-sm-4">
                             <label for="credimp2" class="h4">Importe Pendiente</label>
                             {{ form.creditoimporte2 }}
+				{% if form.creditoimporte2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoimporte2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credcuota2" class="h4">Cuota mensual que paga</label>
                             {{ form.creditocuota2 }}
+				{% if form.creditocuota2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditocuota2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credent2" class="h4">Entidad</label>
                             {{ form.creditoentidad2 }}
+				{% if form.creditoentidad2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoentidad2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1192,11 +2016,21 @@
                         <div class="form-group col-sm-6">
                             <label for="credtipo3" class="h4">Tipo de Credito</label>
                             {{ form.creditotipo3 }}
+				{% if form.creditotipo3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotipo3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-6" id="creditoaval3" style="display:none">
                             <label for="credaval3" class="h4">Tanto porciento de avalista</label>
                             {{ form.creditotantoporciento3 }}
+				{% if form.creditotantoporciento3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditotantoporciento3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1204,16 +2038,31 @@
                         <div class="form-group col-sm-4">
                             <label for="credimp3" class="h4">Importe Pendiente</label>
                             {{ form.creditoimporte3 }}
+				{% if form.creditoimporte3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoimporte3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credcuota3" class="h4">Cuota mensual que paga</label>
                             {{ form.creditocuota3 }}
+				{% if form.creditocuota3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditocuota3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="credent3" class="h4">Entidad</label>
                             {{ form.creditoentidad3 }}
+				{% if form.creditoentidad3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.creditoentidad3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1237,16 +2086,31 @@
                         <div class="form-group col-sm-4">
                             <label for="targcuota1" class="h4">Que cuota mensual paga?</label>
                             {{ form.tarjetacuota1 }}
+				{% if form.tarjetacuota1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetacuota1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targimp1" class="h4">Importe</label>
                             {{ form.tarjetaimporte1 }}
+				{% if form.tarjetaimporte1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaimporte1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targent1" class="h4">Entidad</label>
                             {{ form.tarjetaentidad1 }}
+				{% if form.tarjetaentidad1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaentidad1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1260,16 +2124,31 @@
                         <div class="form-group col-sm-4">
                             <label for="targcuota2" class="h4">Que cuota mensual paga?</label>
                             {{ form.tarjetacuota2 }}
+				{% if form.tarjetacuota2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetacuota2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targimp2" class="h4">Importe</label>
                             {{ form.tarjetaimporte2 }}
+				{% if form.tarjetaimporte2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaimporte2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targent2" class="h4">Entidad</label>
                             {{ form.tarjetaentidad2 }}
+				{% if form.tarjetaentidad2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaentidad2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1284,16 +2163,31 @@
                         <div class="form-group col-sm-4">
                             <label for="targcuota3" class="h4">Que cuota mensual paga?</label>
                             {{ form.tarjetacuota3 }}
+				{% if form.tarjetacuota3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetacuota3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targimp3" class="h4">Importe</label>
                             {{ form.tarjetaimporte3 }}
+				{% if form.tarjetaimporte3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaimporte3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="targent3" class="h4">Entidad</label>
                             {{ form.tarjetaentidad3 }}
+				{% if form.tarjetaentidad3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.tarjetaentidad3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1317,6 +2211,11 @@
                         <div class="form-group col-sm-4">
                             <label for="recimp1" class="h4">Importe?</label>
                             {{ form.recivosimporte1 }}
+				{% if form.recivosimporte1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.recivosimporte1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1330,6 +2229,11 @@
                         <div class="form-group col-sm-4">
                             <label for="recimp2" class="h4">Importe?</label>
                             {{ form.recivosimporte2 }}
+				{% if form.recivosimporte2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.recivosimporte2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1344,6 +2248,11 @@
                         <div class="form-group col-sm-4">
                             <label for="recimp3" class="h4">Importe?</label>
                             {{ form.recivosimporte3 }}
+				{% if form.recivosimporte3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.recivosimporte3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1367,11 +2276,21 @@
                         <div class="form-group col-sm-4">
                             <label for="morimp1" class="h4">Importe?</label>
                             {{ form.morosoimporte1 }}
+				{% if form.morosoimporte1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoimporte1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="morwho1" class="h4">Quien te reclama la deuda?</label>
                             {{ form.morosoquien1 }}
+				{% if form.morosoquien1.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoquien1.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1385,11 +2304,21 @@
                         <div class="form-group col-sm-4">
                             <label for="morimp2" class="h4">Importe?</label>
                             {{ form.morosoimporte2 }}
+				{% if form.morosoimporte2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoimporte2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="morwho2" class="h4">Quien te reclama la deuda?</label>
                             {{ form.morosoquien2 }}
+				{% if form.morosoquien2.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoquien2.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1404,11 +2333,21 @@
                         <div class="form-group col-sm-4">
                             <label for="morimp3" class="h4">Importe?</label>
                             {{ form.morosoimporte3 }}
+				{% if form.morosoimporte3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoimporte3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="morwho3" class="h4">Quien te reclama la deuda?</label>
                             {{ form.morosoquien3 }}
+				{% if form.morosoquien3.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.morosoquien3.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1421,6 +2360,11 @@
         <div class="form-group">
             <label for="an5" class="h4 ">Anotaciones para datos financieros...</label>
             {{ form.anotacionesfinancieras }}
+				{% if form.anotacionesfinancieras.errors %}
+					<span class="error" style="color:red">
+						{% for error in form.anotacionesfinancieras.errors %}{{ error }}{% endfor %}
+					</span>
+				{% endif %}
             <div class="help-block with-errors"></div>
         </div>
         <br><br><br>
