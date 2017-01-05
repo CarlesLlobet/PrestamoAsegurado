@@ -12,6 +12,7 @@ def hipotecario(request, numexp):
     if request.method == 'POST':
         form = forms.formHipotecario(request.POST)
         if form.is_valid():
+            #Form 1
             name = form.cleaned_data["name"]
             dni = form.cleaned_data["dni"]
             direccion = form.cleaned_data["direccion"]
@@ -206,6 +207,8 @@ def hipotecario(request, numexp):
             autorizacion = form.cleaned_data["autorizacion"]
             medio = form.cleaned_data["medio"]
             anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
+
+            #Form 2 : Avalista
             avalistaame = form.cleaned_data["avalistaame"]
             avalistani = form.cleaned_data["avalistani"]
             avalistaireccion = form.cleaned_data["avalistaireccion"]
@@ -494,6 +497,7 @@ def hipotecario(request, numexp):
                 debemoroso3 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte3,
                                                                quien=morosoquien3)
 
+            # Form 2: Avalista
             avalpersona = models.persona.objects.create(numexp=numexp, nombre=avalistaame, avalista=True,
                                                         dni=avalistani,
                                                         direccion=avalistaireccion, email=avalistamail,
@@ -616,13 +620,12 @@ def hipotecario(request, numexp):
                 avaldebemoroso2 = models.debemoroso.objects.create(numexp=numexp, avalista=True,
                                                                    importe=avalistaorosoimporte2,
                                                                    quien=avalistaorosoquien2)
-            return HttpResponseRedirect('/hipotecario/')
+            return HttpResponseRedirect('/formularios/enviado')
         else:
-            print form.errors
+            context.update({'form': form})
     else:
         form = forms.formHipotecario()
-        datayhora = datetime.now()
-        expedient = models.expediente.objects.create(numexp=numexp, tipo="Hipotecario", fecha_hora=datayhora)
-        context.update({"form": form})
+        models.expediente.objects.update(tipo="Hipotecario")
+        context.update({'form': form})
         context.update({"numexp": numexp})
-        return render(request, 'form_hipotec.html', context)
+    return render(request, 'form_hipotec.html.html', context)

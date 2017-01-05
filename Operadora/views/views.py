@@ -33,7 +33,7 @@ def index(request):
     #    form = forms.formBuscar()
     #    context.update({"form": form})
     lastNum2 = models.expediente.objects.all().order_by("numexp").last()
-    lastNum = lastNum2
+    lastNum = 0
     if not lastNum2:
         lastNum = 40000
     else:
@@ -46,7 +46,6 @@ def index(request):
 @login_required(login_url="/")
 @user_passes_test(group_check)
 def send(request):
-    context = {}
     return render(request, 'form_send.html', )
 
 

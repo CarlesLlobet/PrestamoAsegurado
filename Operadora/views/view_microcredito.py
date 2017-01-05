@@ -413,13 +413,12 @@ def microcredito(request, numexp):
             if morosoimporte3:
                 debemoroso3 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte3,
                                                                quien=morosoquien3)
-            return HttpResponseRedirect('/formularios/microcredito/')
-
+            return HttpResponseRedirect('/formularios/enviado')
+        else:
+            context.update({'form': form})
     else:
         form = forms.formMicrocredito()
-        datayhora = datetime.now()
-        expedient = models.expediente.objects.create(numexp=numexp, tipo="Microcredito", fecha_hora=datayhora)
-        context.update({"form": form})
+        models.expediente.objects.update(tipo="Microcredito")
+        context.update({'form': form})
         context.update({"numexp": numexp})
-    return render(request, 'form_microcre.html', context)
-
+    return render(request, 'form_microcre.html.html', context)

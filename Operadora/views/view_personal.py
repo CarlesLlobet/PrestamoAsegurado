@@ -617,13 +617,12 @@ def personal(request, numexp):
                                                                    importe=avalistaorosoimporte2,
                                                                    quien=avalistaorosoquien2)
 
-            return HttpResponseRedirect('/formularios/')
+            return HttpResponseRedirect('/formularios/enviado')
         else:
-            print form.errors
+            context.update({'form': form})
     else:
         form = forms.formPersonal()
-        datayhora = datetime.now()
-        expedient = models.expediente.objects.create(numexp=numexp, tipo="Personal", fecha_hora=datayhora)
-        context.update({"form": form})
+        models.expediente.objects.update(tipo="Personal")
+        context.update({'form': form})
         context.update({"numexp": numexp})
-        return render(request, 'form_person.html', context)
+    return render(request, 'form_person.html.html', context)

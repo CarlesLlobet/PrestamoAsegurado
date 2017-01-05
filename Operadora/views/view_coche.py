@@ -411,6 +411,8 @@ def coche(request, numexp):
                                                   antiguedad=antiguedad, matricula=matricula,
                                                   estadodelvehiculo=estadovehiculo, coche=anotacionescoche)
             return HttpResponseRedirect('/formularios/enviado')
+        else:
+            context.update({'form': form})
     else:
         form = forms.formCoche()
         models.expediente.objects.update(tipo="Coche")

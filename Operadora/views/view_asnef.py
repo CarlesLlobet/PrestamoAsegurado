@@ -12,7 +12,10 @@ def asnef(request, numexp):
     if request.method == 'POST':
         form = forms.formAsnef(request.POST)
         if form.is_valid():
+
             return HttpResponseRedirect('/formularios/enviado')
+        else:
+            context.update({'form': form})
     else:
         form = forms.formAsnef()
         models.expediente.objects.update(tipo="ASNEF")

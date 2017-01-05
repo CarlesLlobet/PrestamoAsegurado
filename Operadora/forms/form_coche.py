@@ -1,4 +1,6 @@
 from .forms import *
+from .forms import my_default_errors_DNI
+from .forms import my_default_errors_email
 
 class formCoche(forms.Form):
     def __init__(self, *args, **kwargs):
