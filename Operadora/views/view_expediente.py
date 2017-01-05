@@ -34,50 +34,23 @@ def expediente(request, numexp):
         sender.send(message)
         return HttpResponseRedirect('/formularios')
     else:
-        expedient = models.expediente.objects.get(numexp=numexp)
-        if expedient.tipo == "Personal":
-            # TODO: Pillar les dades necessaries per aquest tipus
-            empreses_seves = models.empresa.objects.get(numexp=numexp)
-            # TODO: Ficarla al context
-            context.update({'numexp', expedient.numexp})
-            context.update({'hora', expedient.datayhora})
-            i = 0
-            for e in empreses_seves:
-                context.update({'nomempresa' + i, e.nombre})
-                context.update({'nomempresa' + i, e.cargo})
-                i += 1
-        elif expedient.tipo == "Hipotecario":
-            # TODO: Pillar les dades necessaries per aquest tipus
-            empreses_seves = models.empresa.objects.get(numexp=numexp)
-            # TODO: Ficarla al context
-            context.update({'numexp', expedient.numexp})
-            context.update({'hora', expedient.datayhora})
-            i = 0
-            for e in empreses_seves:
-                context.update({'nomempresa' + i, e.nombre})
-                context.update({'nomempresa' + i, e.cargo})
-                i += 1
-        elif expedient.tipo == "Microcredito":
-            # TODO: Pillar les dades necessaries per aquest tipus
-            empreses_seves = models.empresa.objects.get(numexp=numexp)
-            # TODO: Ficarla al context
-            context.update({'numexp', expedient.numexp})
-            context.update({'hora', expedient.datayhora})
-            i = 0
-            for e in empreses_seves:
-                context.update({'nomempresa' + i, e.nombre})
-                context.update({'nomempresa' + i, e.cargo})
-                i += 1
-        elif expedient.tipo == "Coche":
-            # TODO: Pillar les dades necessaries per aquest tipus
-            empreses_seves = models.empresa.objects.get(numexp=numexp)
-            # TODO: Ficarla al context
-            context.update({'numexp', expedient.numexp})
-            context.update({'hora', expedient.datayhora})
-            i = 0
-            for e in empreses_seves:
-                context.update({'nomempresa' + i, e.nombre})
-                context.update({'nomempresa' + i, e.cargo})
-                i += 1
+        expediente = models.expediente.objects.get(numexp=numexp)
+        persona = models.persona.objects.get(numexp=numexp, avalista=False)
+        context.update({'expediente': expediente})
+        context.update({'persona': persona})
+        empreses = []
+        empresa = models.empresa.objects.all(numexp=numexp, avalista=False)
+        for t in empresa:
+            aux = {}
+            aux['nombre'] = t.nombre
+            aux['cargo'] = t.cargo
+            aux['actividad'] = t.actividad
+            aux['ingresos'] = t.ingresos
+            aux['pagas'] = t.pagas
+            aux['otrosingresos'] = t.otrosingresos
+            aux['antiguedad'] = t.antiguedad
+            empreses.append(aux)
+        context.update({'empresa': empreses})
+
         return render(request, 'form2_exped.html', context)
 

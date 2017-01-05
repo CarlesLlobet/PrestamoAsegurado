@@ -12,120 +12,238 @@
 </head>
 <body>
 <div class="container">
-    <p>Me gustaria recordarle  que <b>cumpliendo con la normativa legal vigente recogida en la LEY DE PROTECCION DE DATOS PERSONALES debo advertirle que esta llamada está siendo grabada, conforme a la ley 15/1999, y le informamos que mantendremos la privacidad de sus datos y no se compartirán con otras empresas o terceras personas para fines ajenos a su tramitación actual.</b></p>
-    <p>A continuacion vamos a repasar sus datos para asegurarnos que ustes es la persona que solicito el prestamo, digame su dni <br><br>(Repasar ficha completa del cliente)</p>
+    <p>Me gustaria recordarle que <b>cumpliendo con la normativa legal vigente recogida en la LEY DE PROTECCION DE DATOS
+        PERSONALES debo advertirle que esta llamada está siendo grabada, conforme a la ley 15/1999, y le informamos que
+        mantendremos la privacidad de sus datos y no se compartirán con otras empresas o terceras personas para fines
+        ajenos a su tramitación actual.</b></p>
+    <p>A continuacion vamos a repasar sus datos para asegurarnos que ustes es la persona que solicito el prestamo,
+        digame su dni <br><br>(Repasar ficha completa del cliente)</p>
     <br/><br/>
     <table class="table">
         <thead>
-          <tr>
+        <tr>
             <th>Número de Expediente</th>
-            <th>{{ numexp }}</th>
-          </tr>
+            <th>Fecha y hora</th>
+            <th>Tipo</th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-          </tr>
+        <tr>
+            <td>{{ expediente.numexp }}</td>
+            <td>{{ expediente.fecha_hora }}</td>
+            <td>{{ expediente.tipo }}</td>
+        </tr>
         </tbody>
     </table>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Direccion</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.dni }}</td>
+            <td>{{ persona.direccion }}</td>
+            <td>{{ persona.email }}</td>
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+            <th>Telefono</th>
+            <th>Movil</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Nacionalidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ persona.telefono }}</td>
+            <td>{{ persona.movil }}</td>
+            <td>{{ persona.fechanacimiento }}</td>
+            <td>{{ persona.nacionalidad }}</td>
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+            <th>Estado Civil</th>
+            <th>Tipo casado</th>
+            <th>Numero de hijos</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ persona.estadocivil }}</td>
+            <td>{{ persona.tipocasado }}</td>
+            <td>{{ persona.numerodehijos }}</td>
+        </tr>
+        </tbody>
+        {% if persona.numerodehijos > 0 %}
+        <thead>
+        <tr>
+            <th>Mayores de edad?</th>
+            <th>Cuantos a su cargo</th>
+            <th>Ingreso por ellos</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{% if persona.sihijosmayores18 %} Si {% endif %}{% if not persona.sihijosmayores18 %} No {% endif %}</td>
+            <td>{{ persona.sihijoscuantoscargo }}</td>
+            <td>{{ persona.sihijosingreso }}</td>
+        </tr>
+        </tbody>
+        {% endif %}
+    </table>
+    <br>
+    {% for t in empresa %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre de la empresa</th>
+            <th>Cargo</th>
+            <th>Actividad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.nombre }}</td>
+            <td>{{ t.cargo }}</td>
+            <td>{{ t.actividad }}</td>
+        </tr>
+        </tbody>
+    <thead>
+        <tr>
+            <th>Ingresos</th>
+            <th>Pagas</th>
+            <th>Otros Ingresos</th>
+            <th>Antiguedad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.ingresos }}</td>
+            <td>{{ t.pagas }}</td>
+            <td>{{ t.otrosingresos }}</td>
+            <td>{{ t.antiguedad }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
 
-    <p><br><br>Una vez repasado todos sus datos y viendo que son correctos, le informo de la documentacion que tiene que aportarnos para realizar su solicitud y asi finalizar el proceso:</p> <p><br>-Si es trabajador por cuenta ajena (empleado) o cobra alguna prestación:<br>
-    <br>
-    Fotocopia del DNI por ambas caras<br>
-    Las 3 últimas nominas o justificantes de pensión<br>
-    Declaración de la renta del último año<br>
-    Contrato de trabajo<br>
-    Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
-    Ultimo recibo del alquiler de la vivienda (si procede)<br>
-    Vida laboral<br>
-    Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la nomina o pensión.<br>
-    Comprobante de residencia (recibo de suministros, facturas, etc)<br>
-    Documento de cesión de datos.<br><br><br>
 
 
-    -Si es autónomo:<br><br>
-
-    Fotocopia del DNI por ambas caras.<br>
-    4 últimos ivas trimestrales.<br>
-    Declaración de la renta del último año<br>
-    Impuesto de sociedades del último año<br>
-    Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
-    Vida laboral si tiene<br>
-    Ultimo recibo del alquiler de la vivienda (si procede)<br>
-    Comprobante de residencia (recibo de suministros, facturas, etc)<br>
-    Documento de cesión de datos<br><br><br>
 
 
-    -Si tiene avalista, los siguientes documentos de su avalista:<br><br>
 
-    Fotocopia del DNI por ambas caras
-    Las 3 últimas nominas o justificantes de pensión<br>
-    Declaración de la renta del último año<br>
-    Contrato de trabajo<br>
-    Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
-    Ultimo recibo del alquiler de la vivienda (si procede)<br>
-    Vida laboral<br>
-    Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la nomina o pensión.<br>
-    Comprobante de residencia (recibo de suministros, facturas, etc)<br>
-    Documento de cesión de datos.<p><p>Aparte de la documentacion requerida para poder llebar a cabo su tramite correctamente es necesario que le lea la cesion de datos para PRESTAMO ASEGURADO, esta conversacion esta siendo grabado por lo que al finalizar el documento de cesion de datos usted tendra que dar su beneplacito:</p><p>
-    <br> DOCUMENTO DE CONSENTIMIENTO DE CESIÓN DE DATOS
-    <br>
-    <br>El abajo firmante, ANDRES JIMENEZ PE?A , mayor de
-    <br>edad, con domicilio en   CALLE RIO TAJO 7 3RO DERECHA UTRERA SEVILLA con
-    <br>D.N.I: 47206849q mediante el presente documento
-    <br>
-    <br>DECLARA y MANIFIESTA que AUTORIZA a:
-    <br>
-    <br>Prestamo Asegurado, domiciliada en C/Pintor Fortuny 21 Local, Vildacenas (Barcelona 08840)
-     y con CIF.  a la recogida de información referida a los datos de carácter
-    personal de quien suscribe y al tratamiento informático de dichos datos que se facilitan, con
-    previo consentimiento de quien firma el presente documento, para su tratamiento en los
-    ficheros de X. Los datos facilitados con consentimiento previo se enumeran en la
-    hoja anexa.
-    <br>
-    <br>Asimismo, el firmante del presente documento declara que ha sido previamente informado de
-    lo siguiente:
-    <br>
-    <br>I. Que Prestamo Asegurado, S.L dispone de un FICHERO “CLIENTES”, cuya finalidad es servir como
-    soporte de información a la realización de estudios de solicitud de servicios financieros.
-    <br>
-    <br>II. Que los datos de carácter personal facilitados van a ser incorporados a dicho FICHERO
-    “CLIENTES” y serán tratados de manera automatizada.
-    <br>
-    <br>III. Que Prestamo Asegurado dispone de todas las medidas de seguridad en materia de protección de
-    datos de carácter personal recogidas en el Real Decreto 1720/2007 de 21 de diciembre.
-    <br>
-    <br>IV. Que Prestamo Asegurado, S.L podrá ceder a terceros los datos personales facilitados por el abajo
-    firmante únicamente para fines relacionados con su solicitud.
-    <br>
-    <br>V. Que puede ejercitar, en todo momento, los derechos reconocidos en la Ley Orgánica
-    15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal, de acceso,
-    rectificación, cancelación y oposición, en los términos y condiciones que la normativa aplicable
-    establece, ante el Responsable del Fichero.
-    <br>
-    <br>Y en prueba de conformidad, el abajo firmante da su aceptación y consentimiento para que los
-    datos referentes a su persona sean incluidos en el mencionado FICHERO “CLIENTES”,
-    haciéndose responsable de la veracidad de los datos facilitados y de las modificaciones que
-    sufran en el futuro.
-    <br>
-    <br>En , a 29 de SEPTIEMBREde 2016.
-    <br>
-    <br>Una vez finalizado este texto usted esta de acuerdo y acepta las condiciones de Prestamo Asegurado?
-    <br><br>
-    Enviar toda esta informacion por email a la siguiente direccion: documentacion@prestamoasegurado.com<br><br>
-    Muchas gracias por su atención, en estos momentos estamos transfiriendo su expediente al departamento de análisis donde quedaran a la espera de que usted envié la documentación solicitada y proceder al estudio de su solicitud. Si desde que usted envíe su documentación, transcurren 5 días laborales y no ha recibido respuesta por parte de pretamo asegurado, deberá considerar que su solicitud ha sido denegada y si desea realizarnos cualquier consulta no dude en ponerse en contacto con nosotros donde estaremos encantados de atenderle.
+
+
+
+
+    <p><br><br>Una vez repasado todos sus datos y viendo que son correctos, le informo de la documentacion que tiene que
+        aportarnos para realizar su solicitud y asi finalizar el proceso:</p>
+    <p><br>-Si es trabajador por cuenta ajena (empleado) o cobra alguna prestación:<br>
+        <br>
+        Fotocopia del DNI por ambas caras<br>
+        Las 3 últimas nominas o justificantes de pensión<br>
+        Declaración de la renta del último año<br>
+        Contrato de trabajo<br>
+        Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+        Ultimo recibo del alquiler de la vivienda (si procede)<br>
+        Vida laboral<br>
+        Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la
+        nomina o pensión.<br>
+        Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+        Documento de cesión de datos.<br><br><br>
+
+
+        -Si es autónomo:<br><br>
+
+        Fotocopia del DNI por ambas caras.<br>
+        4 últimos ivas trimestrales.<br>
+        Declaración de la renta del último año<br>
+        Impuesto de sociedades del último año<br>
+        Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+        Vida laboral si tiene<br>
+        Ultimo recibo del alquiler de la vivienda (si procede)<br>
+        Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+        Documento de cesión de datos<br><br><br>
+
+
+        -Si tiene avalista, los siguientes documentos de su avalista:<br><br>
+
+        Fotocopia del DNI por ambas caras
+        Las 3 últimas nominas o justificantes de pensión<br>
+        Declaración de la renta del último año<br>
+        Contrato de trabajo<br>
+        Ultimo recibo de préstamos e hipotecas (si las hubiera)<br>
+        Ultimo recibo del alquiler de la vivienda (si procede)<br>
+        Vida laboral<br>
+        Justificante bancario de los movimientos de los últimos 6 meses de la cuenta donde tiene usted domiciliada la
+        nomina o pensión.<br>
+        Comprobante de residencia (recibo de suministros, facturas, etc)<br>
+        Documento de cesión de datos.
+    <p>
+    <p>Aparte de la documentacion requerida para poder llebar a cabo su tramite correctamente es necesario que le lea la
+        cesion de datos para PRESTAMO ASEGURADO, esta conversacion esta siendo grabado por lo que al finalizar el
+        documento de cesion de datos usted tendra que dar su beneplacito:</p>
+    <p>
+        <br> DOCUMENTO DE CONSENTIMIENTO DE CESIÓN DE DATOS
+        <br>
+        <br>El abajo firmante, ANDRES JIMENEZ PE?A , mayor de
+        <br>edad, con domicilio en CALLE RIO TAJO 7 3RO DERECHA UTRERA SEVILLA con
+        <br>D.N.I: 47206849q mediante el presente documento
+        <br>
+        <br>DECLARA y MANIFIESTA que AUTORIZA a:
+        <br>
+        <br>Prestamo Asegurado, domiciliada en C/Pintor Fortuny 21 Local, Vildacenas (Barcelona 08840)
+        y con CIF. a la recogida de información referida a los datos de carácter
+        personal de quien suscribe y al tratamiento informático de dichos datos que se facilitan, con
+        previo consentimiento de quien firma el presente documento, para su tratamiento en los
+        ficheros de X. Los datos facilitados con consentimiento previo se enumeran en la
+        hoja anexa.
+        <br>
+        <br>Asimismo, el firmante del presente documento declara que ha sido previamente informado de
+        lo siguiente:
+        <br>
+        <br>I. Que Prestamo Asegurado, S.L dispone de un FICHERO “CLIENTES”, cuya finalidad es servir como
+        soporte de información a la realización de estudios de solicitud de servicios financieros.
+        <br>
+        <br>II. Que los datos de carácter personal facilitados van a ser incorporados a dicho FICHERO
+        “CLIENTES” y serán tratados de manera automatizada.
+        <br>
+        <br>III. Que Prestamo Asegurado dispone de todas las medidas de seguridad en materia de protección de
+        datos de carácter personal recogidas en el Real Decreto 1720/2007 de 21 de diciembre.
+        <br>
+        <br>IV. Que Prestamo Asegurado, S.L podrá ceder a terceros los datos personales facilitados por el abajo
+        firmante únicamente para fines relacionados con su solicitud.
+        <br>
+        <br>V. Que puede ejercitar, en todo momento, los derechos reconocidos en la Ley Orgánica
+        15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal, de acceso,
+        rectificación, cancelación y oposición, en los términos y condiciones que la normativa aplicable
+        establece, ante el Responsable del Fichero.
+        <br>
+        <br>Y en prueba de conformidad, el abajo firmante da su aceptación y consentimiento para que los
+        datos referentes a su persona sean incluidos en el mencionado FICHERO “CLIENTES”,
+        haciéndose responsable de la veracidad de los datos facilitados y de las modificaciones que
+        sufran en el futuro.
+        <br>
+        <br>En , a 29 de SEPTIEMBREde 2016.
+        <br>
+        <br>Una vez finalizado este texto usted esta de acuerdo y acepta las condiciones de Prestamo Asegurado?
+        <br><br>
+        Enviar toda esta informacion por email a la siguiente direccion: documentacion@prestamoasegurado.com<br><br>
+        Muchas gracias por su atención, en estos momentos estamos transfiriendo su expediente al departamento de
+        análisis donde quedaran a la espera de que usted envié la documentación solicitada y proceder al estudio de su
+        solicitud. Si desde que usted envíe su documentación, transcurren 5 días laborales y no ha recibido respuesta
+        por parte de pretamo asegurado, deberá considerar que su solicitud ha sido denegada y si desea realizarnos
+        cualquier consulta no dude en ponerse en contacto con nosotros donde estaremos encantados de atenderle.
 
     </p>
 </div>
