@@ -350,15 +350,17 @@ def coche(request, numexp):
                                                                 otrosingresostexto=otrosingresostexto,
                                                                 otrosgastos=otrosgastos,
                                                                 otrosgastostexto=otrosgastostexto)
-            paro = models.paro.objectos.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
-            juvilacion = models.juvilacion.objetos.create(numexp, importe=importejuvilacion,
-                                                          pagas=numerodepagasjuvilacion, fechainicio=iniciojuvilacion,
-                                                          fechafin=finjuvilacion)
             anotaciones = models.anotaciones.objects.create(numexp=numexp, personales=anotacionespersonales,
                                                             empresa=anotacionesingresos, vivienda=anotacionesviviendas,
                                                             financieros=anotacionesfinancieras,
                                                             destinado=anotacionesdestinado,
                                                             generales=anotacionesgenerales)
+            if parodesdecuando:
+                paro = models.paro.objects.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
+            if importejuvilacion:
+                juvilacion = models.juvilacion.objects.create(numexp=numexp, importe=importejuvilacion,
+                                                          pagas=numerodepagasjuvilacion, fechainicio=iniciojuvilacion,
+                                                          fechafin=finjuvilacion)
             if viviendadireccion1:
                 vivienda = models.vivienda.objects.create(numexp=numexp, direccion=viviendadireccion1,
                                                           poblacion=viviendapoblacion1, provincia=viviendaprovincia1,
@@ -487,38 +489,38 @@ def coche(request, numexp):
                                                          antiguedad=antiguedadempresa3)
 
             if creditotipo1:
-                debecredito1 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo1,
+                debecredito1 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo1,
                                                                  porcientoavalista=creditotantoporciento1,
                                                                  importe=creditoimporte1, cuota=creditocuota1,
                                                                  entidad=creditoentidad1)
             if creditotipo2:
-                debecredito2 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo2,
+                debecredito2 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo2,
                                                                  porcientoavalista=creditotantoporciento2,
                                                                  importe=creditoimporte2, cuota=creditocuota2,
                                                                  entidad=creditoentidad2)
             if creditotipo3:
-                debecredito3 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo3,
+                debecredito3 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo3,
                                                                  porcientoavalista=creditotantoporciento3,
                                                                  importe=creditoimporte3, cuota=creditocuota3,
                                                                  entidad=creditoentidad3)
             if tarjetacuota1:
-                debetarjeta1 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota1,
+                debetarjeta1 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota1,
                                                                  importe=tarjetaimporte1,
                                                                  entidad=tarjetaentidad1)
             if tarjetacuota2:
-                debetarjeta2 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota2,
+                debetarjeta2 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota2,
                                                                  importe=tarjetaimporte2,
                                                                  entidad=tarjetaentidad2)
             if tarjetacuota3:
-                debetarjeta3 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota3,
+                debetarjeta3 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota3,
                                                                  importe=tarjetaimporte3,
                                                                  entidad=tarjetaentidad3)
             if recivosimporte1:
-                deberecivo1s = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte1)
+                deberecivo1s = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte1)
             if recivosimporte2:
-                deberecivos2 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte2)
+                deberecivos2 = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte2)
             if recivosimporte3:
-                deberecivos3 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte3)
+                deberecivos3 = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte3)
             if morosoimporte1:
                 debemoroso1 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte1,
                                                                quien=morosoquien1)
@@ -532,7 +534,7 @@ def coche(request, numexp):
             coches = models.coches.objects.create(numexp=numexp, motor=motor, marca=marca, modelo=modelo,
                                                   antiguedad=antiguedad, matricula=matricula,
                                                   estadodelvehiculo=estadovehiculo, coche=anotacionescoche)
-            return HttpResponseRedirect('/formularios/coche/')
+            return HttpResponseRedirect('/formularios/coche/%s/' % numexp)
     else:
         form = forms.formCoche()
         datayhora = datetime.now()
