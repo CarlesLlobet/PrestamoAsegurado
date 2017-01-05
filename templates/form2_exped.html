@@ -9,6 +9,12 @@
     <title>Intranet</title>
     <link href={% static "css/bootstrap.min.css" %} rel="stylesheet"/>
     <link href={% static "css/custom2.css" %} rel="stylesheet"/>
+    <style>
+        .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+            border-top-width: 2px;
+            border-bottom-width: 0px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -19,7 +25,7 @@
     <p>A continuacion vamos a repasar sus datos para asegurarnos que ustes es la persona que solicito el prestamo,
         digame su dni <br><br>(Repasar ficha completa del cliente)</p>
     <br/><br/>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Número de Expediente</th>
@@ -36,7 +42,7 @@
         </tbody>
     </table>
     <br>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Nombre</th>
@@ -83,7 +89,7 @@
             <td>{{ persona.numerodehijos }}</td>
         </tr>
         </tbody>
-        {% if persona.numerodehijos > 0 %}
+        {% if persona.numerodehijos != None and persona.numerodehijos != 0 %}
         <thead>
         <tr>
             <th>Mayores de edad?</th>
@@ -101,8 +107,57 @@
         {% endif %}
     </table>
     <br>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            {% if personaanexos.seguridadsocial %}<th>Tipo de cotización</th> {% endif %}
+            {% if personaanexos.siajenatipo %}<th>Tipo de trabajo</th> {% endif %}
+            {% if personaanexos.siajenatemporal %}<th>Fin trabajo temporal</th> {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if personaanexos.seguridadsocial %}<td>{{ personaanexos.seguridadsocial }}</td> {% endif %}
+            {% if personaanexos.siajenatipo %} <td>{{ personaanexos.siajenatipo }}</td> {% endif %}
+            {% if personaanexos.siajenatemporal %}<td>{{ personaanexos.siajenatemporal }}</td> {% endif %}
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+            {% if personaanexos.otrosingresos %}<th>Otros ingresos</th> {% endif %}
+            {% if personaanexos.otrosingresostexto %}<th>Descripcion otros ingresos</th> {% endif %}
+            {% if personaanexos.otrosgastos %}<th>Otros gastos</th> {% endif %}
+            {% if personaanexos.otrosgastostexto %}<th>Descripción otros gastos</th> {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if personaanexos.otrosingresos %}<td>{{ personaanexos.otrosingresos }}</td> {% endif %}
+            {% if personaanexos.otrosingresostexto %}<td>{{ personaanexos.otrosingresostexto }}</td> {% endif %}
+            {% if personaanexos.otrosgastos %}<td>{{ personaanexos.otrosgastos }}</td> {% endif %}
+            {% if personaanexos.otrosgastostexto %}<td>{{ personaanexos.otrosgastostexto }}</td> {% endif %}
+        </tr>
+        </tbody>
+        {% if expediente.tipo == 'Microcredito' %}
+        <thead>
+        <tr>
+            {% if personaanexos.importeselect1 %}<th>Importe Seleccionado</th> {% endif %}
+            {% if personaanexos.importeselect2 %}<th>Cuota Selecionada</th> {% endif %}
+            {% if personaanexos.importeselect3 %}<th>Paga mensual</th> {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if personaanexos.importeselect1 %}<td>{{ personaanexos.importeselect1 }}</td> {% endif %}
+            {% if personaanexos.importeselect2 %}<td>{{ personaanexos.importeselect2 }}</td> {% endif %}
+            {% if personaanexos.importeselect3 %}<td>{{ personaanexos.importeselect3 }}</td> {% endif %}
+        </tr>
+        </tbody>
+        {% endif %}
+    </table>
+    <br>
     {% for t in empresa %}
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Nombre de la empresa</th>
@@ -117,7 +172,7 @@
             <td>{{ t.actividad }}</td>
         </tr>
         </tbody>
-    <thead>
+        <thead>
         <tr>
             <th>Ingresos</th>
             <th>Pagas</th>
@@ -135,6 +190,242 @@
         </tbody>
     </table>
     <br>
+    {% endfor %}
+    <br>
+    <table class="table table-bordered">
+        {% if paro.desdecuando %}<h3> En el paro </h3>{% endif %}
+        <thead>
+        <tr>
+            {% if paro.desdecuando %}<th>Tipo de cotización</th> {% endif %}
+            {% if paro.cobra %}<th>Tipo de trabajo</th> {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if paro.desdecuando %}<td>{{ paro.desdecuando }}</td> {% endif %}
+            {% if paro.cobra %} <td>{{ paro.cobra }}</td> {% endif %}
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        {% if juvilacion.importe %}<h3> Paga, ayuda o jubilación</h3> {% endif %}
+        <thead>
+        <tr>
+            {% if juvilacion.importe %}<th>Importe</th> {% endif %}
+            {% if juvilacion.pagas %}<th>Pagas</th> {% endif %}
+            {% if juvilacion.fechainicio %}<th>Fecha Inicio</th> {% endif %}
+            {% if juvilacion.fechafin %}<th>Fecha Fin</th> {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if juvilacion.importe %}<td>{{ juvilacion.importe }}</td> {% endif %}
+            {% if juvilacion.pagas %}<td>{{ juvilacion.pagas }}</td> {% endif %}
+            {% if juvilacion.fechainicio %}<td>{{ juvilacion.fechainicio }}</td> {% endif %}
+            {% if juvilacion.fechafin %}<td>{{ juvilacion.fechafin }}</td> {% endif %}
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    {% for t in vivienda %}
+        {% if t.tipo == '1' %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor de la Vivienda</th>
+                    <th>Valor de la Hipoteca</th>
+                    <th>Esta pagada?</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Vivienda de propiedad </td>
+                    <td>{{ t.valorvivienda }}</td>
+                    <td>{{ t.valorhipoteca }}</td>
+                    <td>{% if t.estapagada == False %} No {% endif %}
+                    {% if t.estapagada == True %} Si {% endif %}</td>
+                </tr>
+                </tbody>
+                {% if not t.estapagada %}
+                <thead>
+                <tr>
+                    <th>Años de hipoteca</th>
+                    <th>Entidad hipoteca</th>
+                    <th>Cuanto paga de hipoteca</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.sinopagadaanos }}</td>
+                    <td>{{ t.sinopagadaentidad }}</td>
+                    <td>{{ t.sinopagadapagahipoteca }}</td>
+                </tr>
+                </tbody>
+                {% endif %}
+                <thead>
+                <tr>
+                    <th>Libre cargos?</th>
+                    <th>Metros</th>
+                    <th>Otros Ingresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{% if t.librecargos == False %} No {% endif %}
+                    {% if t.librecargos == True %} Si {% endif %}</td>
+                    <td>{{ t.metros }}</td>
+                    <td>{{ t.porciento }}</td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th>Direccion</th>
+                    <th>Poblacion</th>
+                    <th>Provincia</th>
+                    <th>Codigo postal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.direccion }}</td>
+                    <td>{{ t.poblacion }}</td>
+                    <td>{{ t.provincia }}</td>
+                    <td>{{ t.codigopostal }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+        {% endif %}
+        {% if t.tipo == '2' %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor de la Vivienda</th>
+                    <th>Valor de la Hipoteca</th>
+                    <th>Esta pagada?</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Vivienda de propiedad en alquiler </td>
+                    <td>{{ t.valorvivienda }}</td>
+                    <td>{{ t.valorhipoteca }}</td>
+                    <td>{% if t.estapagada == False %} No {% endif %}
+                    {% if t.estapagada == True %} Si {% endif %}</td>
+                </tr>
+                </tbody>
+                {% if not t.estapagada %}
+                <thead>
+                <tr>
+                    <th>Años de hipoteca</th>
+                    <th>Entidad hipoteca</th>
+                    <th>Cuanto paga de hipoteca</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.sinopagadaanos }}</td>
+                    <td>{{ t.sinopagadaentidad }}</td>
+                    <td>{{ t.sinopagadapagahipoteca }}</td>
+                </tr>
+                </tbody>
+                {% endif %}
+                <thead>
+                <tr>
+                    <th>Libre cargos?</th>
+                    <th>Metros</th>
+                    <th>Tanto por ciento</th>
+                    <th>Cobra de alquiler</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{% if t.librecargos == False %} No {% endif %}
+                    {% if t.librecargos == True %} Si {% endif %}</td>
+                    <td>{{ t.metros }}</td>
+                    <td>{{ t.porciento }}</td>
+                    <td>{{ t.valoralquilada }}</td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th>Direccion</th>
+                    <th>Poblacion</th>
+                    <th>Provincia</th>
+                    <th>Codigo postal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.direccion }}</td>
+                    <td>{{ t.poblacion }}</td>
+                    <td>{{ t.provincia }}</td>
+                    <td>{{ t.codigopostal }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+        {% endif %}
+        {% if t.tipo == '3' %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor de la Vivienda</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Alquiler </td>
+                    <td>{{ t.pagaalquiler }}</td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th>Direccion</th>
+                    <th>Poblacion</th>
+                    <th>Provincia</th>
+                    <th>Codigo postal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.direccion }}</td>
+                    <td>{{ t.poblacion }}</td>
+                    <td>{{ t.provincia }}</td>
+                    <td>{{ t.codigopostal }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+
+        {% endif %}
+        {% if t.tipo == '4' %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Direccion</th>
+                    <th>Poblacion</th>
+                    <th>Provincia</th>
+                    <th>Codigo postal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ t.direccion }}</td>
+                    <td>{{ t.poblacion }}</td>
+                    <td>{{ t.provincia }}</td>
+                    <td>{{ t.codigopostal }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+        {% endif %}
+
     {% endfor %}
 
 

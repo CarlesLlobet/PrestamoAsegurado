@@ -35,11 +35,22 @@ def expediente(request, numexp):
         return HttpResponseRedirect('/formularios')
     else:
         expediente = models.expediente.objects.get(numexp=numexp)
-        persona = models.persona.objects.get(numexp=numexp, avalista=False)
         context.update({'expediente': expediente})
+
+        persona = models.persona.objects.get(numexp=numexp, avalista=False)
         context.update({'persona': persona})
+
+        personaanexos = models.personaanexos.objects.get(numexp=numexp, avalista=False)
+        context.update({'personaanexos': personaanexos})
+
+        juvilacion = models.juvilacion.objects.get(numexp=numexp, avalista=False)
+        context.update({'juvilacion': juvilacion})
+
+        paro = models.paro.objects.get(numexp=numexp, avalista=False)
+        context.update({'paro': paro})
+
         empreses = []
-        empresa = models.empresa.objects.all(numexp=numexp, avalista=False)
+        empresa = models.empresa.objects.all().filter(numexp=numexp, avalista=False)
         for t in empresa:
             aux = {}
             aux['nombre'] = t.nombre
@@ -51,6 +62,29 @@ def expediente(request, numexp):
             aux['antiguedad'] = t.antiguedad
             empreses.append(aux)
         context.update({'empresa': empreses})
+
+        viviendas = []
+        vivienda = models.vivienda.objects.all().filter(numexp=numexp, avalista=False)
+        for t in vivienda:
+            aux = {}
+            aux['direccion'] = t.direccion
+            aux['poblacion'] = t.poblacion
+            aux['provincia'] = t.provincia
+            aux['codigopostal'] = t.codigopostal
+            aux['valorvivienda'] = t.valorvivienda
+            aux['valorhipoteca'] = t.valorhipoteca
+            aux['estapagada'] = t.estapagada
+            aux['sinopagadaanos'] = t.sinopagadaanos
+            aux['sinopagadaentidad'] = t.sinopagadaentidad
+            aux['sinopagadapagahipoteca'] = t.sinopagadapagahipoteca
+            aux['librecargos'] = t.librecargos
+            aux['metros'] = t.metros
+            aux['porciento'] = t.porciento
+            aux['valoralquilada'] = t.valoralquilada
+            aux['pagaalquiler'] = t.pagaalquiler
+            aux['tipo'] = t.tipo
+            viviendas.append(aux)
+        context.update({'vivienda': viviendas})
 
         return render(request, 'form2_exped.html', context)
 

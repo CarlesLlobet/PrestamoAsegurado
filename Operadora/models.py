@@ -140,6 +140,7 @@ class vivienda(models.Model):
     porciento = models.IntegerField(null=True)
     valoralquilada = models.IntegerField(null=True)
     pagaalquiler = models.IntegerField(null=True)
+    tipo = models.CharField(max_length=100, null=True)
 
 
 class debecredito(models.Model):

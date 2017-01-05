@@ -241,7 +241,7 @@ def asnef(request, numexp):
                                                           sinopagadaentidad=viviendaentidad1,
                                                           sinopagadapagahipoteca=viviendacuotamensual1,
                                                           librecargos=viviendalibredecargos1, metros=viviendametros1,
-                                                          porciento=viviendaporciento1)
+                                                          porciento=viviendaporciento1, tipo=1)
 
             if viviendadireccion2:
                 vivienda2 = models.vivienda.objects.create(numexp=numexp, direccion=viviendadireccion2,
@@ -253,7 +253,7 @@ def asnef(request, numexp):
                                                            sinopagadaentidad=viviendaentidad2,
                                                            sinopagadapagahipoteca=viviendacuotamensual2,
                                                            librecargos=viviendalibredecargos2, metros=viviendametros2,
-                                                           porciento=viviendaporciento2)
+                                                           porciento=viviendaporciento2, tipo=1)
 
             if viviendadireccion3:
                 vivienda3 = models.vivienda.objects.create(numexp=numexp, direccion=viviendadireccion3,
@@ -265,7 +265,7 @@ def asnef(request, numexp):
                                                            sinopagadaentidad=viviendaentidad3,
                                                            sinopagadapagahipoteca=viviendacuotamensual3,
                                                            librecargos=viviendalibredecargos3, metros=viviendametros3,
-                                                           porciento=viviendaporciento3)
+                                                           porciento=viviendaporciento3, tipo=1)
 
             if viviendaalquiladadireccion1:
                 viviendaalquilada = models.vivienda.objects.create(numexp=numexp, direccion=viviendaalquiladadireccion1,
@@ -281,7 +281,8 @@ def asnef(request, numexp):
                                                                    metros=viviendaalquiladametros1,
                                                                    porciento=viviendaalquiladaporciento1,
                                                                    valoralquilada=viviendaalquiladacobraalquiler1,
-                                                                   sinopagadapagahipoteca=viviendaalquiladacuotamensual1)
+                                                                   sinopagadapagahipoteca=viviendaalquiladacuotamensual1,
+                                                                   tipo=2)
 
             if viviendaalquiladadireccion2:
                 viviendaalquilada2 = models.vivienda.objects.create(numexp=numexp,
@@ -298,7 +299,8 @@ def asnef(request, numexp):
                                                                     metros=viviendaalquiladametros2,
                                                                     porciento=viviendaalquiladaporciento2,
                                                                     valoralquilada=viviendaalquiladacobraalquiler2,
-                                                                    sinopagadapagahipoteca=viviendaalquiladacuotamensual2)
+                                                                    sinopagadapagahipoteca=viviendaalquiladacuotamensual2,
+                                                                    tipo=2)
 
             if viviendaalquiladadireccion3:
                 viviendaalquilada3 = models.vivienda.objects.create(numexp=numexp,
@@ -315,30 +317,31 @@ def asnef(request, numexp):
                                                                     metros=viviendaalquiladametros3,
                                                                     porciento=viviendaalquiladaporciento3,
                                                                     valoralquilada=viviendaalquiladacobraalquiler3,
-                                                                    sinopagadapagahipoteca=viviendaalquiladacuotamensual3)
+                                                                    sinopagadapagahipoteca=viviendaalquiladacuotamensual3,
+                                                                    tipo=2)
 
             if alquilerdireccion1:
                 alquiler = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion1,
                                                           poblacion=alquilerpoblacion1, provincia=alquilerprovincia1,
                                                           codigopostal=alquilercodigopostal1, metros=alquilermetros1,
-                                                          pagaalquiler=alquilerpaga1)
+                                                          pagaalquiler=alquilerpaga1, tipo=3)
 
             if alquilerdireccion2:
                 alquiler2 = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion2,
                                                            poblacion=alquilerpoblacion2, provincia=alquilerprovincia2,
                                                            codigopostal=alquilercodigopostal2, metros=alquilermetros2,
-                                                           pagaalquiler=alquilerpaga2)
+                                                           pagaalquiler=alquilerpaga2, tipo=3)
 
             if alquilerdireccion3:
                 alquiler3 = models.vivienda.objects.create(numexp=numexp, direccion=alquilerdireccion3,
                                                            poblacion=alquilerpoblacion3, provincia=alquilerprovincia3,
                                                            codigopostal=alquilercodigopostal3, metros=alquilermetros3,
-                                                           pagaalquiler=alquilerpaga3)
+                                                           pagaalquiler=alquilerpaga3, tipo=3)
 
             if direccionpersonal:
                 vivienda = models.vivienda.objects.create(numexp=numexp, direccion=direccionpersonal,
                                                           poblacion=poblacionpersonal, provincia=provinciapersonal,
-                                                          codigopostal=codigopostalpersonal)
+                                                          codigopostal=codigopostalpersonal, tipo=4)
 
             if nombreempresa1:
                 empresa = models.empresa.objects.create(numexp=numexp, nombre=nombreempresa1, cargo=cargoempresa1,
