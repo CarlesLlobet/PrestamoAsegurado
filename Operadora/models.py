@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.auth.models import User
@@ -52,7 +54,7 @@ Medios = (
 class expediente(models.Model):
     numexp = models.IntegerField()
     tipo = models.CharField(max_length=20)
-    fecha_hora = models.DateTimeField()
+    fecha_hora = models.DateTimeField(default=datetime.now)
 
 class persona(models.Model):
     numexp = models.IntegerField()
