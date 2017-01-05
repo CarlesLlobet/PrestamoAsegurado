@@ -20,16 +20,16 @@ def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
         person = models.persona.objects.get(numexp=numexp)
-        user = User.objects.create_user(numexp, persona.email, persona.dni)
+        user = User.objects.create_user(numexp, person.email, person.dni)
         user.save()
         g = Group.objects.get(name='Clients')
         g.user_set.add(user)
         message = Message(From="prestamo@noreply.com",
-                          To=[persona.email],
+                          To=[person.email],
                           Subject=u'Nueva cuenta en Prestamo Asegurado')
         message.Body = u'Acaba de crearse una cuenta. \n Su usuario sera ' + unicode(
             numexp) + u' y su contraseña' + unicode(
-            persona.dni) + u'\n Gracias por su atencion,\n\n Cordialmente, \n Prestamo Asegurado'
+            person.dni) + u'\n Gracias por su atencion,\n\n Cordialmente, \n Prestamo Asegurado'
         sender = Mailer('localhost')
         sender.send(message)
         return HttpResponseRedirect('/formularios')
