@@ -77,16 +77,16 @@
         </tbody>
         <thead>
         <tr>
-            <th>Estado Civil</th>
-            <th>Tipo casado</th>
-            <th>Numero de hijos</th>
+            {% if persona.estadocivil %}<th>Estado Civil</th>{% endif %}
+            {% if persona.estadocivil == 'Casado' %}<th>Tipo casado</th>{% endif %}
+            {% if persona.numerodehijos != None and persona.numerodehijos != 0 %}<th>Numero de hijos</th>{% endif %}
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{ persona.estadocivil }}</td>
-            <td>{{ persona.tipocasado }}</td>
-            <td>{{ persona.numerodehijos }}</td>
+            {% if persona.estadocivil %}<td>{{ persona.estadocivil }}</td>{% endif %}
+            {% if persona.estadocivil == 'Casado' %}<td>{{ persona.tipocasado }}</td>{% endif %}
+            {% if persona.numerodehijos != None and persona.numerodehijos != 0 %}<td>{{ persona.numerodehijos }}</td>{% endif %}
         </tr>
         </tbody>
         {% if persona.numerodehijos != None and persona.numerodehijos != 0 %}
@@ -157,6 +157,7 @@
     </table>
     <br>
     {% for t in empresa %}
+        <h3>Empresa</h3>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -189,9 +190,8 @@
         </tr>
         </tbody>
     </table>
-    <br>
+
     {% endfor %}
-    <br>
     <table class="table table-bordered">
         {% if paro.desdecuando %}<h3> En el paro </h3>{% endif %}
         <thead>
@@ -428,6 +428,128 @@
 
     {% endfor %}
 
+    {% for t in debecredito %}
+        <h3>Credito</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>% de avalista</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.tipo }}</td>
+            <td>{{ t.porcientoavalista }}</td>
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+            <th>Importe</th>
+            <th>Cuota</th>
+            <th>Entidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.importe }}</td>
+            <td>{{ t.cuota }}</td>
+            <td>{{ t.entidad }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+
+    {% for t in debetarjeta %}
+        <h3>Tarjeta</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Cuota</th>
+            <th>Importe</th>
+            <th>Entidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.cuota }}</td>
+            <td>{{ t.importe }}</td>
+            <td>{{ t.entidad }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+
+    {% for t in deberecivos %}
+        <h3>Recivo</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Importe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.importe }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+
+    {% for t in debemoroso %}
+        <h3>Deuta</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Importe</th>
+            <th>De quien?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ t.importe }}</td>
+            <td>{{ t.quien }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+
+    {% if expediente.tipo == 'Coche'%}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Motor</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Antiguedad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ coches.motor }}</td>
+            <td>{{ coches.marca }}</td>
+            <td>{{ coches.modelo }}</td>
+            <td>{{ coches.antiguedad }}</td>
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+            <th>Matricula</th>
+            <th>Estado del vehiculo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ coches.matricula }}</td>
+            <td>{{ coches.estadodelvehiculo }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% endif %}
 
 
 

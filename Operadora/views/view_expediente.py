@@ -20,16 +20,16 @@ def expediente(request, numexp):
     context = {}
     if request.method == 'POST':
         person = models.persona.objects.get(numexp=numexp)
-        user = User.objects.create_user(numexp, person.email, person.dni)
+        user = User.objects.create_user(numexp, persona.email, persona.dni)
         user.save()
         g = Group.objects.get(name='Clients')
         g.user_set.add(user)
         message = Message(From="prestamo@noreply.com",
-                          To=[person.email],
+                          To=[persona.email],
                           Subject=u'Nueva cuenta en Prestamo Asegurado')
-        message.Body = u'Acaba de crearse una cuenta para que pueda enviarnos las fotos de ... \n Su usuario sera ' + unicode(
+        message.Body = u'Acaba de crearse una cuenta. \n Su usuario sera ' + unicode(
             numexp) + u' y su contraseña' + unicode(
-            person.dni) + u'\n Gracias por su atencion,\n\n Cordialmente, \n Prestamo Asegurado'
+            persona.dni) + u'\n Gracias por su atencion,\n\n Cordialmente, \n Prestamo Asegurado'
         sender = Mailer('localhost')
         sender.send(message)
         return HttpResponseRedirect('/formularios')
@@ -85,6 +85,49 @@ def expediente(request, numexp):
             aux['tipo'] = t.tipo
             viviendas.append(aux)
         context.update({'vivienda': viviendas})
+
+        debecreditos = []
+        debecredito = models.debecredito.objects.all().filter(numexp=numexp, avalista=False)
+        for t in debecredito:
+            aux = {}
+            aux['tipo'] = t.tipo
+            aux['porcientoavalista'] = t.porcientoavalista
+            aux['importe'] = t.importe
+            aux['cuota'] = t.cuota
+            aux['entidad'] = t.entidad
+            debecreditos.append(aux)
+        context.update({'debecredito': debecreditos})
+
+        debetarjetas = []
+        debetarjeta = models.debetarjeta.objects.all().filter(numexp=numexp, avalista=False)
+        for t in debetarjeta:
+            aux = {}
+            aux['cuota'] = t.cuota
+            aux['importe'] = t.importe
+            aux['entidad'] = t.entidad
+            debetarjetas.append(aux)
+        context.update({'debetarjeta': debetarjetas})
+
+        deberecivoss = []
+        deberecivos = models.deberecivos.objects.all().filter(numexp=numexp, avalista=False)
+        for t in deberecivos:
+            aux = {}
+            aux['importe'] = t.importe
+            deberecivoss.append(aux)
+        context.update({'deberecivos': deberecivoss})
+
+        debemorosos = []
+        debemoroso = models.debemoroso.objects.all().filter(numexp=numexp, avalista=False)
+        for t in debemoroso:
+            aux = {}
+            aux['importe'] = t.importe
+            aux['quien'] = t.quien
+            debemorosos.append(aux)
+        context.update({'debemoroso': debemorosos})
+
+
+        cochecito = models.coches.objects.get(numexp=numexp)
+        context.update({'coches': cochecito})
 
         return render(request, 'form2_exped.html', context)
 
