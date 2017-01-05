@@ -12,9 +12,7 @@ def microcredito(request, numexp):
     if request.method == 'POST':
         form = forms.formMicrocredito(request.POST)
         if form.is_valid():
-            importeselect1 = form.cleaned_data["importeselect1"]
-            importeselect2 = form.cleaned_data["importeselect2"]
-            importeselect3 = form.cleaned_data["importeselect3"]
+            # Form 1:
             name = form.cleaned_data["name"]
             dni = form.cleaned_data["dni"]
             direccion = form.cleaned_data["direccion"]
@@ -203,19 +201,17 @@ def microcredito(request, numexp):
             morosoimporte3 = form.cleaned_data["morosoimporte3"]
             morosoquien3 = form.cleaned_data["morosoquien3"]
             anotacionesfinancieras = form.cleaned_data["anotacionesfinancieras"]
-            motor = form.cleaned_data["motor"]
-            marca = form.cleaned_data["marca"]
-            modelo = form.cleaned_data["modelo"]
-            antiguedad = form.cleaned_data["antiguedad"]
-            matricula = form.cleaned_data["matricula"]
-            estadovehiculo = form.cleaned_data["estadovehiculo"]
-            anotacionescoche = form.cleaned_data["anotacionescoche"]
             metodopago = form.cleaned_data["metodopago"]
             anotacionesdestinado = form.cleaned_data["anotacionesdestinado"]
             justificante = form.cleaned_data["justificante"]
             autorizacion = form.cleaned_data["autorizacion"]
             medio = form.cleaned_data["medio"]
             anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
+
+            # Form 2: Microcreditos:
+            importeselect1 = form.cleaned_data["importeselect1"]
+            importeselect2 = form.cleaned_data["importeselect2"]
+            importeselect3 = form.cleaned_data["importeselect3"]
 
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
@@ -235,8 +231,8 @@ def microcredito(request, numexp):
                                                                 importeselect1=importeselect1,
                                                                 importeselect2=importeselect2,
                                                                 importeselect3=importeselect3)
-            paro = models.paro.objectos.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
-            juvilacion = models.juvilacion.objetos.create(numexp, importe=importejuvilacion,
+            paro = models.paro.objects.create(numexp=numexp, desdecuando=parodesdecuando, cobra=parocuantocobra)
+            juvilacion = models.juvilacion.objects.create(numexp=numexp, importe=importejuvilacion,
                                                           pagas=numerodepagasjuvilacion, fechainicio=iniciojuvilacion,
                                                           fechafin=finjuvilacion)
             anotaciones = models.anotaciones.objects.create(numexp=numexp, personales=anotacionespersonales,
@@ -372,38 +368,38 @@ def microcredito(request, numexp):
                                                          antiguedad=antiguedadempresa3)
 
             if creditotipo1:
-                debecredito1 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo1,
+                debecredito1 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo1,
                                                                  porcientoavalista=creditotantoporciento1,
                                                                  importe=creditoimporte1, cuota=creditocuota1,
                                                                  entidad=creditoentidad1)
             if creditotipo2:
-                debecredito2 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo2,
+                debecredito2 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo2,
                                                                  porcientoavalista=creditotantoporciento2,
                                                                  importe=creditoimporte2, cuota=creditocuota2,
                                                                  entidad=creditoentidad2)
             if creditotipo3:
-                debecredito3 = models.debecredito.objetos.create(numexp=numexp, tipo=creditotipo3,
+                debecredito3 = models.debecredito.objects.create(numexp=numexp, tipo=creditotipo3,
                                                                  porcientoavalista=creditotantoporciento3,
                                                                  importe=creditoimporte3, cuota=creditocuota3,
                                                                  entidad=creditoentidad3)
             if tarjetacuota1:
-                debetarjeta1 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota1,
+                debetarjeta1 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota1,
                                                                  importe=tarjetaimporte1,
                                                                  entidad=tarjetaentidad1)
             if tarjetacuota2:
-                debetarjeta2 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota2,
+                debetarjeta2 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota2,
                                                                  importe=tarjetaimporte2,
                                                                  entidad=tarjetaentidad2)
             if tarjetacuota3:
-                debetarjeta3 = models.debetarjeta.objetos.create(numexp=numexp, cuota=tarjetacuota3,
+                debetarjeta3 = models.debetarjeta.objects.create(numexp=numexp, cuota=tarjetacuota3,
                                                                  importe=tarjetaimporte3,
                                                                  entidad=tarjetaentidad3)
             if recivosimporte1:
-                deberecivo1s = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte1)
+                deberecivo1s = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte1)
             if recivosimporte2:
-                deberecivos2 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte2)
+                deberecivos2 = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte2)
             if recivosimporte3:
-                deberecivos3 = models.deberecivos.objetos.create(numexp=numexp, importe=recivosimporte3)
+                deberecivos3 = models.deberecivos.objects.create(numexp=numexp, importe=recivosimporte3)
             if morosoimporte1:
                 debemoroso1 = models.debemoroso.objects.create(numexp=numexp, importe=morosoimporte1,
                                                                quien=morosoquien1)
@@ -421,4 +417,4 @@ def microcredito(request, numexp):
         models.expediente.objects.update(tipo="Microcredito")
         context.update({'form': form})
         context.update({"numexp": numexp})
-    return render(request, 'form_microcre.html.html', context)
+    return render(request, 'form_microcre.html', context)

@@ -200,6 +200,14 @@ def coche(request, numexp):
             morosoimporte3 = form.cleaned_data["morosoimporte3"]
             morosoquien3 = form.cleaned_data["morosoquien3"]
             anotacionesfinancieras = form.cleaned_data["anotacionesfinancieras"]
+            metodopago = form.cleaned_data["metodopago"]
+            anotacionesdestinado = form.cleaned_data["anotacionesdestinado"]
+            justificante = form.cleaned_data["justificante"]
+            autorizacion = form.cleaned_data["autorizacion"]
+            medio = form.cleaned_data["medio"]
+            anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
+
+            #Form 2: coche
             motor = form.cleaned_data["motor"]
             marca = form.cleaned_data["marca"]
             modelo = form.cleaned_data["modelo"]
@@ -207,12 +215,7 @@ def coche(request, numexp):
             matricula = form.cleaned_data["matricula"]
             estadovehiculo = form.cleaned_data["estadovehiculo"]
             anotacionescoche = form.cleaned_data["anotacionescoche"]
-            metodopago = form.cleaned_data["metodopago"]
-            anotacionesdestinado = form.cleaned_data["anotacionesdestinado"]
-            justificante = form.cleaned_data["justificante"]
-            autorizacion = form.cleaned_data["autorizacion"]
-            medio = form.cleaned_data["medio"]
-            anotacionesgenerales = form.cleaned_data["anotacionesgenerales"]
+
             persona = models.persona.objects.create(numexp=numexp, nombre=name, dni=dni, direccion=direccion,
                                                     email=email, telefono=telefono, movil=movil,
                                                     fechanacimiento=fechanacimiento,
