@@ -18,28 +18,29 @@ def group_check(user):
 @login_required(login_url="/")
 @user_passes_test(group_check)
 def index(request):
-    # context = {}
-    # if request.method == 'POST':
-    #    form = forms.formBuscar(request.POST)
-    #    if form.is_valid():
-    #        numexp = form.cleaned_data['numexp']
-    #        dni = form.cleaned_data['dni']
-    #        if 'numexp' in request.POST:
-    #            expedient = models.expediente.objects.get(numexp=numexp)
-    #        elif 'dni' in request.POST:
-    #            expedient = models.expediente.objects.get(dni=dni)
-    #        return HttpResponseRedirect('/expediente/' + expedient.numexp)
-    # else:
-    #    form = forms.formBuscar()
-    #    context.update({"form": form})
+    context = {}
+    if request.method == 'POST':
+        form = forms.formBuscar(request.POST)
+        if form.is_valid():
+            numexp = form.cleaned_data['numexp']
+            dni = form.cleaned_data['dni']
+            if 'numexp' in request.POST:
+              expedient = models.expediente.objects.get(numexp=numexp)
+            elif 'dni' in request.POST:
+                expedient = models.expediente.objects.get(dni=dni)
+        return HttpResponseRedirect('/expediente/' + expedient.numexp)
+    else:
+        form = forms.formBuscar()
+        context.update({"form": form})
     lastNum2 = models.expediente.objects.all().order_by("numexp").last()
     lastNum = 0
     if not lastNum2:
         lastNum = 40000
     else:
         lastNum = lastNum2.numexp + 1
-    models.expediente.objects.create(numexp=lastNum, tipo="None")
-    return render(request, 'form_index.html', {'numexp': lastNum})
+        models.expediente.objects.create(numexp=lastNum, tipo="None")
+    context.update({"numexp": lastNum})
+    return render(request, 'form_index.html', context)
 
 
 
