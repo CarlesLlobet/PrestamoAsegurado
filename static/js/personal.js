@@ -1,3 +1,11 @@
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
 /**** Calcular Cuotas ****/
 $(document).ready(function () {
 
@@ -107,71 +115,60 @@ $(document).ready(function () {
     });
 
 
-
     $("#id_viviendaestapagada1").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#id_viviendaestapagada1").val();
-        if (viviendapagada == false) {
-            div = document.getElementById('viviendapagada11');
-            div.style.display = "block";
-        } else {
+        if (("#id_viviendaestapagada1").prop("checked")) {
             div = document.getElementById('viviendapagada11');
             div.style.display = "none";
+        } else {
+            div = document.getElementById('viviendapagada11');
+            div.style.display = "block";
         }
     });
-    $("#viviendapagada2").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#viviendapagada2").val();
-        if (viviendapagada == '0') {
+    $("#id_viviendaestapagada2").change(function () { /*Si importe_select canvia*/
+        if (("#id_viviendaestapagada2").is("checked")) {
+            div = document.getElementById('viviendapagada22');
+            div.style.display = "none";
+        } else {
             div = document.getElementById('viviendapagada22');
             div.style.display = "block";
-        } else {
-            div = document.getElementById('viviendapagada22');
-            div.style.display = "none";
         }
     });
-    $("#viviendapagada3").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#viviendapagada3").val();
-        if (viviendapagada == '0') {
-            div = document.getElementById('viviendapagada33');
-            div.style.display = "block";
-        } else {
+    $("#id_viviendaestapagada3").change(function () { /*Si importe_select canvia*/
+        if (("#id_viviendaestapagada3").is("checked")) {
             div = document.getElementById('viviendapagada33');
             div.style.display = "none";
+        } else {
+            div = document.getElementById('viviendapagada33');
+            div.style.display = "block";
         }
     });
-    $("#viviendapagadaa").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#viviendapagadaa").val();
-        if (viviendapagada == '0') {
+    $("#viviendaalquiladaestapagada1").change(function () { /*Si importe_select canvia*/
+        if (("#viviendaalquiladaestapagada1").is("checked")) {
+            div = document.getElementById('viviendapagadaa11');
+            div.style.display = "none";
+        } else {
             div = document.getElementById('viviendapagadaa11');
             div.style.display = "block";
-        } else {
-            div = document.getElementById('viviendapagadaa11');
-            div.style.display = "none";
         }
     });
-    $("#viviendapagadaa2").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#viviendapagadaa2").val();
-        if (viviendapagada == '0') {
-            div = document.getElementById('viviendapagadaa22');
-            div.style.display = "block";
-        } else {
+    $("#viviendaalquiladaestapagada2").change(function () { /*Si importe_select canvia*/
+        if (("#viviendaalquiladaestapagada2").is("checked")) {
             div = document.getElementById('viviendapagadaa22');
             div.style.display = "none";
+        } else {
+            div = document.getElementById('viviendapagadaa22');
+            div.style.display = "block";
         }
     });
-    $("#viviendapagadaa3").change(function () { /*Si importe_select canvia*/
-        var viviendapagada = $("#viviendapagadaa3").val();
-        if (viviendapagada == '0') {
-            div = document.getElementById('viviendapagadaa33');
-            div.style.display = "block";
-        } else {
+    $("#viviendaalquiladaestapagada3").change(function () { /*Si importe_select canvia*/
+        if (("#viviendaalquiladaestapagada3").is("checked")) {
             div = document.getElementById('viviendapagadaa33');
             div.style.display = "none";
+        } else {
+            div = document.getElementById('viviendapagadaa33');
+            div.style.display = "block";
         }
     });
-
-
-
-
 
 
     /*FORM 2 AVALISTA*/
@@ -265,9 +262,6 @@ $(document).ready(function () {
             div.style.display = "none";
         }
     });
-
-
-
 
 
     /*FORM 2 MICRO*/
@@ -709,7 +703,6 @@ function quitarempresa2() {
     $('#id_otrosingresosempresa2').val(undefined);
     $('#id_antiguedadempresa2').val(undefined);
 }
-
 
 
 ////VIVIENDAAAS

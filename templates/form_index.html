@@ -119,6 +119,7 @@
                 <br><br>
                 <h3>Numero de expediente:</h3>
                 <form method="post">
+                {% csrf_token %}
                     {{ form.numexp }}
                     {% if form.numexp.errors %}
 					<span class="error" style="color:red">
@@ -130,6 +131,7 @@
                 <br/><br/>
                 <h3>DNI:</h3>
                 <form method="post" >
+                {% csrf_token %}
                     {{ form.dni }}
                     {% if form.dni.errors %}
 					<span class="error" style="color:red">
@@ -142,7 +144,6 @@
         </div>
     </div>
 </div>
-<script src={% static "js/jquery-3.1.1.min.js" %}></script>
-<script src={% static "js/validator.min.js" %}></script>
+<script src={% static "plugins/jquery.js" %}></script>
 </body>
 </html>

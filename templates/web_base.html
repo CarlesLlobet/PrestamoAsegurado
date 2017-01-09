@@ -1,265 +1,350 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="es-ES">
-<head>
-    <meta charset="utf-8">
-    <title>PrestamoAsegurado</title>
-    <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-    <meta name="author" content="htmlcoder.me">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic'
-          rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-    <link href={% static "css/bootstrap.css" %} rel="stylesheet">
-    <link href={% static "fonts/font-awesome/css/font-awesome.css" %} rel="stylesheet">
-    <link href={% static "fonts/fontello/css/fontello.css" %} rel="stylesheet">
-    <link href={% static "plugins/magnific-popup/magnific-popup.css" %} rel="stylesheet">
-    <link href={% static "plugins/rs-plugin/css/settings.css" %} rel="stylesheet">
-    <link href={% static "css/animations.css" %} rel="stylesheet">
-    <link href={% static "plugins/owl-carousel/owl.carousel.css" %} rel="stylesheet">
-    <link href={% static "plugins/owl-carousel/owl.transitions.css" %} rel="stylesheet">
-    <link href={% static "plugins/hover/hover-min.css" %} rel="stylesheet">
-    <link href={% static "css/style.css" %} rel="stylesheet">
-    <link href={% static "css/typography-default.css" %} rel="stylesheet">
-    <link href={% static "css/skins/dark_cyan.css" %} rel="stylesheet">
-    <link href={% static "css/custom.css" %} rel="stylesheet">
-</head>
-<body class="no-trans  transparent-header  ">
-<!-- scrollToTop -->
-<!-- ================ -->
-<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+<html lang="es">
+	<!--<![endif]-->
 
-<!-- page wrapper start -->
-<!-- ================ -->
-<div class="page-wrapper">
+	<head>
+		<meta name="theme-color" content="#009ee0">
+		<meta property="og:image" itemprop="image" content="http://prestamoasegurado.com/img/android-icon-200x200.png">
+		<meta property="og:url" content="http://prestamoasegurado.com">
+		<meta property="og:site_name" content="PrestamoAsegurado">
+		<meta property="og:title" content="PrestamoAsegurado" />
+		<meta property="og:description" content="PrestamoAsegurado. Empresa dedicada a la tramitación online de microcréditos, préstamos personales. Su dinero en minutos." />
+		<meta property="og:type" content="website" />
+		<meta property="og:updated_time" content="1440432930" />
+		<meta charset="utf-8">
+		<title>PrestamoAsegurado - Solicite su préstamo online en minutos gratuitamente</title>
+		<meta name="description" content="PrestamoAsegurado. Empresa dedicada a la tramitación online de microcréditos, préstamos personales. Su dinero en minutos.">
+		<meta name="author" content="booleanwork.com">
 
-    <!-- header-container start -->
-    <div class="header-container">
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- header-top start -->
-        <!-- classes:  -->
-        <!-- "dark": dark version of header top e.g. class="header-top dark" -->
-        <!-- "colored": colored version of header top e.g. class="header-top colored" -->
-        <!-- ================ -->
-        <div class="header-top dark ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-3 col-sm-6 col-md-9">
-                        <!-- header-top-first start -->
-                        <!-- ================ -->
-                        <div class="header-top-first clearfix">
-                            <ul class="social-links circle small clearfix hidden-xs">
-                                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i
-                                        class="fa fa-twitter"></i></a></li>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href={% static "img/favicon.png" %}>
 
-                                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i
-                                        class="fa fa-facebook"></i></a></li>
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
-                            </ul>
-                            <div class="social-links hidden-lg hidden-md hidden-sm circle small">
-                                <div class="btn-group dropdown">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-share-alt"></i></button>
-                                    <ul class="dropdown-menu dropdown-animation">
-                                        <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i
-                                                class="fa fa-twitter"></i></a></li>
+		<!-- Bootstrap core CSS -->
+		<link href={% static "css/bootstrap.css"%}  rel="stylesheet">
 
-                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i
-                                                class="fa fa-facebook"></i></a></li>
+		<!-- Font Awesome CSS -->
+		<link href={% static "fonts/font-awesome/css/font-awesome.css"%}  rel="stylesheet">
 
-                                    </ul>
-                                </div>
-                            </div>
+		<!-- Fontello CSS -->
+		<link href={% static "fonts/fontello/css/fontello.css"%}  rel="stylesheet">
 
-                        </div>
-                        <!-- header-top-first end -->
-                    </div>
-                    <div class="col-xs-9 col-sm-6 col-md-3">
+		<!-- Plugins -->
+		<link href={% static "plugins/magnific-popup/magnific-popup.css"%}  rel="stylesheet">
+		<link href={% static "plugins/rs-plugin/css/settings.css"%}  rel="stylesheet">
+		<link href={% static "css/animations.css"%}  rel="stylesheet">
+		<link href={% static "plugins/owl-carousel/owl.carousel.css"%}  rel="stylesheet">
+		<link href={% static "plugins/owl-carousel/owl.transitions.css"%}  rel="stylesheet">
+		<link href={% static "plugins/hover/hover-min.css"%}  rel="stylesheet">
 
-                        <!-- header-top-second start -->
-                        <!-- ================ -->
-                        <div id="header-top-second" class="clearfix">
+		<!-- The Project's core CSS file -->
+		<link href={% static "css/style.css" %} rel="stylesheet" >
+		<!-- The Project's Typography CSS file, includes used fonts -->
+		<!-- Used font for body: Roboto -->
+		<!-- Used font for headings: Raleway -->
+		<link href={% static "css/typography-default.css" %} rel="stylesheet" >
 
-                            <!-- header top dropdowns start -->
-                            <!-- ================ -->
-                            <div class="header-top-dropdown text-right">
-                                <div class="btn-group dropdown">
-                                    <button type="button" class="btn dropdown-toggle btn-default btn-sm"
-                                            data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                        <li>
-                                            <form class="login-form margin-clear" method="post" action="#">
-                                                {% csrf_token %}
-                                                <div class="form-group has-feedback">
-                                                    <label class="control-label">Username</label>
-                                                    {{ form.username }}
-                                                    <i class="fa fa-user form-control-feedback"></i>
-                                                </div>
-                                                <div class="form-group has-feedback">
-                                                    <label class="control-label">Password</label>
-                                                    {{ form.password }}
-                                                    {% if incorrect %}
-                                                        <span class="error" style="color:red">
+		<!-- Custom css -->
+		<link href={% static "css/stylesheet.css"%}  rel="stylesheet">
+		<link href={% static "css/custom3.css"%}  rel="stylesheet">
+	</head>
+
+	<!-- body classes:  -->
+	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+	<!-- "gradient-background-header": applies gradient background to header -->
+	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class="no-trans  transparent-header  ">
+
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
+
+			<!-- header-container start -->
+			<div class="header-container">
+
+				<!-- header-top start -->
+				<!-- classes:  -->
+				<!-- "dark": dark version of header top e.g. class="header-top dark" -->
+				<!-- "colored": colored version of header top e.g. class="header-top colored" -->
+				<!-- ================ -->
+				<div class="header-top colored ">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-3 col-sm-6 col-md-9">
+								<!-- header-top-first start -->
+								<!-- ================ -->
+								<div class="header-top-first clearfix">
+									<ul class="social-links circle small clearfix hidden-xs">
+										<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+										<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+									</ul>
+									<div class="social-links hidden-lg hidden-md hidden-sm circle small">
+										<div class="btn-group dropdown">
+											<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+											<ul class="dropdown-menu dropdown-animation">
+												<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+												<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- header-top-first end -->
+							</div>
+							<div class="col-xs-9 col-sm-6 col-md-3">
+								<!-- header-top-second start -->
+								<!-- ================ -->
+								<div id="header-top-second" class="clearfix">
+
+									<!-- header top dropdowns start -->
+									<!-- ================ -->
+									<div class="header-top-dropdown text-right">
+										<div class="btn-group dropdown">
+											<button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login</button>
+											<ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+												<li>
+                                                    <form class="login-form margin-clear" method="post" action="#">
+                                                        {% csrf_token %}
+                                                        <div class="form-group has-feedback">
+                                                            <label class="control-label">Usuario:</label>
+                                                            {{ form.username }}
+                                                            <i class="fa fa-user form-control-feedback"></i>
+                                                        </div>
+                                                        <div class="form-group has-feedback">
+                                                            <label class="control-label">Contraseña:</label>
+                                                            {{ form.password }}
+                                                            {% if incorrect %}
+                                                            <span class="error" style="color:red">
                                                             Usuario o contraseña incorrectos
                                                         </span>
-                                                    {% endif %}
-                                                    <i class="fa fa-lock form-control-feedback"></i>
-                                                </div>
-                                                <button type="submit" class="btn btn-gray btn-sm">Log In</button>
-                                            </form>
-                                            <!--<form method="POST" action="#">
-                                                {% csrf_token %}
-                                                {{ form.as_p }}
-                                                <button type="submit" class="btn btn-gray btn-sm">Login</button>
-                                            </form>-->
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--  header top dropdowns end -->
-                        </div>
-                        <!-- header-top-second end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- header-top end -->
+                                                            {% endif %}
+                                                            <i class="fa fa-lock form-control-feedback"></i>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-gray btn-sm">Entrar</button>
+                                                    </form>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!--  header top dropdowns end -->
+								</div>
+								<!-- header-top-second end -->
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <!-- header start -->
-        <!-- classes:  -->
-        <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
-        <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
-        <!-- "full-width": mandatory class for the full-width menu layout -->
-        <!-- "centered": mandatory class for the centered logo layout -->
-        <!-- ================ -->
-        <header class="header  fixed    clearfix">
+				<!-- header start -->
+				<!-- classes:  -->
+				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+				<!-- "full-width": mandatory class for the full-width menu layout -->
+				<!-- "centered": mandatory class for the centered logo layout -->
+				<!-- ================ -->
+				<header class="header clearfix">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 ">
-                        <!-- header-left start -->
-                        <!-- ================ -->
-                        <div class="header-left clearfix">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 ">
+								<!-- header-left start -->
+								<!-- ================ -->
+								<div class="header-left clearfix">
 
-                            <!-- logo -->
-                            <div id="logo" class="logo">
-                                <a href="web_index.html"><img id="logo_img" src="http://prestamoasegurado.com/img/logo.png"
-                                                              alt="PrestamoAsegurado"></a>
-                            </div>
-                            <br>
+									<!-- logo -->
+									<div class="logo">
+										<a href="web_index.html"><img id="logo_img" src={% static "img/logo_dark_cyan.png" %} alt="Prestamo Asegurado"></a>
+									</div>
 
-                        </div>
-                        <!-- header-left end -->
 
-                    </div>
-                    <div class="col-md-7 col-md-offset-2">
-                        <br>
-                        <!-- header-right start -->
-                        <!-- ================ -->
-                        <div class="header-right clearfix">
+								</div>
+								<!-- header-left end -->
 
-                            <!-- main-navigation start -->
-                            <!-- classes: -->
-                            <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
-                            <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
-                            <!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
-                            <!-- ================ -->
-                            <div class="main-navigation  animated with-dropdown-buttons">
+							</div>
+							<div class="col-md-9">
 
-                                <!-- navbar start -->
-                                <!-- ================ -->
-                                <nav class="navbar navbar-default" role="navigation">
-                                    <div class="container-fluid">
+								<!-- header-right start -->
+								<!-- ================ -->
+								<div class="header-right clearfix">
 
-                                        <!-- Toggle get grouped for better mobile display -->
-                                        <div class="navbar-header">
-                                            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                                    data-target="#navbar-collapse-1">
-                                                <span class="sr-only">Toggle navigation</span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
+								<!-- main-navigation start -->
+								<!-- classes: -->
+								<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+								<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+								<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+								<!-- ================ -->
+								<div class="main-navigation  animated with-dropdown-buttons">
 
-                                        </div>
+									<!-- navbar start -->
+									<!-- ================ -->
+									<nav class="navbar navbar-default" role="navigation">
+										<div class="container-fluid">
 
-{% block content %}
+											<!-- Toggle get grouped for better mobile display -->
+											<div class="navbar-header">
+												<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+													<span class="sr-only">Toggle navigation</span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+												</button>
 
-{% endblock %}
+											</div>
 
-<footer id="footer" class="container-fluid">
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="col-md-offset-1 col-md-3 col-xs-5">
-                <center><img alt="" src="favicon.png" class="img-responisve">
-                </center>
-                <h5 class="colortaronja text-center"><b>Préstamo Asegurado</b></h5>
-                <h6 class="colorblanc text-center"><b>Su web de Préstamos</b></h6>
-            </div>
-            <div class="col-md-3 col-xs-5">
-                <p class="colortaronja"><b>Contacto</b>
-                </p>
-                <p class="colorgris">C/Pintor Fortuny 21 Local
-                    <br>08840 Viladecans (Barcelona)</p>
-                <!-- <p class="colortaronja"><b>Mail</b>
-                </p>
-                <p class="colorgris">info@prestamoasegurado.com</p> -->
-            </div>
-            <div class="col-md-1 col-xs-5">
-                <p class="colortaronja"><b>Siguenos</b>
-                </p>
-                <p class="colorgris"><a href="https://www.facebook.com/Pr%C3%A9stamo-Asegurado-1384381671579983/">Facebook</a>
-                </p>
-                <p class="colorgris"><a href="https://twitter.com/prestasegurado">Twitter</a>
-                </p>
-            </div>
-            <div class="col-md-offset-1 col-md-2 col-xs-5">
-                <p class="colortaronja"><b>Llámanos</b>
-                </p>
-                <p class="colorgris">807 464 206
-                </p>
-            </div>
-        </div>
-        <p class="text-center numtext">*El precio máximo por minuto de la llamada es de 1,21€/min si llama desde un
-            teléfono fijo y de 1,57€/min euro si llama desde un teléfono móvil, Impuestos incluidos. Servicio solo para
-            mayores de 18 años</p>
-        <br>
-        <div class="row">
-            <div class="col-sm-offset-3 col-sm-6">
-                <p class="text-center colorgris">
-                    <a href="politica.php">Protección de datos</a> |
-                    <a href="aviso.php">Aviso Legal</a> |
-                    <a href="gastos.php">Comisiones y gastos</a> |
-                    <a href="cookies.php">Políticas de cookies</a>
-                </p>
-            </div>
-        </div>
-        <p class="text-center colorgris">
-            Web desarrollada por <a class="colorblau" href="http://booleanwork.com">BooleanWork</a>
-        </p>
-    </div>
-</footer>
-<script type="text/javascript" src={% static "plugins/jquery.min.js" %}></script>
-<script type="text/javascript" src={% static "js/bootstrap.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/modernizr.js" %}></script>
-<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.tools.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.revolution.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/isotope/isotope.pkgd.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/magnific-popup/jquery.magnific-popup.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/waypoints/jquery.waypoints.min.js" %}></script>
-<script type="text/javascript" src={% static "plugins/jquery.countTo.js" %}></script>
-<script src={% static "plugins/jquery.parallax-1.1.3.js" %}></script>
-<script src={% static "plugins/jquery.validate.js" %}></script>
-<script type="text/javascript" src={% static "plugins/owl-carousel/owl.carousel.js" %}></script>
-<script type="text/javascript" src={% static "plugins/jquery.browser.js" %}></script>
-<script type="text/javascript" src={% static "plugins/SmoothScroll.js" %}></script>
-<script type="text/javascript" src={% static "js/template.js" %}></script>
-<script type="text/javascript" src={% static "js/custom.js" %}></script>
+											<!-- Collect the nav links, forms, and other content for toggling -->
+											<div class="collapse navbar-collapse" id="navbar-collapse-1">
+												<!-- main-menu -->
+												<ul class="nav navbar-nav ">
 
-</body>
+													<!-- mega-menu start -->
+													<li class="mega-menu">
+														<a href="/" data-toggle="dropdown">Home</a>
+													</li>
+													<li class="mega-menu">
+														<a href="empresa" data-toggle="dropdown">Empresa</a>
+													</li>
+													<li class="mega-menu">
+														<a href="servicios" data-toggle="dropdown">Servicios</a>
+													</li>
+													<li class="mega-menu">
+														<a href="faq" data-toggle="dropdown">Preguntas Frequentes</a>
+													</li>
+												</ul>
+											</div>
+
+										</div>
+									</nav>
+									<!-- navbar end -->
+
+								</div>
+								<!-- main-navigation end -->
+								</div>
+								<!-- header-right end -->
+
+							</div>
+						</div>
+					</div>
+
+				</header>
+				<!-- header end -->
+			</div>
+			<!-- header-container end -->
+
+			<!-- banner start -->
+			<!-- ================ -->
+			<section id="banner-b">
+			    <div class="container">
+			        <a onclick="goog_report_conversion ('tel:807 464 206’)" href="tel:807464206"><img class="img-responsive tel" src={% static "img/logo_dark_cyan.png" %}>
+			        </a>
+			    </div>
+			</section>
+
+
+            {% block content %}
+
+
+
+            {% endblock %}
+
+			<footer id="footer" class="container-fluid">
+				<div class="container">
+					<br>
+					<div class="row">
+						<div class="col-md-offset-1 col-md-3 col-xs-5">
+							<img alt="" src={% static "img/favicon.png" %} class="center-block img-responisve">
+							<h5 class="colortaronja text-center"><b>Préstamo Asegurado</b></h5>
+							<h6 class="colorblanc text-center"><b>Su web de Préstamos</b></h6>
+						</div>
+						<div class="col-md-3 col-xs-5">
+							<p class="colortaronja"><b>Contacto</b>
+							</p>
+							<p class="colorgris">C/Pintor Fortuny 21 Local
+								<br>08840 Viladecans (Barcelona)</p>
+							<!-- <p class="colortaronja"><b>Mail</b>
+                            </p>
+                            <p class="colorgris">info@prestamoasegurado.com</p> -->
+						</div>
+						<div class="col-md-1 col-xs-5">
+							<p class="colortaronja"><b>Siguenos</b>
+							</p>
+							<p class="colorgris"><a href="https://www.facebook.com/Pr%C3%A9stamo-Asegurado-1384381671579983/">Facebook</a>
+							</p>
+							<p class="colorgris"><a href="https://twitter.com/prestasegurado">Twitter</a>
+							</p>
+						</div>
+						<div class="col-md-offset-1 col-md-2 col-xs-5">
+							<p class="colortaronja"><b>Llámanos</b>
+							</p>
+							<p class="colorgris">807 464 206
+							</p>
+						</div>
+					</div>
+					<p class="text-center numtext">*El precio máximo por minuto de la llamada es de 1,21€/min si llama desde un teléfono fijo y de 1,57€/min euro si llama desde un teléfono móvil, Impuestos incluidos. Servicio solo para mayores de 18 años</p>
+					<br>
+					<div class="row">
+						<div class="col-sm-offset-3 col-sm-6">
+							<p class="text-center colorgris">
+								<a href="politica">Protección de datos</a> |
+								<a href="aviso">Aviso Legal</a> |
+								<a href="gastos">Comisiones y gastos</a> |
+								<a href="cookies">Políticas de cookies</a>
+							</p>
+						</div>
+					</div>
+					<p class="text-center colorgris">
+						Web desarrollada por <a class="colorblau" href="http://booleanwork.com">BooleanWork</a>
+					</p>
+				</div>
+			</footer>
+		</div>
+		<!-- page-wrapper end -->
+
+		<!-- JavaScript files placed at the end of the document so the pages load faster -->
+		<!-- ================================================== -->
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src={% static "plugins/jquery.min.js"%}></script>
+		<script type="text/javascript" src={% static "js/bootstrap.min.js"%}></script>
+		<!-- Modernizr javascript -->
+		<script type="text/javascript" src={% static "plugins/modernizr.js"%}></script>
+		<!-- jQuery Revolution Slider  -->
+		<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.tools.min.js"%}></script>
+		<script type="text/javascript" src={% static "plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"%}></script>
+		<!-- Isotope javascript -->
+		<script type="text/javascript" src={% static "plugins/isotope/isotope.pkgd.min.js"%}></script>
+		<!-- Magnific Popup javascript -->
+		<script type="text/javascript" src={% static "plugins/magnific-popup/jquery.magnific-popup.min.js"%}></script>
+		<!-- Appear javascript -->
+		<script type="text/javascript" src={% static "plugins/waypoints/jquery.waypoints.min.js"%}></script>
+		<!-- Count To javascript -->
+		<script type="text/javascript" src={% static "plugins/jquery.countTo.js"%}></script>
+		<!-- Parallax javascript -->
+		<script src={% static "plugins/jquery.parallax-1.1.3.js"%}></script>
+		<!-- Contact form -->
+		<script src={% static "plugins/jquery.validate.js"%}></script>
+		<!-- Background Video -->
+		<script src={% static "plugins/vide/jquery.vide.js"%}></script>
+		<!-- Owl carousel javascript -->
+		<script type="text/javascript" src={% static "plugins/owl-carousel/owl.carousel.js"%}></script>
+		<!-- SmoothScroll javascript -->
+		<script type="text/javascript" src={% static "plugins/jquery.browser.js"%}></script>
+		<script type="text/javascript" src={% static "plugins/SmoothScroll.js"%}></script>
+		<!-- Initialization of Plugins -->
+		<script type="text/javascript" src={% static "js/template.js"%}></script>
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src={% static "js/custom.js"%}></script>
+
+	</body>
 </html>

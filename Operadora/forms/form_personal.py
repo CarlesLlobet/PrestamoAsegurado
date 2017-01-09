@@ -160,14 +160,13 @@ class formPersonal(forms.Form):
                                          required=False)
     viviendacodigopostal3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
     # VIVIENDA2
+    # VIVIENDA2
     viviendaalquiladavalor1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                  required=False)
     viviendaalquiladavalorhipoteca1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                          required=False)
-    viviendaalquiladaestapagada1 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
-    viviendaalquiladalibredecargos1 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
+    viviendaalquiladaestapagada1 = forms.BooleanField(initial=False, required=False)
+    viviendaalquiladalibredecargos1 = forms.BooleanField(initial=False, required=False)
     viviendaalquiladacuotamensual1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                         required=False)
     viviendaalquiladaanos1 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
@@ -191,10 +190,8 @@ class formPersonal(forms.Form):
                                                  required=False)
     viviendaalquiladavalorhipoteca2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                          required=False)
-    viviendaalquiladaestapagada2 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
-    viviendaalquiladalibredecargos2 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
+    viviendaalquiladaestapagada2 = forms.BooleanField(initial=False, required=False)
+    viviendaalquiladalibredecargos2 = forms.BooleanField(initial=False, required=False)
     viviendaalquiladacuotamensual2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                         required=False)
     viviendaalquiladaanos2 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
@@ -218,10 +215,8 @@ class formPersonal(forms.Form):
                                                  required=False)
     viviendaalquiladavalorhipoteca3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                          required=False)
-    viviendaalquiladaestapagada3 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
-    viviendaalquiladalibredecargos3 = forms.CharField(
-        widget=forms.TextInput(attrs={"max_length": 500, "class": "form-control"}), required=False)
+    viviendaalquiladaestapagada3 = forms.BooleanField(initial=False, required=False)
+    viviendaalquiladalibredecargos3 = forms.BooleanField(initial=False, required=False)
     viviendaalquiladacuotamensual3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}),
                                                         required=False)
     viviendaalquiladaanos3 = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)

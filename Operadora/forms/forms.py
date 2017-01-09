@@ -127,7 +127,7 @@ class formBuscar(forms.Form):
 
     numexp = forms.IntegerField(widget=forms.TextInput(attrs={"class": "form-control"}), required=False)
 
-    dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 100, "class": "form-control"}),
+    dni = forms.CharField(widget=forms.TextInput(attrs={"max_length": 20, "class": "form-control"}),
                           error_messages=my_default_errors_DNI, validators=[validarDNI], required=False)
 
     def clean(self):
