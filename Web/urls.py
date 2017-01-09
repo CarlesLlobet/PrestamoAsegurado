@@ -22,4 +22,8 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^servicios/$', views.servicios, name='servicios'),
     url(r'^empresa/$', views.empresa, name='empresa'),
+    url(r'^politica/$', views.politica, name='politica'),
+    url(r'^aviso/$', views.aviso, name='aviso'),
+    url(r'^gastos/$', views.gastos, name='gastos'),
+    url(r'^cookies/$', views.cookies, name='cookies'),
 ]

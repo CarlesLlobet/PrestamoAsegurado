@@ -457,9 +457,8 @@
     margin-left: -25px
 }
 .tel {
-    float: right;
-    margin-top: 20px;
-    margin-right: 6px
+    float: left;
+    margin-top: 19%;
 }
 .tel2 {
     float: right;
@@ -497,7 +496,8 @@
         display: block
     }
     .tel {
-        display: none
+
+    margin-top: 240px;
     }
     .tel2 {
         display: none

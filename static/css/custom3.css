@@ -1036,13 +1036,12 @@ a:hover {
 }
 
 #banner-b {
-    background-image: url(../img/portada.jpg);
-    background-position: center center;
+    background-image: url(../img/portada.png);
+    background-position: center 72%;
     background-size: cover;
-    /* background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     max-width: 100%;
-    min-height: 30em;
-    /* margin-top: -40px; */
+    min-height: 32em;
 }
 
 .yeye img {
@@ -1050,4 +1049,21 @@ a:hover {
     max-width: 90%;
     height: auto;
     margin-top: -19px;
+}
+
+@media (max-width: 991px)
+header:not(.full-width) .logo img {
+    margin: 0 auto;
+    height: 85px;
+    width: auto;
+}
+
+#white {
+    color: white;
+}
+#white2 {
+    color: white;
+}
+#white3 {
+    color: white;
 }

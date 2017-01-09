@@ -40,3 +40,15 @@ def servicios(request):
 
 def empresa(request):
     return render(request, 'web_empresa.html')
+
+def politica(request):
+    return render(request, 'web_politica.html')
+
+def aviso(request):
+    return render(request, 'web_aviso.html')
+
+def gastos(request):
+    return render(request, 'web_gastos.html')
+
+def cookies(request):
+    return render(request, 'web_cookies.html')
