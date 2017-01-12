@@ -652,7 +652,17 @@
         <br>
         <br>Una vez finalizado este texto usted esta de acuerdo y acepta las condiciones de Prestamo Asegurado?
         <br><br>
-        Enviar toda esta informacion por email a la siguiente direccion: documentacion@prestamoasegurado.com<br><br>
+        Enviar toda esta informacion por email a la siguiente direccion:
+        {% if expediente.tipo == 'Coche'%}coche@prestamoasegurado.com{% endif %}
+        {% if expediente.tipo == 'Personal'%}personal@prestamoasegurado.com{% endif %}
+        {% if expediente.tipo == 'Microcredito'%}microcredito@prestamoasegurado.com{% endif %}
+        {% if expediente.tipo == 'Hipotecario'%}hipotecario@prestamoasegurado.com{% endif %}
+
+
+
+
+
+        <br><br>
         Muchas gracias por su atención, en estos momentos estamos transfiriendo su expediente al departamento de
         análisis donde quedaran a la espera de que usted envié la documentación solicitada y proceder al estudio de su
         solicitud. Si desde que usted envíe su documentación, transcurren 5 días laborales y no ha recibido respuesta
